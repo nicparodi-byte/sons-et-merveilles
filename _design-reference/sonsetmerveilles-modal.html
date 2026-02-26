@@ -1,0 +1,691 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Portfolio Modal — Sons & Merveilles</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+<style>
+:root {
+  --yellow: #F5C518;
+  --red:    #E8273A;
+  --black:  #0A0A0A;
+  --white:  #F7F4EE;
+  --gray:   #1A1A1A;
+  --mid:    #242424;
+}
+*, *::before, *::after { box-sizing:border-box; margin:0; padding:0; }
+body {
+  background: #111;
+  font-family: 'DM Sans', sans-serif;
+  color: var(--white);
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 24px;
+  cursor: none;
+}
+
+/* ── CURSOR ── */
+#cur { position:fixed; width:10px; height:10px; background:var(--yellow); border-radius:50%; pointer-events:none; z-index:9999; transform:translate(-50%,-50%); mix-blend-mode:difference; transition:width .2s,height .2s; }
+#cur-ring { position:fixed; width:36px; height:36px; border:1.5px solid var(--yellow); border-radius:50%; pointer-events:none; z-index:9998; transform:translate(-50%,-50%); opacity:.45; }
+
+/* ── DEMO TRIGGER BUTTON ── */
+.demo-area {
+  text-align: center;
+}
+.demo-label {
+  font-size: .72rem;
+  letter-spacing: .22em;
+  text-transform: uppercase;
+  color: rgba(247,244,238,.35);
+  margin-bottom: 32px;
+  display: block;
+}
+.demo-card {
+  width: 320px;
+  aspect-ratio: 4/3;
+  background: linear-gradient(135deg, #1a0828 0%, #4a1060 40%, #8b2090 100%);
+  border-radius: 2px;
+  position: relative;
+  overflow: hidden;
+  cursor: none;
+  margin: 0 auto;
+  transition: transform .3s;
+}
+.demo-card:hover { transform: scale(1.02); }
+.demo-card-label {
+  position: absolute; bottom: 0; left: 0; right: 0;
+  padding: 20px;
+  background: linear-gradient(to top, rgba(10,10,10,.85), transparent);
+  display: flex; flex-direction: column; gap: 4px;
+}
+.demo-card-tag {
+  font-size: .62rem; letter-spacing: .2em; text-transform: uppercase;
+  background: var(--yellow); color: var(--black);
+  padding: 3px 9px; border-radius: 2px; width: fit-content;
+  font-weight: 600;
+}
+.demo-card-client {
+  font-size: .82rem; color: rgba(247,244,238,.7);
+}
+.demo-hint {
+  margin-top: 20px;
+  font-size: .8rem;
+  color: rgba(247,244,238,.3);
+  letter-spacing: .1em;
+}
+
+/* ── OVERLAY ── */
+.modal-overlay {
+  position: fixed; inset: 0; z-index: 1000;
+  background: rgba(5,5,5,.92);
+  backdrop-filter: blur(12px);
+  display: flex; align-items: center; justify-content: center;
+  padding: 24px;
+  opacity: 0; pointer-events: none;
+  transition: opacity .35s ease;
+}
+.modal-overlay.open {
+  opacity: 1; pointer-events: auto;
+}
+
+/* ── MODAL SHELL ── */
+.modal {
+  width: 100%;
+  max-width: 960px;
+  max-height: 90vh;
+  background: var(--gray);
+  border: 1px solid rgba(245,197,24,.12);
+  border-radius: 3px;
+  overflow: hidden;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  transform: translateY(30px) scale(.97);
+  transition: transform .4s cubic-bezier(.4,0,.2,1);
+  position: relative;
+}
+.modal-overlay.open .modal {
+  transform: translateY(0) scale(1);
+}
+
+/* ── LEFT — VISUAL ── */
+.modal-visual {
+  position: relative;
+  overflow: hidden;
+  min-height: 480px;
+  background: linear-gradient(160deg, #1a0828 0%, #3d1060 40%, #7a208a 100%);
+}
+
+/* Artwork fills the left panel */
+.modal-artwork {
+  position: absolute; inset: 0;
+  background: linear-gradient(160deg, #1a0828 0%, #3d1060 40%, #7a208a 100%);
+  transition: transform .5s ease;
+}
+.modal:hover .modal-artwork { transform: scale(1.03); }
+
+/* Waveform decoration */
+.modal-wave {
+  position: absolute; bottom: 0; left: 0; right: 0;
+  height: 70px;
+  display: flex; align-items: flex-end; gap: 3px; padding: 0 16px 12px;
+  opacity: .3; z-index: 2;
+}
+.modal-wave-bar {
+  flex: 1; background: var(--yellow); border-radius: 2px 2px 0 0;
+  animation: waveA var(--d,1s) ease-in-out infinite alternate;
+  animation-delay: var(--dl,0s);
+}
+@keyframes waveA { from{height:3px;} to{height:var(--h,20px);} }
+
+/* Tags overlay top-left */
+.modal-tags {
+  position: absolute; top: 20px; left: 20px; z-index: 3;
+  display: flex; gap: 8px; flex-wrap: wrap;
+}
+.modal-tag {
+  font-size: .6rem; letter-spacing: .18em; text-transform: uppercase;
+  font-weight: 600; padding: 5px 12px; border-radius: 2px;
+}
+.modal-tag.format { background: var(--yellow); color: var(--black); }
+.modal-tag.sector { background: rgba(10,10,10,.7); color: var(--white); border: 1px solid rgba(255,255,255,.2); }
+
+/* Close button */
+.modal-close {
+  position: absolute; top: 16px; right: 16px; z-index: 10;
+  width: 36px; height: 36px;
+  background: rgba(10,10,10,.7);
+  border: 1px solid rgba(247,244,238,.15);
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  cursor: none;
+  transition: background .2s, border-color .2s;
+}
+.modal-close:hover { background: var(--red); border-color: var(--red); }
+.modal-close svg { stroke: var(--white); }
+
+/* ── RIGHT — CONTENT ── */
+.modal-content {
+  padding: 40px 36px;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  overflow-y: auto;
+  max-height: 90vh;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(245,197,24,.2) transparent;
+}
+
+.modal-client {
+  font-size: .68rem; letter-spacing: .24em; text-transform: uppercase;
+  color: var(--yellow); font-weight: 600;
+  margin-bottom: 10px;
+}
+
+.modal-title {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(1.3rem, 2.2vw, 1.7rem);
+  font-style: italic;
+  line-height: 1.2;
+  color: var(--white);
+  margin-bottom: 20px;
+}
+
+/* Thin divider */
+.modal-divider {
+  width: 40px; height: 2px;
+  background: var(--red);
+  margin-bottom: 20px;
+}
+
+.modal-desc {
+  font-size: .9rem;
+  line-height: 1.75;
+  color: rgba(247,244,238,.65);
+  margin-bottom: 28px;
+}
+
+/* ── SPOTIFY PLAYER ── */
+.modal-audio-label {
+  font-size: .62rem; letter-spacing: .2em; text-transform: uppercase;
+  color: var(--yellow); font-weight: 600;
+  margin-bottom: 10px;
+  display: flex; align-items: center; gap: 8px;
+}
+.modal-audio-label::before {
+  content: '';
+  width: 6px; height: 6px;
+  background: var(--yellow);
+  border-radius: 50%;
+  animation: audioPulse 1.5s ease-in-out infinite;
+}
+@keyframes audioPulse {
+  0%,100% { transform: scale(1); opacity: 1; }
+  50%      { transform: scale(1.5); opacity: .5; }
+}
+.modal-spotify {
+  width: 100%;
+  border-radius: 4px;
+  overflow: hidden;
+  margin-bottom: 24px;
+  border: 1px solid rgba(255,255,255,.06);
+}
+/* Real Spotify embed would go here — placeholder shown */
+.spotify-placeholder {
+  background: #121212;
+  height: 80px;
+  display: flex; align-items: center; gap: 14px;
+  padding: 0 16px;
+  border-radius: 4px;
+}
+.spotify-icon {
+  width: 36px; height: 36px;
+  background: #1DB954;
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+}
+.spotify-info { flex: 1; }
+.spotify-track { font-size: .82rem; font-weight: 500; color: white; }
+.spotify-show  { font-size: .72rem; color: rgba(255,255,255,.5); margin-top: 3px; }
+.spotify-note  { font-size: .65rem; color: rgba(255,255,255,.3); text-align: right; }
+
+/* ── VIDEO (conditional) ── */
+.modal-video-label {
+  font-size: .62rem; letter-spacing: .2em; text-transform: uppercase;
+  color: rgba(247,244,238,.45); font-weight: 600;
+  margin-bottom: 10px;
+}
+.modal-video {
+  width: 100%;
+  aspect-ratio: 16/9;
+  background: #000;
+  border-radius: 4px;
+  overflow: hidden;
+  margin-bottom: 24px;
+  border: 1px solid rgba(255,255,255,.06);
+  position: relative;
+}
+/* Video placeholder */
+.video-placeholder {
+  width: 100%; height: 100%;
+  background: linear-gradient(135deg, #0a0a14 0%, #14142a 100%);
+  display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 10px;
+}
+.video-play {
+  width: 52px; height: 52px;
+  border: 2px solid rgba(245,197,24,.5);
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  transition: border-color .2s, background .2s;
+  cursor: none;
+}
+.video-play:hover { border-color: var(--yellow); background: rgba(245,197,24,.1); }
+.video-label-txt { font-size: .72rem; color: rgba(247,244,238,.4); letter-spacing: .12em; text-transform: uppercase; }
+
+/* ── CTAs ── */
+.modal-ctas {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: auto;
+  padding-top: 8px;
+}
+
+/* Primary CTA — conditional, only shown when full page exists */
+.btn-modal-primary {
+  display: flex; align-items: center; justify-content: space-between;
+  background: var(--yellow);
+  color: var(--black);
+  padding: 15px 20px;
+  border-radius: 2px;
+  text-decoration: none;
+  font-size: .8rem;
+  font-weight: 600;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  transition: transform .2s, box-shadow .2s;
+  cursor: none;
+}
+.btn-modal-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 28px rgba(245,197,24,.3);
+}
+.btn-arrow {
+  width: 28px; height: 28px;
+  background: rgba(10,10,10,.15);
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+}
+
+/* Secondary CTA — always shown */
+.btn-modal-secondary {
+  display: flex; align-items: center; justify-content: center; gap: 8px;
+  background: transparent;
+  color: var(--white);
+  padding: 14px 20px;
+  border-radius: 2px;
+  border: 1px solid rgba(247,244,238,.15);
+  text-decoration: none;
+  font-size: .8rem;
+  font-weight: 500;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  transition: border-color .2s, color .2s;
+  cursor: none;
+}
+.btn-modal-secondary:hover { border-color: var(--yellow); color: var(--yellow); }
+
+/* ── CONDITIONAL NOTE ── */
+.conditional-note {
+  margin-top: 28px;
+  padding: 14px 16px;
+  background: rgba(245,197,24,.06);
+  border: 1px dashed rgba(245,197,24,.2);
+  border-radius: 2px;
+  font-size: .72rem;
+  color: rgba(247,244,238,.4);
+  line-height: 1.6;
+}
+.conditional-note strong { color: var(--yellow); font-weight: 500; }
+
+/* ── VARIANT DEMOS (scrollable below modal) ── */
+.variants-section {
+  max-width: 960px;
+  margin: 60px auto 0;
+  width: 100%;
+}
+.variants-title {
+  font-size: .7rem; letter-spacing: .22em; text-transform: uppercase;
+  color: rgba(247,244,238,.3);
+  margin-bottom: 24px;
+  text-align: center;
+}
+.variants-grid {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 16px;
+}
+.variant-card {
+  background: var(--gray);
+  border: 1px solid rgba(255,255,255,.06);
+  border-radius: 2px;
+  padding: 20px 24px;
+  cursor: none;
+  transition: border-color .2s;
+}
+.variant-card:hover { border-color: rgba(245,197,24,.2); }
+.variant-label {
+  font-size: .65rem; letter-spacing: .2em; text-transform: uppercase;
+  color: var(--yellow); font-weight: 600; margin-bottom: 8px;
+}
+.variant-desc {
+  font-size: .82rem; color: rgba(247,244,238,.5); line-height: 1.5;
+}
+
+/* ── RESPONSIVE ── */
+@media (max-width: 768px) {
+  .modal {
+    grid-template-columns: 1fr;
+    max-height: 95vh;
+  }
+  .modal-visual { min-height: 220px; }
+  .modal-content { padding: 28px 24px; max-height: none; }
+  .modal-close { top: 12px; right: 12px; }
+  .variants-grid { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+
+<div id="cur"></div>
+<div id="cur-ring"></div>
+
+<!-- ═══ DEMO TRIGGER ═══ -->
+<div class="demo-area">
+  <span class="demo-label">Cliquez sur la carte pour ouvrir le modal</span>
+  <div class="demo-card" onclick="openModal('with-page')" role="button" aria-label="Ouvrir le projet Abbvie" tabindex="0">
+    <div class="demo-card-label">
+      <span class="demo-card-tag">Témoignage</span>
+      <span class="demo-card-client">Abbvie</span>
+    </div>
+  </div>
+  <p class="demo-hint">↑ Ce projet a une page dédiée</p>
+
+  <div style="margin-top:24px;">
+    <div class="demo-card" onclick="openModal('without-page')" role="button" aria-label="Ouvrir le projet Yoäg" tabindex="0" style="background:linear-gradient(135deg,#0a1628 0%,#1a3a5c 50%,#0d5e8a 100%);">
+      <div class="demo-card-label">
+        <span class="demo-card-tag">Immersif</span>
+        <span class="demo-card-client">Yoäg</span>
+      </div>
+    </div>
+    <p class="demo-hint">↑ Ce projet n'a pas encore de page dédiée</p>
+  </div>
+</div>
+
+<!-- ═══ MODAL OVERLAY ═══ -->
+<div class="modal-overlay" id="modalOverlay" role="dialog" aria-modal="true" aria-labelledby="modalTitle" onclick="handleOverlayClick(event)">
+  <div class="modal" id="modal">
+
+    <!-- LEFT — VISUAL -->
+    <div class="modal-visual" aria-hidden="true">
+      <div class="modal-artwork" id="modalArtwork"></div>
+
+      <!-- Format + Sector tags -->
+      <div class="modal-tags">
+        <span class="modal-tag format" id="modalFormat">Témoignage</span>
+        <span class="modal-tag sector" id="modalSector">Santé</span>
+      </div>
+
+      <!-- Animated waveform -->
+      <div class="modal-wave">
+        <div class="modal-wave-bar" style="--d:.9s;--dl:0s;--h:24px"></div>
+        <div class="modal-wave-bar" style="--d:1.1s;--dl:.08s;--h:40px"></div>
+        <div class="modal-wave-bar" style="--d:.8s;--dl:.04s;--h:16px"></div>
+        <div class="modal-wave-bar" style="--d:1.2s;--dl:.14s;--h:32px"></div>
+        <div class="modal-wave-bar" style="--d:1s;--dl:.06s;--h:48px"></div>
+        <div class="modal-wave-bar" style="--d:.95s;--dl:.1s;--h:20px"></div>
+        <div class="modal-wave-bar" style="--d:1.1s;--dl:.02s;--h:36px"></div>
+        <div class="modal-wave-bar" style="--d:.85s;--dl:.18s;--h:12px"></div>
+        <div class="modal-wave-bar" style="--d:1.15s;--dl:.07s;--h:28px"></div>
+        <div class="modal-wave-bar" style="--d:1s;--dl:.13s;--h:44px"></div>
+      </div>
+
+      <!-- Close button (also appears on mobile at top of visual) -->
+      <button class="modal-close" onclick="closeModal()" aria-label="Fermer">
+        <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+          <path d="M1 1l12 12M13 1L1 13" stroke-width="1.5" stroke-linecap="round"/>
+        </svg>
+      </button>
+    </div>
+
+    <!-- RIGHT — CONTENT -->
+    <div class="modal-content">
+
+      <p class="modal-client" id="modalClient">Abbvie × LauMa Communication</p>
+
+      <h2 class="modal-title" id="modalTitle">
+        Paroles de patients pour le mois des cancers du sang
+      </h2>
+
+      <div class="modal-divider"></div>
+
+      <p class="modal-desc" id="modalDesc">
+        En 2021, Abbvie souhaite faire connaître le mois des cancers du sang et mettre en avant les associations de patients qu'elle soutient. Sons & Merveilles crée une série de témoignages humains, intimes, puissants — 4 saisons, 55 000 écoutes et 2 prix communication santé.
+      </p>
+
+      <!-- AUDIO — Spotify embed -->
+      <p class="modal-audio-label">Écouter un extrait</p>
+      <div class="modal-spotify">
+        <!-- 
+          NEXT.JS / SANITY NOTE:
+          Replace this placeholder with a real Spotify iframe embed:
+          <iframe 
+            src="https://open.spotify.com/embed/episode/[EPISODE_ID]?utm_source=generator&theme=0"
+            width="100%" height="80" frameBorder="0"
+            allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+            loading="lazy">
+          </iframe>
+          The Spotify episode URL comes from the Sanity CMS field: projet.spotifyEmbedUrl
+        -->
+        <div class="spotify-placeholder">
+          <div class="spotify-icon">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="white">
+              <path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.521 17.34c-.24.359-.66.48-1.021.24-2.82-1.74-6.36-2.101-10.561-1.141-.418.122-.779-.179-.899-.539-.12-.421.18-.78.54-.9 4.56-1.021 8.52-.6 11.64 1.32.42.18.479.659.301 1.02zm1.44-3.3c-.301.42-.841.6-1.262.3-3.239-1.98-8.159-2.58-11.939-1.38-.479.12-1.02-.12-1.14-.6-.12-.48.12-1.021.6-1.141C9.6 9.9 15 10.561 18.72 12.84c.361.181.54.78.241 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.301c-.6.179-1.2-.181-1.38-.721-.18-.601.18-1.2.72-1.381 4.26-1.26 11.28-1.02 15.721 1.621.539.3.719 1.02.419 1.56-.299.421-1.02.599-1.559.3z"/>
+            </svg>
+          </div>
+          <div class="spotify-info">
+            <div class="spotify-track">Ep. 1 — Michel, patient atteint de LMC</div>
+            <div class="spotify-show">Paroles de Patients · Sons & Merveilles</div>
+          </div>
+          <div class="spotify-note">via Spotify</div>
+        </div>
+      </div>
+
+      <!-- VIDEO — conditional, only shown when video exists -->
+      <div id="modalVideoBlock">
+        <p class="modal-video-label">Aperçu vidéo</p>
+        <div class="modal-video">
+          <!--
+            NEXT.JS / SANITY NOTE:
+            Replace with YouTube or Vimeo iframe when projet.videoEmbedUrl exists:
+            <iframe 
+              src="https://www.youtube.com/embed/[VIDEO_ID]"
+              width="100%" height="100%"
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope"
+              allowfullscreen>
+            </iframe>
+            Conditionally rendered in Next.js:
+            {projet.videoEmbedUrl && <VideoEmbed url={projet.videoEmbedUrl} />}
+          -->
+          <div class="video-placeholder">
+            <div class="video-play">
+              <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
+                <path d="M5 3l10 6-10 6V3z" fill="rgba(245,197,24,.8)"/>
+              </svg>
+            </div>
+            <span class="video-label-txt">Voir le teaser</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- CTAs -->
+      <div class="modal-ctas">
+
+        <!--
+          NEXT.JS / SANITY NOTE:
+          This button is CONDITIONAL — only rendered when projet.slug exists:
+          {projet.slug && (
+            <Link href={`/realisations/${projet.slug}`} className="btn-modal-primary">
+              En savoir plus sur le projet
+            </Link>
+          )}
+        -->
+        <a href="/realisations/abbvie-cancers-du-sang" class="btn-modal-primary" id="modalPageCTA">
+          <span>En savoir plus sur le projet</span>
+          <span class="btn-arrow">
+            <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+              <path d="M2 7h10M8 3l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </span>
+        </a>
+
+        <!-- Always shown -->
+        <a href="/contact" class="btn-modal-secondary">
+          Parlons de votre projet
+        </a>
+
+      </div>
+
+    </div>
+    <!-- /modal-content -->
+
+  </div>
+  <!-- /modal -->
+</div>
+<!-- /modal-overlay -->
+
+<!-- ═══ VARIANT NOTES (for reference, not shown in production) ═══ -->
+<div class="variants-section">
+  <p class="variants-title">États du modal — référence pour développeur Next.js</p>
+  <div class="variants-grid">
+
+    <div class="variant-card">
+      <p class="variant-label">Avec page dédiée</p>
+      <p class="variant-desc">Le bouton "En savoir plus sur le projet" apparaît. Dans Sanity, le champ <code style="color:var(--yellow)">slug</code> est renseigné. Dans Next.js, le composant vérifie <code style="color:var(--yellow)">projet.slug</code> avant de rendre le CTA.</p>
+    </div>
+
+    <div class="variant-card">
+      <p class="variant-label">Sans page dédiée</p>
+      <p class="variant-desc">Le bouton "En savoir plus" est absent. Seul le CTA "Parlons de votre projet" est affiché. Le champ <code style="color:var(--yellow)">slug</code> est vide dans Sanity.</p>
+    </div>
+
+    <div class="variant-card">
+      <p class="variant-label">Avec vidéo</p>
+      <p class="variant-desc">Le bloc vidéo s'affiche quand <code style="color:var(--yellow)">projet.videoEmbedUrl</code> est renseigné dans Sanity. L'iframe YouTube ou Vimeo remplace le placeholder.</p>
+    </div>
+
+    <div class="variant-card">
+      <p class="variant-label">Sans vidéo</p>
+      <p class="variant-desc">Le bloc vidéo est masqué. Le modal reste équilibré avec l'audio Spotify et la description. Le champ <code style="color:var(--yellow)">videoEmbedUrl</code> est vide dans Sanity.</p>
+    </div>
+
+  </div>
+
+  <!-- Sanity schema reference -->
+  <div style="margin-top:24px; background:var(--gray); border:1px solid rgba(255,255,255,.06); border-radius:2px; padding:24px;">
+    <p style="font-size:.65rem;letter-spacing:.2em;text-transform:uppercase;color:var(--yellow);margin-bottom:14px;font-weight:600;">Sanity Schema — Champs requis pour le modal</p>
+    <pre style="font-size:.78rem;line-height:1.7;color:rgba(247,244,238,.6);overflow-x:auto;"><code>{
+  title:           string        // "Paroles de patients..."
+  client:          string        // "Abbvie × LauMa"
+  format:          string        // "Témoignage"
+  sector:          string        // "Santé"
+  description:     text          // Court paragraphe (teaser)
+  artwork:         image         // Visuel principal
+  spotifyEmbedUrl: url           // URL épisode Spotify
+  videoEmbedUrl:   url | null    // Optionnel — YouTube/Vimeo
+  slug:            slug | null   // Optionnel — page dédiée
+}</code></pre>
+  </div>
+</div>
+
+<script>
+// Cursor
+const cur=document.getElementById('cur'),ring=document.getElementById('cur-ring');
+let mx=0,my=0,rx=0,ry=0;
+document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;cur.style.left=mx+'px';cur.style.top=my+'px';});
+(function l(){rx+=(mx-rx)*.1;ry+=(my-ry)*.1;ring.style.left=rx+'px';ring.style.top=ry+'px';requestAnimationFrame(l);})();
+
+// Modal data
+const projects = {
+  'with-page': {
+    client:   'Abbvie × LauMa Communication',
+    title:    'Paroles de patients pour le mois des cancers du sang',
+    format:   'Témoignage',
+    sector:   'Santé',
+    desc:     'En 2021, Abbvie souhaite faire connaître le mois des cancers du sang et mettre en avant les associations de patients. Sons & Merveilles crée une série de témoignages humains, intimes, puissants — 4 saisons, 55 000 écoutes et 2 prix communication santé.',
+    artwork:  'linear-gradient(160deg,#1a0828 0%,#3d1060 40%,#7a208a 100%)',
+    hasPage:  true,
+    pageUrl:  '/realisations/abbvie-cancers-du-sang',
+    hasVideo: true,
+  },
+  'without-page': {
+    client:   'Yoäg',
+    title:    'Carnets de voyages méditatifs avec le yoga en toile de fond',
+    format:   'Immersif',
+    sector:   'Well-being',
+    desc:     'Carnets de voyages immersifs et méditatifs à travers le monde, avec le yoga comme fil conducteur. Une série sonore qui transporte l\'auditeur dans des espaces de sérénité et d\'introspection.',
+    artwork:  'linear-gradient(160deg,#0a1628 0%,#1a3a5c 40%,#0d5e8a 100%)',
+    hasPage:  false,
+    pageUrl:  null,
+    hasVideo: false,
+  }
+};
+
+function openModal(projectKey) {
+  const p = projects[projectKey];
+  const overlay = document.getElementById('modalOverlay');
+
+  // Populate content
+  document.getElementById('modalClient').textContent   = p.client;
+  document.getElementById('modalTitle').textContent    = p.title;
+  document.getElementById('modalDesc').textContent     = p.desc;
+  document.getElementById('modalFormat').textContent   = p.format;
+  document.getElementById('modalSector').textContent   = p.sector;
+  document.getElementById('modalArtwork').style.background = p.artwork;
+
+  // Conditional: page CTA
+  const pageCTA = document.getElementById('modalPageCTA');
+  if (p.hasPage) {
+    pageCTA.style.display = 'flex';
+    pageCTA.href = p.pageUrl;
+  } else {
+    pageCTA.style.display = 'none';
+  }
+
+  // Conditional: video block
+  const videoBlock = document.getElementById('modalVideoBlock');
+  videoBlock.style.display = p.hasVideo ? 'block' : 'none';
+
+  // Open
+  overlay.classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeModal() {
+  document.getElementById('modalOverlay').classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+function handleOverlayClick(e) {
+  if (e.target === document.getElementById('modalOverlay')) closeModal();
+}
+
+// Keyboard close
+document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
+</script>
+</body>
+</html>

@@ -1,0 +1,913 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+<!-- ═══ SEO META — dynamically populated from Sanity in Next.js ═══ -->
+<title>Paroles de Patients — Podcast Abbvie × Sons & Merveilles | Agence Podcast de Marque</title>
+<meta name="description" content="Comment Abbvie a utilisé le podcast pour sensibiliser au mois des cancers du sang : 55 000 écoutes, 4 saisons, 2 prix communication santé. Un cas client Sons & Merveilles." />
+<meta name="keywords" content="podcast de marque santé, podcast sensibilisation cancer, branded podcast pharma, exemple podcast corporate santé, Sons Merveilles Abbvie" />
+<meta name="robots" content="index, follow" />
+<link rel="canonical" href="https://www.sonsetmerveilles.fr/realisations/abbvie-cancers-du-sang" />
+<meta property="og:type" content="article" />
+<meta property="og:title" content="Paroles de Patients — Comment Abbvie a utilisé le podcast pour toucher les cœurs" />
+<meta property="og:description" content="55 000 écoutes, 4 saisons, 2 prix communication santé. Découvrez comment Sons & Merveilles a aidé Abbvie à sensibiliser au mois des cancers du sang." />
+<meta property="og:url" content="https://www.sonsetmerveilles.fr/realisations/abbvie-cancers-du-sang" />
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "CreativeWork",
+  "name": "Paroles de Patients — Podcast Abbvie",
+  "description": "Série de podcasts de marque créée par Sons & Merveilles pour Abbvie pour sensibiliser au mois des cancers du sang.",
+  "creator": { "@type": "Organization", "name": "Sons & Merveilles", "url": "https://www.sonsetmerveilles.fr" },
+  "client": "Abbvie",
+  "genre": "Branded Podcast",
+  "inLanguage": "fr",
+  "dateCreated": "2021",
+  "award": "Prix Communication Santé 2022"
+}
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+
+<style>
+:root {
+  --yellow: #F5C518;
+  --red:    #E8273A;
+  --black:  #0A0A0A;
+  --white:  #F7F4EE;
+  --gray:   #1A1A1A;
+  --mid:    #242424;
+}
+*, *::before, *::after { box-sizing:border-box; margin:0; padding:0; }
+html { scroll-behavior:smooth; }
+body { background:var(--black); color:var(--white); font-family:'DM Sans',sans-serif; overflow-x:hidden; cursor:none; }
+
+/* ── CURSOR ── */
+#cur { position:fixed; width:10px; height:10px; background:var(--yellow); border-radius:50%; pointer-events:none; z-index:9999; transform:translate(-50%,-50%); mix-blend-mode:difference; }
+#cur-ring { position:fixed; width:36px; height:36px; border:1.5px solid var(--yellow); border-radius:50%; pointer-events:none; z-index:9998; transform:translate(-50%,-50%); opacity:.45; }
+
+/* ── NAV ── */
+#nav { position:fixed; top:0; left:0; right:0; z-index:100; display:grid; grid-template-columns:1fr auto 1fr; align-items:center; padding:24px 48px; transition:background .3s; gap:16px; }
+#nav.scrolled { background:rgba(10,10,10,.9); backdrop-filter:blur(16px); border-bottom:1px solid rgba(255,255,255,.05); }
+.nav-logo { font-family:'Bebas Neue',sans-serif; font-size:1.4rem; letter-spacing:.12em; color:var(--white); text-decoration:none; display:flex; align-items:center; gap:10px; justify-self:start; }
+.logo-dot { width:10px; height:10px; background:var(--yellow); border-radius:50%; animation:pulse 2s infinite; }
+@keyframes pulse { 0%,100%{transform:scale(1);} 50%{transform:scale(1.6);opacity:.5;} }
+.nav-back { display:flex; align-items:center; gap:10px; color:rgba(247,244,238,.6); text-decoration:none; font-size:.78rem; font-weight:500; letter-spacing:.12em; text-transform:uppercase; transition:color .2s; justify-self:center; }
+.nav-back:hover { color:var(--yellow); }
+.nav-back svg { transition:transform .2s; }
+.nav-back:hover svg { transform:translateX(-4px); }
+.nav-cta { background:var(--yellow); color:var(--black)!important; padding:10px 24px; border-radius:2px; font-size:.78rem; font-weight:500; letter-spacing:.1em; text-transform:uppercase; text-decoration:none; justify-self:end; white-space:nowrap; }
+
+@keyframes fadeUp { from{opacity:0;transform:translateY(24px);} to{opacity:1;transform:translateY(0);} }
+
+/* ── HERO ── */
+.prod-hero {
+  min-height: 92vh;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  position: relative;
+  overflow: hidden;
+  padding-top: 80px;
+}
+.prod-hero-left {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 80px 48px 80px;
+  position: relative;
+  z-index: 2;
+}
+.prod-breadcrumb {
+  display: flex; align-items:center; gap:8px;
+  font-size:.68rem; letter-spacing:.18em; text-transform:uppercase;
+  color:rgba(247,244,238,.4); margin-bottom:32px;
+  opacity:0; animation:fadeUp .7s .2s forwards;
+}
+.prod-breadcrumb a { color:rgba(247,244,238,.4); text-decoration:none; transition:color .2s; }
+.prod-breadcrumb a:hover { color:var(--yellow); }
+.prod-breadcrumb span { color:rgba(247,244,238,.2); }
+
+.prod-tags {
+  display:flex; gap:8px; flex-wrap:wrap; margin-bottom:24px;
+  opacity:0; animation:fadeUp .7s .3s forwards;
+}
+.prod-tag { font-size:.62rem; letter-spacing:.18em; text-transform:uppercase; font-weight:600; padding:5px 12px; border-radius:2px; }
+.prod-tag.format { background:var(--yellow); color:var(--black); }
+.prod-tag.sector { background:transparent; color:var(--white); border:1px solid rgba(247,244,238,.2); }
+.prod-tag.award  { background:var(--red); color:var(--white); }
+
+h1.prod-title {
+  font-family:'Playfair Display',serif;
+  font-size:clamp(2.2rem,4vw,3.8rem);
+  font-weight:400;
+  font-style:italic;
+  line-height:1.15;
+  color:var(--white);
+  margin-bottom:24px;
+  opacity:0; animation:fadeUp .8s .4s forwards;
+}
+.prod-client-row {
+  display:flex; align-items:center; gap:16px; margin-bottom:40px;
+  opacity:0; animation:fadeUp .7s .5s forwards;
+}
+.prod-client-name { font-family:'Bebas Neue',sans-serif; font-size:1.5rem; letter-spacing:.1em; color:var(--yellow); }
+.prod-client-sep  { width:1px; height:20px; background:rgba(247,244,238,.2); }
+.prod-client-year { font-size:.82rem; color:rgba(247,244,238,.45); }
+.prod-client-collab { font-size:.82rem; color:rgba(247,244,238,.45); }
+
+.prod-challenge-intro {
+  font-family:'Playfair Display',serif;
+  font-style:italic;
+  font-size:1.1rem;
+  line-height:1.7;
+  color:rgba(247,244,238,.72);
+  max-width:480px;
+  border-left:3px solid var(--yellow);
+  padding-left:20px;
+  opacity:0; animation:fadeUp .7s .6s forwards;
+}
+
+/* Right visual */
+.prod-hero-right { position:relative; overflow:hidden; }
+.prod-hero-artwork {
+  position:absolute; inset:0;
+  background:linear-gradient(160deg,#1a0828 0%,#3d1060 40%,#7a208a 100%);
+  transition:transform .6s ease;
+}
+.prod-hero-overlay { position:absolute; inset:0; background:linear-gradient(to right,var(--black) 0%,transparent 35%); z-index:1; }
+/* Waveform */
+.prod-hero-wave {
+  position:absolute; bottom:0; left:0; right:0; height:80px;
+  display:flex; align-items:flex-end; gap:3px; padding:0 20px 16px;
+  opacity:.25; z-index:2;
+}
+.pwb { flex:1; background:var(--yellow); border-radius:2px 2px 0 0; animation:wv var(--d,1s) ease-in-out infinite alternate; animation-delay:var(--dl,0s); }
+@keyframes wv { from{height:3px;} to{height:var(--h,24px);} }
+
+/* ── SECTIONS ── */
+.prod-section { padding:100px 48px; }
+.prod-section + .prod-section { padding-top:0; }
+.section-eyebrow { font-size:.68rem; letter-spacing:.26em; text-transform:uppercase; color:var(--yellow); font-weight:600; display:flex; align-items:center; gap:12px; margin-bottom:20px; }
+.section-eyebrow::before { content:''; width:30px; height:1px; background:var(--yellow); }
+
+/* ── TWO COL LAYOUT ── */
+.two-col { display:grid; grid-template-columns:1fr 1fr; gap:80px; align-items:start; }
+.two-col-wide { display:grid; grid-template-columns:2fr 3fr; gap:80px; align-items:start; }
+
+h2.block-title { font-family:'Bebas Neue',sans-serif; font-size:clamp(2.5rem,5vw,4rem); line-height:.93; color:var(--white); }
+h2.block-title span { color:var(--yellow); }
+h2.block-title em { font-style:italic; font-family:'Playfair Display',serif; }
+
+.block-body { font-size:.98rem; line-height:1.85; color:rgba(247,244,238,.68); }
+.block-body p + p { margin-top:16px; }
+.block-body strong { color:var(--white); font-weight:500; }
+
+/* ── CHALLENGE ── */
+.challenge { background:var(--gray); }
+
+/* ── STRATEGY ── */
+.strategy { background:var(--black); }
+.strategy-points { display:flex; flex-direction:column; gap:0; }
+.strategy-point {
+  display:grid; grid-template-columns:48px 1fr; gap:20px;
+  padding:28px 0; border-bottom:1px solid rgba(255,255,255,.07);
+  align-items:start;
+}
+.strategy-point:last-child { border-bottom:none; }
+.sp-num { font-family:'Bebas Neue',sans-serif; font-size:2rem; color:rgba(245,197,24,.3); line-height:1; }
+.sp-content {}
+h3.sp-title { font-size:1rem; font-weight:500; color:var(--white); margin-bottom:8px; }
+.sp-body { font-size:.88rem; line-height:1.7; color:rgba(247,244,238,.55); }
+
+/* ── SOLUTION ── */
+.solution { background:var(--gray); }
+.solution-specs {
+  display:grid; grid-template-columns:repeat(3,1fr); gap:2px; margin-top:48px;
+}
+.spec-block {
+  background:var(--black); padding:32px 28px;
+  border-bottom:3px solid transparent; transition:border-color .3s;
+}
+.spec-block:hover { border-color:var(--yellow); }
+.spec-label { font-size:.62rem; letter-spacing:.2em; text-transform:uppercase; color:rgba(247,244,238,.4); font-weight:600; margin-bottom:10px; }
+.spec-value { font-family:'Bebas Neue',sans-serif; font-size:2rem; color:var(--yellow); line-height:1; margin-bottom:6px; }
+.spec-sub { font-size:.82rem; color:rgba(247,244,238,.5); }
+
+/* ── LISTEN / WATCH ── */
+.listen { background:var(--black); }
+.listen-inner { max-width:760px; margin:0 auto; }
+.listen-title { font-family:'Bebas Neue',sans-serif; font-size:clamp(2.5rem,5vw,4rem); line-height:.93; color:var(--white); margin-bottom:48px; text-align:center; }
+.listen-title span { color:var(--yellow); }
+
+/* Spotify */
+.audio-label { font-size:.62rem; letter-spacing:.2em; text-transform:uppercase; color:var(--yellow); font-weight:600; margin-bottom:12px; display:flex; align-items:center; gap:8px; }
+.audio-label::before { content:''; width:6px; height:6px; background:var(--yellow); border-radius:50%; animation:ap 1.5s ease-in-out infinite; }
+@keyframes ap { 0%,100%{transform:scale(1);opacity:1;} 50%{transform:scale(1.6);opacity:.4;} }
+
+.spotify-embed {
+  background:#121212; border-radius:4px; overflow:hidden;
+  border:1px solid rgba(255,255,255,.06); margin-bottom:32px;
+}
+.spotify-placeholder {
+  height:88px; display:flex; align-items:center; gap:14px; padding:0 20px;
+}
+.spotify-icon { width:38px; height:38px; background:#1DB954; border-radius:50%; display:flex; align-items:center; justify-content:center; flex-shrink:0; }
+.spotify-info { flex:1; }
+.spotify-track { font-size:.85rem; font-weight:500; color:white; }
+.spotify-show  { font-size:.75rem; color:rgba(255,255,255,.5); margin-top:3px; }
+.spotify-badge { background:rgba(255,255,255,.08); color:rgba(255,255,255,.5); font-size:.65rem; letter-spacing:.1em; padding:4px 10px; border-radius:100px; white-space:nowrap; }
+
+/* Video */
+.video-label { font-size:.62rem; letter-spacing:.2em; text-transform:uppercase; color:rgba(247,244,238,.45); font-weight:600; margin-bottom:12px; }
+.video-embed {
+  width:100%; aspect-ratio:16/9; background:#000; border-radius:4px;
+  overflow:hidden; border:1px solid rgba(255,255,255,.06);
+  position:relative;
+}
+.video-placeholder {
+  width:100%; height:100%;
+  background:linear-gradient(135deg,#0a0a14 0%,#14142a 100%);
+  display:flex; flex-direction:column; align-items:center; justify-content:center; gap:12px;
+}
+.video-play-btn {
+  width:60px; height:60px; border:2px solid rgba(245,197,24,.5); border-radius:50%;
+  display:flex; align-items:center; justify-content:center;
+  transition:border-color .2s, background .2s; cursor:none;
+}
+.video-play-btn:hover { border-color:var(--yellow); background:rgba(245,197,24,.1); }
+.video-play-label { font-size:.72rem; color:rgba(247,244,238,.4); letter-spacing:.14em; text-transform:uppercase; }
+
+/* ── RESULTS ── */
+.results { background:var(--yellow); padding:100px 48px; }
+h2.results-title { font-family:'Bebas Neue',sans-serif; font-size:clamp(2.5rem,5vw,4rem); line-height:.93; color:var(--black); margin-bottom:64px; }
+.results-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:2px; }
+.result-block {
+  background:rgba(10,10,10,.08); padding:40px 32px;
+  border-right:1px solid rgba(10,10,10,.1);
+  transition:background .25s;
+}
+.result-block:last-child { border-right:none; }
+.result-block:hover { background:rgba(10,10,10,.15); }
+.result-num { font-family:'Bebas Neue',sans-serif; font-size:clamp(3rem,5vw,4.5rem); color:var(--black); line-height:1; margin-bottom:10px; }
+.result-label { font-size:.85rem; color:rgba(10,10,10,.65); line-height:1.5; }
+.result-context { font-size:.75rem; color:rgba(10,10,10,.4); margin-top:8px; font-style:italic; }
+
+/* ── CLIENT VOICE (optional) ── */
+.client-voice { background:var(--gray); padding:100px 48px; }
+.quote-block {
+  max-width:780px; margin:0 auto; text-align:center;
+  position:relative;
+}
+.quote-mark {
+  font-family:'Playfair Display',serif; font-size:8rem; line-height:.6;
+  color:rgba(245,197,24,.12); display:block; margin-bottom:16px;
+}
+blockquote.quote-text {
+  font-family:'Playfair Display',serif; font-style:italic;
+  font-size:clamp(1.3rem,2.5vw,1.9rem); line-height:1.55;
+  color:var(--white); margin-bottom:32px;
+}
+.quote-attribution { display:flex; flex-direction:column; gap:4px; align-items:center; }
+.quote-name { font-size:.9rem; font-weight:500; color:var(--yellow); }
+.quote-role { font-size:.78rem; color:rgba(247,244,238,.45); }
+.quote-divider { width:40px; height:2px; background:var(--red); margin:20px auto; }
+
+/* ── WHAT THIS MEANS FOR YOU ── */
+.bridge { background:var(--black); }
+.bridge-inner {
+  background:var(--mid); border:1px solid rgba(245,197,24,.12);
+  border-left:4px solid var(--yellow);
+  padding:56px 48px; border-radius:2px;
+}
+h2.bridge-title { font-family:'Bebas Neue',sans-serif; font-size:clamp(2rem,4vw,3rem); color:var(--white); margin-bottom:8px; }
+.bridge-subtitle { font-size:.82rem; letter-spacing:.14em; text-transform:uppercase; color:var(--yellow); margin-bottom:24px; }
+.bridge-body { font-size:.98rem; line-height:1.85; color:rgba(247,244,238,.68); max-width:680px; }
+.bridge-body p + p { margin-top:16px; }
+.bridge-body strong { color:var(--white); }
+.bridge-sectors {
+  display:flex; flex-wrap:wrap; gap:10px; margin-top:28px;
+}
+.bridge-sector {
+  border:1px solid rgba(245,197,24,.25); color:rgba(247,244,238,.6);
+  padding:8px 18px; border-radius:100px; font-size:.78rem;
+  font-weight:500; letter-spacing:.08em; text-transform:uppercase;
+  transition:border-color .2s,color .2s;
+}
+.bridge-sector:hover { border-color:var(--yellow); color:var(--yellow); }
+
+/* ── RELATED PRODUCTIONS ── */
+.related { background:var(--gray); padding:100px 48px; }
+h2.related-title { font-family:'Bebas Neue',sans-serif; font-size:clamp(2.5rem,5vw,4rem); line-height:.93; color:var(--white); margin-bottom:12px; }
+.related-sub { font-size:.88rem; color:rgba(247,244,238,.45); margin-bottom:48px; }
+.related-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:3px; }
+
+.related-card {
+  position:relative; overflow:hidden; aspect-ratio:3/4;
+  cursor:none; background:var(--mid);
+  transition:transform .3s;
+}
+.related-card:hover { transform:scale(1.01); }
+.related-bg { position:absolute; inset:0; transition:transform .5s ease; }
+.related-card:hover .related-bg { transform:scale(1.06); }
+.related-card-overlay {
+  position:absolute; inset:0;
+  background:linear-gradient(to top,rgba(10,10,10,.92) 0%,rgba(10,10,10,.2) 60%,transparent 100%);
+  display:flex; flex-direction:column; justify-content:flex-end;
+  padding:28px;
+}
+.related-card-hover {
+  position:absolute; inset:0; background:rgba(10,10,10,.8);
+  display:flex; flex-direction:column; justify-content:center; padding:28px;
+  opacity:0; transition:opacity .35s;
+}
+.related-card:hover .related-card-hover { opacity:1; }
+.related-tag { font-size:.6rem; letter-spacing:.18em; text-transform:uppercase; background:var(--yellow); color:var(--black); padding:4px 10px; border-radius:2px; width:fit-content; margin-bottom:8px; font-weight:600; }
+.related-client { font-size:.82rem; color:rgba(247,244,238,.6); }
+.related-title-text { font-family:'Playfair Display',serif; font-style:italic; font-size:1rem; color:var(--white); line-height:1.3; margin-bottom:16px; }
+.related-open-btn {
+  display:inline-flex; align-items:center; gap:8px;
+  font-size:.72rem; letter-spacing:.14em; text-transform:uppercase;
+  color:var(--yellow); font-weight:600;
+  background:none; border:none; cursor:none;
+  transition:gap .2s;
+}
+.related-open-btn:hover { gap:14px; }
+
+/* ── CONTEXTUAL CTA ── */
+.prod-cta { background:var(--red); padding:100px 48px; display:grid; grid-template-columns:1fr 1fr; gap:80px; align-items:center; }
+h2.prod-cta-title { font-family:'Bebas Neue',sans-serif; font-size:clamp(2.5rem,6vw,5rem); line-height:.93; color:var(--white); }
+h2.prod-cta-title span { color:var(--yellow); display:block; }
+.prod-cta-body { margin-top:20px; font-family:'Playfair Display',serif; font-style:italic; font-size:1.1rem; line-height:1.7; color:rgba(247,244,238,.8); }
+.cta-form { display:flex; flex-direction:column; gap:16px; }
+.form-field { display:flex; flex-direction:column; gap:8px; }
+.form-field label { font-size:.68rem; letter-spacing:.2em; text-transform:uppercase; color:rgba(247,244,238,.55); }
+.form-field input, .form-field textarea { background:rgba(0,0,0,.2); border:1px solid rgba(247,244,238,.2); border-radius:2px; padding:13px 16px; color:var(--white); font-family:'DM Sans',sans-serif; font-size:.92rem; outline:none; resize:none; transition:border-color .2s; }
+.form-field input:focus, .form-field textarea:focus { border-color:var(--yellow); }
+.form-field textarea { min-height:100px; }
+.btn-cta-submit { align-self:flex-start; background:var(--yellow); color:var(--black); border:none; padding:16px 38px; font-family:'DM Sans',sans-serif; font-size:.82rem; font-weight:600; letter-spacing:.12em; text-transform:uppercase; border-radius:2px; cursor:none; transition:transform .2s,box-shadow .2s; margin-top:8px; }
+.btn-cta-submit:hover { transform:translateY(-3px); box-shadow:0 12px 32px rgba(0,0,0,.3); }
+
+/* ── FOOTER ── */
+footer { background:var(--black); padding:56px 48px; display:flex; align-items:center; justify-content:space-between; border-top:1px solid rgba(255,255,255,.06); }
+.footer-logo { font-family:'Bebas Neue',sans-serif; font-size:1.4rem; letter-spacing:.12em; color:var(--white); }
+.footer-links { display:flex; gap:32px; list-style:none; }
+.footer-links a { color:rgba(247,244,238,.4); text-decoration:none; font-size:.78rem; letter-spacing:.12em; text-transform:uppercase; transition:color .2s; }
+.footer-links a:hover { color:var(--yellow); }
+.footer-copy { font-size:.75rem; color:rgba(247,244,238,.25); }
+
+/* ── MODAL (for related cards) ── */
+.modal-overlay { position:fixed; inset:0; z-index:1000; background:rgba(5,5,5,.92); backdrop-filter:blur(12px); display:flex; align-items:center; justify-content:center; padding:24px; opacity:0; pointer-events:none; transition:opacity .35s; }
+.modal-overlay.open { opacity:1; pointer-events:auto; }
+.modal { width:100%; max-width:900px; max-height:90vh; background:var(--gray); border:1px solid rgba(245,197,24,.12); border-radius:3px; overflow:hidden; display:grid; grid-template-columns:1fr 1fr; transform:translateY(28px) scale(.97); transition:transform .4s cubic-bezier(.4,0,.2,1); }
+.modal-overlay.open .modal { transform:none; }
+.modal-visual { position:relative; min-height:440px; overflow:hidden; }
+.modal-artwork { position:absolute; inset:0; }
+.modal-art-wave { position:absolute; bottom:0; left:0; right:0; height:64px; display:flex; align-items:flex-end; gap:3px; padding:0 16px 12px; opacity:.3; z-index:2; }
+.mwb { flex:1; background:var(--yellow); border-radius:2px 2px 0 0; animation:wv var(--d,1s) ease-in-out infinite alternate; animation-delay:var(--dl,0s); }
+.modal-tags-abs { position:absolute; top:18px; left:18px; z-index:3; display:flex; gap:8px; }
+.mtag { font-size:.6rem; letter-spacing:.18em; text-transform:uppercase; font-weight:600; padding:5px 12px; border-radius:2px; }
+.mtag.f { background:var(--yellow); color:var(--black); }
+.mtag.s { background:rgba(10,10,10,.7); color:var(--white); border:1px solid rgba(255,255,255,.2); }
+.modal-close-btn { position:absolute; top:14px; right:14px; z-index:10; width:34px; height:34px; background:rgba(10,10,10,.7); border:1px solid rgba(247,244,238,.15); border-radius:50%; display:flex; align-items:center; justify-content:center; cursor:none; transition:background .2s; }
+.modal-close-btn:hover { background:var(--red); }
+.modal-close-btn svg { stroke:var(--white); }
+.modal-content { padding:36px; display:flex; flex-direction:column; overflow-y:auto; max-height:90vh; }
+.mc-client { font-size:.65rem; letter-spacing:.22em; text-transform:uppercase; color:var(--yellow); font-weight:600; margin-bottom:8px; }
+.mc-title { font-family:'Playfair Display',serif; font-style:italic; font-size:1.5rem; line-height:1.2; color:var(--white); margin-bottom:16px; }
+.mc-divider { width:36px; height:2px; background:var(--red); margin-bottom:16px; }
+.mc-desc { font-size:.88rem; line-height:1.75; color:rgba(247,244,238,.62); margin-bottom:24px; }
+.mc-audio-label { font-size:.6rem; letter-spacing:.2em; text-transform:uppercase; color:var(--yellow); font-weight:600; margin-bottom:10px; display:flex; align-items:center; gap:8px; }
+.mc-audio-label::before { content:''; width:6px; height:6px; background:var(--yellow); border-radius:50%; animation:ap 1.5s ease-in-out infinite; }
+.mc-spotify { background:#121212; border-radius:4px; border:1px solid rgba(255,255,255,.06); margin-bottom:20px; }
+.mc-sp-inner { height:80px; display:flex; align-items:center; gap:12px; padding:0 16px; }
+.mc-sp-icon { width:34px; height:34px; background:#1DB954; border-radius:50%; display:flex; align-items:center; justify-content:center; flex-shrink:0; }
+.mc-sp-track { font-size:.8rem; font-weight:500; color:white; }
+.mc-sp-show { font-size:.7rem; color:rgba(255,255,255,.5); margin-top:2px; }
+.mc-ctas { display:flex; flex-direction:column; gap:10px; margin-top:auto; padding-top:8px; }
+.btn-mc-primary { display:flex; align-items:center; justify-content:space-between; background:var(--yellow); color:var(--black); padding:14px 18px; border-radius:2px; text-decoration:none; font-size:.78rem; font-weight:600; letter-spacing:.1em; text-transform:uppercase; transition:transform .2s; cursor:none; }
+.btn-mc-primary:hover { transform:translateY(-2px); }
+.btn-mc-secondary { display:flex; align-items:center; justify-content:center; background:transparent; color:var(--white); padding:13px 18px; border-radius:2px; border:1px solid rgba(247,244,238,.15); text-decoration:none; font-size:.78rem; font-weight:500; letter-spacing:.1em; text-transform:uppercase; transition:border-color .2s,color .2s; cursor:none; }
+.btn-mc-secondary:hover { border-color:var(--yellow); color:var(--yellow); }
+
+/* ── REVEAL ── */
+.reveal { opacity:0; transform:translateY(36px); transition:opacity .8s ease,transform .8s ease; }
+.reveal.in { opacity:1; transform:none; }
+.reveal-d1 { transition-delay:.15s; }
+.reveal-d2 { transition-delay:.3s; }
+
+/* ── RESPONSIVE ── */
+@media (max-width:1024px) {
+  .results-grid { grid-template-columns:repeat(2,1fr); }
+  .solution-specs { grid-template-columns:repeat(2,1fr); }
+  .related-grid { grid-template-columns:repeat(2,1fr); }
+}
+@media (max-width:768px) {
+  #nav { padding:18px 24px; grid-template-columns:1fr auto 1fr; }
+  .nav-back span { display:none; }
+  .prod-hero { grid-template-columns:1fr; min-height:auto; }
+  .prod-hero-left { padding:100px 24px 60px; }
+  .prod-hero-right { min-height:260px; }
+  .prod-hero-overlay { background:linear-gradient(to top,var(--black) 0%,transparent 60%); }
+  .prod-section { padding:72px 24px; }
+  .two-col,.two-col-wide { grid-template-columns:1fr; gap:40px; }
+  .solution-specs { grid-template-columns:1fr 1fr; }
+  .results { padding:72px 24px; }
+  .results-grid { grid-template-columns:1fr 1fr; }
+  .result-block { border-right:none; border-bottom:1px solid rgba(10,10,10,.1); padding:28px 20px; }
+  .client-voice { padding:72px 24px; }
+  .bridge { padding:72px 24px; }
+  .bridge-inner { padding:36px 24px; }
+  .related { padding:72px 24px; }
+  .related-grid { grid-template-columns:1fr; }
+  .prod-cta { grid-template-columns:1fr; gap:48px; padding:72px 24px; }
+  footer { flex-direction:column; gap:24px; text-align:center; padding:40px 24px; }
+  .footer-links { flex-wrap:wrap; justify-content:center; gap:16px; }
+  .modal { grid-template-columns:1fr; }
+  .modal-visual { min-height:200px; }
+  .modal-content { max-height:none; }
+}
+</style>
+</head>
+<body>
+
+<div id="cur"></div>
+<div id="cur-ring"></div>
+
+<!-- NAV -->
+<nav id="nav">
+  <a href="/" class="nav-logo"><span class="logo-dot"></span>Sons & Merveilles</a>
+  <a href="/realisations" class="nav-back">
+    <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M13 8H3M7 4L3 8l4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    <span>Retour au portfolio</span>
+  </a>
+  <a href="#contact" class="nav-cta">Parlons projet</a>
+</nav>
+</nav>
+
+<!-- ═══ HERO ═══ -->
+<header class="prod-hero" role="banner">
+  <div class="prod-hero-left">
+    <!-- Breadcrumb for SEO -->
+    <nav class="prod-breadcrumb" aria-label="Fil d'Ariane">
+      <a href="/">Accueil</a>
+      <span aria-hidden="true">›</span>
+      <a href="/realisations">Réalisations</a>
+      <span aria-hidden="true">›</span>
+      <span aria-current="page">Abbvie — Paroles de Patients</span>
+    </nav>
+
+    <div class="prod-tags">
+      <span class="prod-tag format">Témoignage</span>
+      <span class="prod-tag sector">Santé · Pharma</span>
+      <span class="prod-tag award">🏆 Prix Communication Santé</span>
+    </div>
+
+    <h1 class="prod-title">
+      Paroles de patients pour le mois des cancers du sang
+    </h1>
+
+    <div class="prod-client-row">
+      <span class="prod-client-name">Abbvie</span>
+      <span class="prod-client-sep"></span>
+      <span class="prod-client-collab">avec LauMa Communication</span>
+      <span class="prod-client-sep"></span>
+      <span class="prod-client-year">2021 — 2024</span>
+    </div>
+
+    <p class="prod-challenge-intro">
+      Comment une marque pharmaceutique peut-elle toucher les cœurs d'une audience médicale saturée de messages corporate ? En leur redonnant la parole.
+    </p>
+  </div>
+
+  <div class="prod-hero-right" aria-hidden="true">
+    <div class="prod-hero-artwork"></div>
+    <div class="prod-hero-overlay"></div>
+    <div class="prod-hero-wave">
+      <div class="pwb" style="--d:.9s;--dl:0s;--h:28px"></div><div class="pwb" style="--d:1.1s;--dl:.08s;--h:48px"></div><div class="pwb" style="--d:.8s;--dl:.04s;--h:18px"></div><div class="pwb" style="--d:1.2s;--dl:.14s;--h:38px"></div><div class="pwb" style="--d:1s;--dl:.06s;--h:60px"></div><div class="pwb" style="--d:.95s;--dl:.1s;--h:24px"></div><div class="pwb" style="--d:1.1s;--dl:.02s;--h:44px"></div><div class="pwb" style="--d:.85s;--dl:.18s;--h:14px"></div><div class="pwb" style="--d:1.15s;--dl:.07s;--h:34px"></div><div class="pwb" style="--d:1s;--dl:.13s;--h:52px"></div><div class="pwb" style="--d:.9s;--dl:.09s;--h:22px"></div><div class="pwb" style="--d:1.2s;--dl:.05s;--h:40px"></div>
+    </div>
+  </div>
+</header>
+
+<!-- ═══ 1. BUSINESS CHALLENGE ═══ -->
+<section class="prod-section challenge" id="challenge" aria-labelledby="challenge-heading">
+  <div class="two-col-wide reveal">
+    <div>
+      <p class="section-eyebrow">Le défi</p>
+      <h2 class="block-title" id="challenge-heading">Un problème<br>de <span>communication</span></h2>
+    </div>
+    <div class="block-body">
+      <p>En 2021, Abbvie souhaite marquer le mois des cancers du sang avec une prise de parole qui dépasse le message institutionnel. Le défi est double : <strong>toucher émotionnellement une audience médicale habituée aux communications corporate</strong>, et mettre en avant les associations de patients soutenues par la marque sans que cela ressemble à de la publicité.</p>
+      <p>Les formats traditionnels — communiqués de presse, vidéos institutionnelles, posts LinkedIn — ne permettaient pas de créer le niveau d'intimité et d'authenticité recherché. Il fallait trouver un média capable de donner de la place à la voix humaine, dans toute sa complexité.</p>
+      <p><strong>La contrainte centrale :</strong> les patients devaient être au cœur du récit, pas la marque. Comment mettre en valeur les engagements d'Abbvie tout en plaçant l'humain au premier plan ?</p>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ 2. STRATEGIC APPROACH ═══ -->
+<section class="prod-section strategy" id="strategy" aria-labelledby="strategy-heading">
+  <div class="two-col reveal">
+    <div>
+      <p class="section-eyebrow">L'approche stratégique</p>
+      <h2 class="block-title" id="strategy-heading">Pourquoi<br>le <span>podcast</span></h2>
+    </div>
+    <div class="strategy-points">
+      <div class="strategy-point">
+        <div class="sp-num">01</div>
+        <div class="sp-content">
+          <h3 class="sp-title">Le format témoignage pour effacer la marque</h3>
+          <p class="sp-body">En choisissant le format "voix nue" — un patient, un micro, aucune narration externe — nous avons placé l'authenticité au-dessus du message. La marque s'efface derrière l'humain. C'est précisément ce retrait qui rend la communication plus puissante.</p>
+        </div>
+      </div>
+      <div class="strategy-point">
+        <div class="sp-num">02</div>
+        <div class="sp-content">
+          <h3 class="sp-title">Le podcast pour contourner la saturation</h3>
+          <p class="sp-body">Les professionnels de santé et les patients sont surexposés aux contenus visuels. Pour ce projet, la force du podcast tenait à cela : les atteindre dans leurs moments de vraie disponibilité, là où les contenus visuels ne passent pas.</p>
+        </div>
+      </div>
+      <div class="strategy-point">
+        <div class="sp-num">03</div>
+        <div class="sp-content">
+          <h3 class="sp-title">Une série pour construire une audience fidèle</h3>
+          <p class="sp-body">Plutôt qu'une action ponctuelle, nous avons conçu une architecture éditoriale sur plusieurs saisons. Chaque saison approfondit un angle différent — patients, soignants, proches — construisant progressivement une communauté d'écoute engagée.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ 3. CREATIVE SOLUTION ═══ -->
+<section class="prod-section solution reveal" aria-labelledby="solution-heading">
+  <div class="two-col-wide">
+    <div>
+      <p class="section-eyebrow">La solution créative</p>
+      <h2 class="block-title" id="solution-heading">Ce que<br>nous avons <em>fait</em></h2>
+    </div>
+    <div class="block-body">
+      <p>Nous avons créé <strong>"Paroles de Patients"</strong> — une série de podcasts de marque dans laquelle des patients atteints de cancers du sang racontent leur parcours en toute liberté. Pas de script, pas de messages clés imposés : juste une conversation préparée avec soin, captée avec précision.</p>
+      <p>Chaque épisode suit une structure narrative en trois temps : le diagnostic et le choc, le parcours de soins et les rencontres qui ont changé les choses, et la vie avec la maladie aujourd'hui. Cette architecture permet à chaque témoignage d'être à la fois unique et universel.</p>
+      <p>La direction sonore a été pensée pour créer une atmosphère de confidence : enregistrements en espace intime, ambiances sonores discrètes, absence de musique insistante. Le son se met au service de la parole.</p>
+    </div>
+  </div>
+  <!-- Production specs -->
+  <div class="solution-specs reveal reveal-d1">
+    <div class="spec-block">
+      <div class="spec-label">Format</div>
+      <div class="spec-value">4</div>
+      <div class="spec-sub">Saisons produites</div>
+    </div>
+    <div class="spec-block">
+      <div class="spec-label">Durée par épisode</div>
+      <div class="spec-value">18'</div>
+      <div class="spec-sub">Format long — témoignage complet</div>
+    </div>
+    <div class="spec-block">
+      <div class="spec-label">Distribution</div>
+      <div class="spec-value">5</div>
+      <div class="spec-sub">Plateformes (Spotify, Apple, Deezer…)</div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ 4. LISTEN / WATCH ═══ -->
+<section class="prod-section listen" id="listen" aria-labelledby="listen-heading">
+  <div class="listen-inner">
+    <h2 class="listen-title" id="listen-heading">Écouter &<br><span>Découvrir</span></h2>
+
+    <!-- Spotify embed -->
+    <p class="audio-label">Écouter un épisode</p>
+    <div class="spotify-embed">
+      <!--
+        NEXT.JS NOTE: Replace with real Spotify iframe:
+        <iframe src="https://open.spotify.com/embed/episode/[ID]?utm_source=generator&theme=0"
+          width="100%" height="88" frameBorder="0"
+          allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+          loading="lazy" />
+        Sanity field: projet.spotifyEmbedUrl
+      -->
+      <div class="spotify-placeholder">
+        <div class="spotify-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="white"><path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.521 17.34c-.24.359-.66.48-1.021.24-2.82-1.74-6.36-2.101-10.561-1.141-.418.122-.779-.179-.899-.539-.12-.421.18-.78.54-.9 4.56-1.021 8.52-.6 11.64 1.32.42.18.479.659.301 1.02zm1.44-3.3c-.301.42-.841.6-1.262.3-3.239-1.98-8.159-2.58-11.939-1.38-.479.12-1.02-.12-1.14-.6-.12-.48.12-1.021.6-1.141C9.6 9.9 15 10.561 18.72 12.84c.361.181.54.78.241 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.301c-.6.179-1.2-.181-1.38-.721-.18-.601.18-1.2.72-1.381 4.26-1.26 11.28-1.02 15.721 1.621.539.3.719 1.02.419 1.56-.299.421-1.02.599-1.559.3z"/></svg>
+        </div>
+        <div class="spotify-info">
+          <div class="spotify-track">Ep. 1 — Michel, patient atteint de LMC</div>
+          <div class="spotify-show">Paroles de Patients · Sons & Merveilles pour Abbvie</div>
+        </div>
+        <span class="spotify-badge">Spotify</span>
+      </div>
+    </div>
+
+    <!-- Video embed — conditional -->
+    <!--
+      NEXT.JS NOTE: Wrap in conditional:
+      {projet.videoEmbedUrl && ( ... )}
+      Sanity field: projet.videoEmbedUrl
+    -->
+    <p class="video-label">Teaser vidéo</p>
+    <div class="video-embed">
+      <!--
+        Replace with: <iframe src="https://www.youtube.com/embed/[ID]"
+          width="100%" height="100%" frameborder="0" allowfullscreen />
+      -->
+      <div class="video-placeholder">
+        <div class="video-play-btn">
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+            <path d="M6 4l12 6-12 6V4z" fill="rgba(245,197,24,.9)"/>
+          </svg>
+        </div>
+        <span class="video-play-label">Voir le teaser de la série</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ 5. RESULTS ═══ -->
+<section class="results" id="results" aria-labelledby="results-heading">
+  <h2 class="results-title" id="results-heading">Les résultats</h2>
+  <div class="results-grid reveal">
+    <div class="result-block">
+      <div class="result-num">55 000</div>
+      <div class="result-label">Écoutes cumulées</div>
+      <div class="result-context">Sur 4 saisons, toutes plateformes</div>
+    </div>
+    <div class="result-block">
+      <div class="result-num">4</div>
+      <div class="result-label">Saisons produites</div>
+      <div class="result-context">2021 → 2024 · Relation client reconduite</div>
+    </div>
+    <div class="result-block">
+      <div class="result-num">2</div>
+      <div class="result-label">Prix Communication Santé</div>
+      <div class="result-context">Reconnaissance sectorielle · 2022 & 2023</div>
+    </div>
+    <div class="result-block">
+      <div class="result-num">1</div>
+      <div class="result-label">Tournée nationale en 2024</div>
+      <div class="result-context">Le podcast embarqué dans un dispositif live</div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ 6. CLIENT VOICE (optional) ═══ -->
+<!--
+  NEXT.JS NOTE: Wrap entire section in conditional:
+  {projet.clientQuote && ( ... )}
+  Sanity fields: projet.clientQuote, projet.clientName, projet.clientRole
+-->
+<section class="client-voice reveal" aria-labelledby="quote-heading">
+  <div class="quote-block">
+    <span class="quote-mark" aria-hidden="true">"</span>
+    <blockquote class="quote-text" id="quote-heading">
+      Sons & Merveilles a compris que notre objectif n'était pas de parler d'Abbvie, mais de donner une voix à des patients qui n'en avaient pas. Cette nuance a tout changé.
+    </blockquote>
+    <div class="quote-divider"></div>
+    <div class="quote-attribution">
+      <span class="quote-name">Sophie Martin</span>
+      <span class="quote-role">Directrice Communication, Abbvie France</span>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ 7. WHAT THIS MEANS FOR YOU ═══ -->
+<section class="prod-section bridge reveal" aria-labelledby="bridge-heading">
+  <div class="bridge-inner">
+    <p class="bridge-subtitle">Ce que ce projet nous a appris</p>
+    <h2 class="bridge-title" id="bridge-heading">Et pour votre marque ?</h2>
+    <div class="bridge-body">
+      <p>Si vous évoluez dans un secteur à fort enjeu émotionnel — santé, pharma, assurance, social — et que vos audiences sont <strong>saturées de messages institutionnels</strong>, ce cas client illustre une vérité essentielle : les gens n'écoutent pas les marques. Ils écoutent les gens.</p>
+      <p>Le podcast de témoignage permet de créer ce déplacement : votre marque passe du statut d'émetteur à celui de <strong>facilitateur de parole</strong>. C'est précisément ce repositionnement qui génère de la confiance, de l'engagement et, in fine, de l'impact commercial.</p>
+      <p>Ce modèle est reproductible dans tout secteur où l'expérience client, patient ou collaborateur est au cœur de la proposition de valeur.</p>
+    </div>
+    <div class="bridge-sectors" role="list">
+      <span class="bridge-sector" role="listitem">Santé & Pharma</span>
+      <span class="bridge-sector" role="listitem">Assurance</span>
+      <span class="bridge-sector" role="listitem">Social & Associatif</span>
+      <span class="bridge-sector" role="listitem">RH & Marque Employeur</span>
+      <span class="bridge-sector" role="listitem">Formation</span>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ 8. RELATED PRODUCTIONS ═══ -->
+<section class="related reveal" aria-labelledby="related-heading">
+  <p class="section-eyebrow">Dans le même univers</p>
+  <h2 class="related-title" id="related-heading">Projets similaires</h2>
+  <p class="related-sub">Même secteur ou même objectif de communication — cliquez pour découvrir.</p>
+  <div class="related-grid">
+
+    <!-- Related card 1 — opens modal -->
+    <div class="related-card" onclick="openRelated('pierre-fabre')" role="button" tabindex="0" aria-label="Ouvrir le projet Pierre Fabre">
+      <div class="related-bg" style="background:linear-gradient(160deg,#0a1828 0%,#1a3a5c 40%,#205090 100%)"></div>
+      <div class="related-card-overlay">
+        <span class="related-tag">Témoignage</span>
+        <span class="related-client">Pierre Fabre</span>
+      </div>
+      <div class="related-card-hover">
+        <span class="related-tag">Témoignage · Santé</span>
+        <p class="related-title-text">Comment s'y prendre face à la carence en fer ?</p>
+        <button class="related-open-btn">
+          Découvrir
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- Related card 2 — opens modal -->
+    <div class="related-card" onclick="openRelated('radio-veeva')" role="button" tabindex="0" aria-label="Ouvrir le projet Radio Veeva">
+      <div class="related-bg" style="background:linear-gradient(160deg,#1a1000 0%,#3d2800 40%,#7a5010 100%)"></div>
+      <div class="related-card-overlay">
+        <span class="related-tag">Chronique</span>
+        <span class="related-client">Abbvie — Radio Veeva</span>
+      </div>
+      <div class="related-card-hover">
+        <span class="related-tag">Chronique · Formation</span>
+        <p class="related-title-text">3 minutes pour rafraîchir les connaissances de ses collaborateurs</p>
+        <button class="related-open-btn">
+          Découvrir
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- Related card 3 — opens modal -->
+    <div class="related-card" onclick="openRelated('yoag')" role="button" tabindex="0" aria-label="Ouvrir le projet Yoäg">
+      <div class="related-bg" style="background:linear-gradient(160deg,#0a1a0a 0%,#1a4a2a 40%,#2a8050 100%)"></div>
+      <div class="related-card-overlay">
+        <span class="related-tag">Immersif</span>
+        <span class="related-client">Yoäg</span>
+      </div>
+      <div class="related-card-hover">
+        <span class="related-tag">Immersif · Well-being</span>
+        <p class="related-title-text">Carnets de voyages méditatifs avec le yoga en toile de fond</p>
+        <button class="related-open-btn">
+          Découvrir
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ═══ 9. CONTEXTUAL CTA ═══ -->
+<section class="prod-cta" id="contact" aria-labelledby="cta-heading">
+  <div class="reveal">
+    <h2 class="prod-cta-title" id="cta-heading">
+      Vous évoluez<br>dans la <span>santé ?</span>
+    </h2>
+    <p class="prod-cta-body">
+      Vous cherchez à engager vos audiences — patients, soignants, collaborateurs — avec un contenu qui sort du bruit ambiant ? Parlons-en. 20 minutes suffisent pour savoir si le podcast est fait pour vous.
+    </p>
+  </div>
+  <form class="cta-form reveal reveal-d1" onsubmit="return false;" aria-label="Formulaire de contact contextuel">
+    <div class="form-field">
+      <label for="cta-nom">Votre nom</label>
+      <input type="text" id="cta-nom" placeholder="Sophie Martin" autocomplete="name" />
+    </div>
+    <div class="form-field">
+      <label for="cta-email">Votre email</label>
+      <input type="email" id="cta-email" placeholder="sophie@entreprise.fr" autocomplete="email" />
+    </div>
+    <div class="form-field">
+      <label for="cta-msg">Votre projet en quelques mots</label>
+      <textarea id="cta-msg" placeholder="Secteur, objectif, contexte..."></textarea>
+    </div>
+    <button class="btn-cta-submit" type="submit">Réserver ma visio de 20 min</button>
+  </form>
+</section>
+
+<!-- FOOTER -->
+<footer role="contentinfo">
+  <div class="footer-logo">Sons & Merveilles</div>
+  <nav aria-label="Liens footer">
+    <ul class="footer-links">
+      <li><a href="/">Accueil</a></li>
+      <li><a href="/realisations">Réalisations</a></li>
+      <li><a href="/equipe">Équipe</a></li>
+      <li><a href="#">Mentions légales</a></li>
+    </ul>
+  </nav>
+  <p class="footer-copy">© 2025 Sons & Merveilles</p>
+</footer>
+
+<!-- ═══ RELATED MODAL ═══ -->
+<div class="modal-overlay" id="relatedModal" role="dialog" aria-modal="true" onclick="handleOverlay(event)">
+  <div class="modal">
+    <div class="modal-visual">
+      <div class="modal-artwork" id="rm-artwork"></div>
+      <div class="modal-tags-abs">
+        <span class="mtag f" id="rm-format">Témoignage</span>
+        <span class="mtag s" id="rm-sector">Santé</span>
+      </div>
+      <div class="modal-art-wave">
+        <div class="mwb" style="--d:.9s;--dl:0s;--h:22px"></div><div class="mwb" style="--d:1.1s;--dl:.08s;--h:38px"></div><div class="mwb" style="--d:.8s;--dl:.04s;--h:14px"></div><div class="mwb" style="--d:1.2s;--dl:.14s;--h:30px"></div><div class="mwb" style="--d:1s;--dl:.06s;--h:46px"></div><div class="mwb" style="--d:.95s;--dl:.1s;--h:18px"></div><div class="mwb" style="--d:1.1s;--dl:.02s;--h:34px"></div><div class="mwb" style="--d:.85s;--dl:.18s;--h:10px"></div>
+      </div>
+      <button class="modal-close-btn" onclick="closeRelated()" aria-label="Fermer">
+        <svg width="13" height="13" viewBox="0 0 13 13" fill="none"><path d="M1 1l11 11M12 1L1 12" stroke-width="1.5" stroke-linecap="round"/></svg>
+      </button>
+    </div>
+    <div class="modal-content">
+      <p class="mc-client" id="rm-client"></p>
+      <h2 class="mc-title" id="rm-title"></h2>
+      <div class="mc-divider"></div>
+      <p class="mc-desc" id="rm-desc"></p>
+      <p class="mc-audio-label">Écouter un extrait</p>
+      <div class="mc-spotify">
+        <div class="mc-sp-inner">
+          <div class="mc-sp-icon">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="white"><path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.521 17.34c-.24.359-.66.48-1.021.24-2.82-1.74-6.36-2.101-10.561-1.141-.418.122-.779-.179-.899-.539-.12-.421.18-.78.54-.9 4.56-1.021 8.52-.6 11.64 1.32.42.18.479.659.301 1.02zm1.44-3.3c-.301.42-.841.6-1.262.3-3.239-1.98-8.159-2.58-11.939-1.38-.479.12-1.02-.12-1.14-.6-.12-.48.12-1.021.6-1.141C9.6 9.9 15 10.561 18.72 12.84c.361.181.54.78.241 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.301c-.6.179-1.2-.181-1.38-.721-.18-.601.18-1.2.72-1.381 4.26-1.26 11.28-1.02 15.721 1.621.539.3.719 1.02.419 1.56-.299.421-1.02.599-1.559.3z"/></svg>
+          </div>
+          <div>
+            <div class="mc-sp-track" id="rm-track">Épisode disponible sur Spotify</div>
+            <div class="mc-sp-show" id="rm-show">Sons & Merveilles</div>
+          </div>
+        </div>
+      </div>
+      <div class="mc-ctas">
+        <a href="#" class="btn-mc-primary" id="rm-page-cta" style="display:none">
+          <span>En savoir plus sur le projet</span>
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7h10M8 3l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+        <a href="/contact" class="btn-mc-secondary">Parlons de votre projet</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+// Cursor
+const cur=document.getElementById('cur'),ring=document.getElementById('cur-ring');
+let mx=0,my=0,rx=0,ry=0;
+document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;cur.style.left=mx+'px';cur.style.top=my+'px';});
+(function l(){rx+=(mx-rx)*.1;ry+=(my-ry)*.1;ring.style.left=rx+'px';ring.style.top=ry+'px';requestAnimationFrame(l);})();
+
+window.addEventListener('scroll',()=>document.getElementById('nav').classList.toggle('scrolled',scrollY>60));
+
+// Reveal
+const obs=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');obs.unobserve(e.target);}}),{threshold:.1});
+document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+
+// Related projects data
+// NEXT.JS NOTE: This data comes from Sanity CMS — passed as props to the component
+const related = {
+  'pierre-fabre': {
+    client:  'Laboratoires Pierre Fabre',
+    title:   'Comment s\'y prendre face à la carence en fer ?',
+    format:  'Témoignage', sector: 'Santé',
+    desc:    'En suivant Séverine dans son quotidien, Sons & Merveilles a créé un récit en immersion pour aider à reconnaître la carence en fer et inciter les femmes à en parler à leur médecin.',
+    artwork: 'linear-gradient(160deg,#0a1828 0%,#1a3a5c 40%,#205090 100%)',
+    track:   'Épisode 1 — Séverine, 33 ans', show: 'Parlons Fer · Pierre Fabre',
+    hasPage: false, pageUrl: null,
+  },
+  'radio-veeva': {
+    client:  'Abbvie — Usage Interne',
+    title:   'Radio Veeva — 3 minutes pour maîtriser son CRM',
+    format:  'Chronique', sector: 'Formation',
+    desc:    'Un podcast interne sous forme de chronique radio pour rafraîchir les connaissances des équipes médicales et commerciales d\'Abbvie sur leur logiciel CRM. 400 collaborateurs, 3 minutes par épisode.',
+    artwork: 'linear-gradient(160deg,#1a1000 0%,#3d2800 40%,#7a5010 100%)',
+    track:   'Ep. 3 — La gestion des contacts', show: 'Radio Veeva · Abbvie',
+    hasPage: true, pageUrl: '/realisations/radio-veeva',
+  },
+  'yoag': {
+    client:  'Yoäg',
+    title:   'Carnets de voyages méditatifs avec le yoga en toile de fond',
+    format:  'Immersif', sector: 'Well-being',
+    desc:    'Une série sonore immersive qui transporte l\'auditeur dans des espaces de sérénité à travers le monde, avec le yoga comme fil conducteur. Un univers sonore entre voyage et méditation.',
+    artwork: 'linear-gradient(160deg,#0a1a0a 0%,#1a4a2a 40%,#2a8050 100%)',
+    track:   'Épisode 1 — Bali, l\'île des dieux', show: 'Carnets Yoäg',
+    hasPage: false, pageUrl: null,
+  }
+};
+
+function openRelated(key) {
+  const p = related[key];
+  document.getElementById('rm-client').textContent  = p.client;
+  document.getElementById('rm-title').textContent   = p.title;
+  document.getElementById('rm-desc').textContent    = p.desc;
+  document.getElementById('rm-format').textContent  = p.format;
+  document.getElementById('rm-sector').textContent  = p.sector;
+  document.getElementById('rm-artwork').style.background = p.artwork;
+  document.getElementById('rm-track').textContent   = p.track;
+  document.getElementById('rm-show').textContent    = p.show;
+  const cta = document.getElementById('rm-page-cta');
+  if (p.hasPage) { cta.style.display='flex'; cta.href=p.pageUrl; }
+  else { cta.style.display='none'; }
+  document.getElementById('relatedModal').classList.add('open');
+  document.body.style.overflow='hidden';
+}
+function closeRelated() {
+  document.getElementById('relatedModal').classList.remove('open');
+  document.body.style.overflow='';
+}
+function handleOverlay(e) {
+  if(e.target===document.getElementById('relatedModal')) closeRelated();
+}
+document.addEventListener('keydown',e=>{ if(e.key==='Escape') closeRelated(); });
+</script>
+</body>
+</html>

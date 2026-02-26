@@ -1,0 +1,614 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Pourquoi un Podcast de Marque ? | Sons & Merveilles | Agence Audio</title>
+<meta name="description" content="Découvrez pourquoi le podcast renforce l'image de marque : stats, cas clients (Abbvie, Pierre Fabre), formats et conseils pour lancer votre stratégie audio d'entreprise." />
+<meta name="keywords" content="pourquoi podcast de marque, podcast stratégie communication, podcast image de marque, branded podcast France, podcast entreprise exemples, podcast santé pharma RSE" />
+<meta name="robots" content="index, follow" />
+<link rel="canonical" href="https://www.sonsetmerveilles.fr/pourquoi-le-podcast" />
+<meta property="og:title" content="Pourquoi un Podcast de Marque ? | Sons & Merveilles" />
+  <meta property="og:description" content="76% des auditeurs estiment que le podcast est un bon moyen de communiquer pour une marque. 44% des Français en écoutent. Découvrez pourquoi Sons &amp; Merveilles en fait depuis 2020." />
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Pourquoi utiliser un podcast pour sa marque ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Le podcast permet de communiquer votre vision, porter vos valeurs, attirer des talents, partager votre expertise et créer du lien avec votre communauté. C'est le média qui génère le plus d'attention et de fidélité auprès de son audience."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Quels secteurs peuvent utiliser le podcast de marque ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Tous les secteurs peuvent bénéficier d'un podcast de marque : santé, pharma, RSE, formation, innovation, marque employeur et communication interne. Sons & Merveilles a produit des podcasts pour Abbvie, Pierre Fabre, Philips, Sanofi, GSK et bien d'autres."
+      }
+    }
+  ]
+}
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+<style>
+:root {
+  --yellow: #F5C518;
+  --red:    #E8273A;
+  --black:  #0A0A0A;
+  --white:  #F7F4EE;
+  --gray:   #1A1A1A;
+  --mid:    #242424;
+}
+*, *::before, *::after { box-sizing:border-box; margin:0; padding:0; }
+html { scroll-behavior:smooth; }
+body { background:var(--black); color:var(--white); font-family:'DM Sans',sans-serif; overflow-x:hidden; cursor:none; }
+
+/* ── CURSOR ── */
+#cur { position:fixed; width:10px; height:10px; background:var(--yellow); border-radius:50%; pointer-events:none; z-index:9999; transform:translate(-50%,-50%); mix-blend-mode:difference; }
+#cur-ring { position:fixed; width:38px; height:38px; border:1.5px solid var(--yellow); border-radius:50%; pointer-events:none; z-index:9998; transform:translate(-50%,-50%); opacity:.45; transition:width .25s,height .25s; }
+
+/* ── NAV ── */
+nav { position:fixed; top:0; left:0; right:0; z-index:100; display:flex; align-items:center; justify-content:space-between; padding:24px 48px; transition:background .3s; }
+nav.scrolled { background:rgba(10,10,10,.88); backdrop-filter:blur(16px); border-bottom:1px solid rgba(255,255,255,.05); }
+.nav-logo { font-family:'Bebas Neue',sans-serif; font-size:1.4rem; letter-spacing:.12em; color:var(--white); text-decoration:none; display:flex; align-items:center; gap:10px; }
+.logo-dot { width:10px; height:10px; background:var(--yellow); border-radius:50%; animation:pulse 2s infinite; }
+@keyframes pulse { 0%,100%{transform:scale(1);} 50%{transform:scale(1.6);opacity:.5;} }
+.nav-links { display:flex; gap:36px; list-style:none; }
+.nav-links a { color:var(--white); text-decoration:none; font-size:.82rem; font-weight:500; letter-spacing:.12em; text-transform:uppercase; opacity:.6; transition:opacity .2s; }
+.nav-links a:hover,.nav-links a.active { opacity:1; }
+.nav-cta { background:var(--yellow); color:var(--black)!important; opacity:1!important; padding:10px 24px; border-radius:2px; }
+
+@keyframes fadeUp { from{opacity:0;transform:translateY(28px);} to{opacity:1;transform:translateY(0);} }
+
+/* ── HERO ── */
+.hero {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 120px 48px 80px;
+  position: relative;
+  overflow: hidden;
+}
+/* Animated background bars */
+.hero-bars {
+  position:absolute; inset:0; display:flex; align-items:flex-end; gap:6px; padding:0 48px; z-index:0; opacity:.07;
+}
+.hero-bar {
+  flex:1; background:var(--yellow); border-radius:3px 3px 0 0;
+  animation:barAnim var(--d,1s) ease-in-out infinite alternate;
+  animation-delay:var(--dl,0s);
+}
+@keyframes barAnim { from{height:20%;} to{height:var(--h,70%);} }
+
+.hero-content { position:relative; z-index:2; }
+
+
+.hero-title {
+  font-family:'Bebas Neue',sans-serif;
+  font-size:clamp(4rem,10vw,9.5rem);
+  line-height:.9;
+  color:var(--white);
+  opacity:0; animation:fadeUp .9s .35s forwards;
+}
+.hero-title span { color:var(--yellow); }
+.hero-title em { font-style:normal; -webkit-text-stroke:1px var(--white); color:transparent; }
+
+.hero-bottom {
+  margin-top:48px; display:flex; align-items:flex-end; justify-content:space-between; gap:40px;
+  opacity:0; animation:fadeUp .8s .6s forwards;
+}
+.hero-claim {
+  font-family:'Playfair Display',serif; font-style:italic;
+  font-size:1.3rem; color:rgba(247,244,238,.7); line-height:1.6; max-width:480px;
+}
+.hero-cta {
+  background:var(--red); color:var(--white); padding:18px 40px;
+  font-size:.82rem; font-weight:500; letter-spacing:.12em; text-transform:uppercase;
+  border-radius:2px; text-decoration:none; white-space:nowrap;
+  display:inline-flex; align-items:center; gap:10px;
+  transition:transform .2s,box-shadow .2s;
+  flex-shrink:0;
+}
+.hero-cta:hover { transform:translateY(-3px); box-shadow:0 12px 32px rgba(232,39,58,.4); }
+
+/* ── STATS BAND ── */
+.stats-band {
+  background:var(--yellow); padding:0 48px;
+  border-top:none;
+}
+.stats-grid {
+  display:grid; grid-template-columns:repeat(3,1fr);
+}
+.stat-block {
+  padding:56px 40px; border-right:1px solid rgba(10,10,10,.15);
+  display:flex; flex-direction:column; gap:12px;
+}
+.stat-block:last-child { border-right:none; }
+.stat-number {
+  font-family:'Bebas Neue',sans-serif; font-size:clamp(3.5rem,7vw,6rem);
+  line-height:1; color:var(--black);
+}
+.stat-number sup { font-size:.4em; vertical-align:top; margin-top:.3em; }
+.stat-desc { font-size:.9rem; color:rgba(10,10,10,.7); line-height:1.5; max-width:220px; }
+.stats-source {
+  border-top:1px solid rgba(10,10,10,.12);
+  padding:14px 40px;
+  font-size:.65rem; color:rgba(10,10,10,.45); letter-spacing:.12em; text-transform:uppercase;
+  text-align:right;
+}
+
+/* ── WHY LIST ── */
+.why-section {
+  padding:120px 48px; display:grid; grid-template-columns:1fr 1fr; gap:80px; align-items:start; background:var(--gray);
+}
+.why-left {}
+.section-eyebrow { font-size:.7rem; letter-spacing:.26em; text-transform:uppercase; color:var(--yellow); font-weight:500; display:flex; align-items:center; gap:12px; margin-bottom:24px; }
+.section-eyebrow::before { content:''; width:30px; height:1px; background:var(--yellow); }
+.why-title { font-family:'Bebas Neue',sans-serif; font-size:clamp(3rem,6vw,5.5rem); line-height:.93; color:var(--white); }
+.why-title span { color:var(--yellow); }
+.why-sub { margin-top:24px; font-size:1rem; line-height:1.75; color:rgba(247,244,238,.6); }
+.why-epigraph { font-family:'Playfair Display',serif; font-size:.95rem; line-height:1.75; color:rgba(247,244,238,.5); margin-bottom:32px; padding-left:20px; border-left:2px solid rgba(245,197,24,.35); }
+
+.why-right {}
+.why-list { display:flex; flex-direction:column; gap:0; margin-top:0; }
+.why-item {
+  display:grid;
+  grid-template-columns:28px 1fr 24px;
+  align-items:center; gap:0 20px;
+  padding:22px 0; border-bottom:1px solid rgba(255,255,255,.07);
+  transition:padding-left .3s, background .2s;
+  cursor:pointer;
+}
+.why-item:hover { padding-left:12px; }
+.why-item:hover .why-arrow { opacity:1; transform:translateX(0); }
+.why-item.open { padding-left:12px; background:rgba(245,197,24,.04); border-radius:4px; padding-right:12px; padding-bottom:18px; }
+.why-item.open .why-arrow { opacity:1; transform:rotate(90deg); }
+.why-num { font-family:'Bebas Neue',sans-serif; font-size:1rem; color:var(--yellow); opacity:.5; align-self:start; padding-top:2px; }
+.why-text { font-size:1.05rem; font-weight:400; color:var(--white); }
+.why-arrow { opacity:0; transform:translateX(-8px); transition:opacity .25s, transform .3s; justify-self:end; align-self:start; padding-top:2px; }
+.why-arrow svg { stroke:var(--yellow); }
+.why-expand {
+  grid-column:2 / 3;
+  max-height:0;
+  overflow:hidden;
+  font-size:.88rem; line-height:1.75; color:rgba(247,244,238,.55);
+  transition:max-height .4s ease, margin-top .4s ease;
+  margin-top:0;
+}
+.why-item.open .why-expand {
+  max-height:200px;
+  margin-top:12px;
+}
+
+/* ── CASES ── */
+.cases { padding:0 0 0; background:var(--black); }
+.cases-header { padding:100px 48px 60px; }
+.cases-title { font-family:'Bebas Neue',sans-serif; font-size:clamp(3rem,6vw,5.5rem); line-height:.93; color:var(--white); }
+.cases-title span { color:var(--yellow); }
+
+.case-block {
+  display:grid; grid-template-columns:1fr 1fr; min-height:520px;
+  border-top:1px solid rgba(255,255,255,.06);
+}
+.case-block.reverse { direction:rtl; }
+.case-block.reverse > * { direction:ltr; }
+
+.case-visual {
+  position:relative; overflow:hidden;
+  min-height:400px;
+  display:flex; align-items:center; justify-content:center;
+}
+/* Gradient backgrounds sampled from each artwork */
+.cv-bg-1 {
+  position:absolute; inset:0;
+  background: radial-gradient(ellipse at 60% 40%, #c04040 0%, #7a2020 45%, #2a0c0c 100%);
+}
+.cv-bg-2 {
+  position:absolute; inset:0;
+  background: radial-gradient(ellipse at 40% 50%, #c8d0b8 0%, #6e7860 45%, #2a2e28 100%);
+}
+.cv-bg-3 {
+  position:absolute; inset:0;
+  background: radial-gradient(ellipse at 50% 30%, #4db8e0 0%, #1e6a9a 45%, #0e1e36 100%);
+}
+.case-cover {
+  position:relative; z-index:1;
+  width:clamp(200px, 55%, 340px);
+  aspect-ratio:1/1;
+  background-size:contain; background-repeat:no-repeat; background-position:center;
+  border-radius:6px;
+  box-shadow:0 24px 64px rgba(0,0,0,.55);
+  transition:transform .5s ease;
+  flex-shrink:0;
+}
+.case-block:hover .case-cover { transform:scale(1.04) translateY(-6px); }
+.cv-1 { background-image:url('Cancers_du_sang.png'); }
+.cv-2 { background-image:url('VIGNETTE_MANQUEDEFER_V5.png'); }
+.cv-3 { background-image:url('Veeva-le_crm.png'); }
+
+.case-cover-label {
+  position:absolute; bottom:24px; left:24px; z-index:2;
+  font-family:'Bebas Neue',sans-serif; font-size:4rem; line-height:1;
+  color:rgba(255,255,255,.1); pointer-events:none; user-select:none;
+}
+.case-tag {
+  position:absolute; top:24px; left:24px; z-index:2;
+  background:var(--yellow); color:var(--black);
+  font-size:.65rem; font-weight:600; letter-spacing:.16em; text-transform:uppercase;
+  padding:6px 14px; border-radius:2px;
+}
+
+.case-content {
+  padding:64px 56px; display:flex; flex-direction:column; justify-content:center; background:var(--mid);
+}
+.case-client { font-size:.7rem; letter-spacing:.22em; text-transform:uppercase; color:var(--yellow); font-weight:600; margin-bottom:20px; }
+.case-title { font-family:'Playfair Display',serif; font-size:clamp(1.5rem,2.5vw,2.2rem); font-weight:400; line-height:1.25; color:var(--white); margin-bottom:24px; }
+.case-body { font-size:.92rem; line-height:1.8; color:rgba(247,244,238,.65); }
+.case-result {
+  margin-top:32px; display:inline-flex; align-items:center; gap:16px;
+  background:rgba(245,197,24,.08); border:1px solid rgba(245,197,24,.2);
+  border-radius:4px; padding:16px 20px;
+}
+.case-result-num { font-family:'Bebas Neue',sans-serif; font-size:2.2rem; color:var(--yellow); line-height:1; }
+.case-result-label { font-size:.8rem; color:rgba(247,244,238,.6); line-height:1.4; }
+
+/* ── CLIENTS ── */
+.clients { background:var(--gray); padding:100px 48px; }
+.clients-title { font-family:'Bebas Neue',sans-serif; font-size:clamp(2.5rem,5vw,4.5rem); line-height:.93; color:var(--white); margin-bottom:60px; }
+.clients-title span { color:var(--yellow); }
+.clients-grid {
+  display:grid; grid-template-columns:repeat(5,1fr); gap:2px;
+}
+.client-tile {
+  background:var(--mid); padding:40px 24px;
+  display:flex; align-items:center; justify-content:center;
+  transition:background .25s;
+  cursor:none;
+}
+.client-tile:hover { background:#2e2e2e; }
+.client-name {
+  font-family:'Bebas Neue',sans-serif; font-size:1.3rem; letter-spacing:.1em;
+  color:rgba(247,244,238,.35); transition:color .25s; text-align:center;
+}
+.client-tile:hover .client-name { color:var(--yellow); }
+
+/* ── CTA ── */
+.cta { background:var(--red); padding:100px 48px; display:grid; grid-template-columns:1fr 1fr; gap:80px; align-items:center; }
+.cta-title { font-family:'Bebas Neue',sans-serif; font-size:clamp(3rem,7vw,6rem); line-height:.93; color:var(--white); }
+.cta-title span { color:var(--yellow); display:block; }
+.cta-form { display:flex; flex-direction:column; gap:16px; }
+.form-row { display:grid; grid-template-columns:1fr 1fr; gap:16px; }
+.form-field { display:flex; flex-direction:column; gap:8px; }
+.form-field label { font-size:.68rem; letter-spacing:.2em; text-transform:uppercase; color:rgba(247,244,238,.6); font-weight:500; }
+.form-field input,.form-field textarea { background:rgba(0,0,0,.2); border:1px solid rgba(247,244,238,.2); border-radius:2px; padding:13px 16px; color:var(--white); font-family:'DM Sans',sans-serif; font-size:.92rem; outline:none; resize:none; transition:border-color .2s; }
+.form-field input:focus,.form-field textarea:focus { border-color:var(--yellow); }
+.form-field textarea { min-height:110px; }
+.btn-submit { align-self:flex-start; background:var(--yellow); color:var(--black); border:none; padding:16px 38px; font-family:'DM Sans',sans-serif; font-size:.82rem; font-weight:600; letter-spacing:.12em; text-transform:uppercase; border-radius:2px; cursor:none; margin-top:8px; transition:transform .2s,box-shadow .2s; }
+.btn-submit:hover { transform:translateY(-3px); box-shadow:0 12px 32px rgba(0,0,0,.3); }
+
+/* ── FOOTER ── */
+footer { background:var(--black); padding:56px 48px; display:flex; align-items:center; justify-content:space-between; border-top:1px solid rgba(255,255,255,.06); }
+.footer-logo { font-family:'Bebas Neue',sans-serif; font-size:1.4rem; letter-spacing:.12em; color:var(--white); }
+.footer-links { display:flex; gap:32px; list-style:none; }
+.footer-links a { color:rgba(247,244,238,.4); text-decoration:none; font-size:.78rem; letter-spacing:.12em; text-transform:uppercase; transition:color .2s; }
+.footer-links a:hover { color:var(--yellow); }
+.footer-copy { font-size:.75rem; color:rgba(247,244,238,.25); }
+
+/* ── REVEAL ── */
+.reveal { opacity:0; transform:translateY(40px); transition:opacity .8s ease,transform .8s ease; }
+.reveal.in { opacity:1; transform:none; }
+.reveal-d1 { transition-delay:.15s; }
+.reveal-d2 { transition-delay:.3s; }
+
+/* ── RESPONSIVE ── */
+@media (max-width:1024px) {
+  .cases-title { font-size:clamp(2.5rem,6vw,4rem); }
+  .clients-grid { grid-template-columns:repeat(3,1fr); }
+}
+@media (max-width:768px) {
+  nav { padding:18px 24px; }
+  .nav-links { display:none; }
+  .hero { grid-template-columns:1fr; min-height:auto; padding:120px 24px 60px; }
+  .hero-bg-letter { display:none; }
+  .hero-bottom { flex-direction:column; gap:28px; align-items:flex-start; }
+  .stats-band { padding:0 24px; }
+  .stats-grid { grid-template-columns:1fr; }
+  .stat-block { border-right:none; border-bottom:1px solid rgba(10,10,10,.15); padding:36px 0; }
+  .stat-block:last-child { border-bottom:none; }
+  .stats-source { padding:14px 0; text-align:left; }
+  .why-section { grid-template-columns:1fr; gap:48px; padding:80px 24px; }
+  .cases-header { padding:60px 24px 40px; }
+  .case-block { grid-template-columns:1fr; }
+  .case-block.reverse { direction:ltr; }
+  .case-visual { min-height:240px; }
+  .case-content { padding:40px 24px; }
+  .clients { padding:80px 24px; }
+  .clients-grid { grid-template-columns:repeat(2,1fr); }
+  .cta { grid-template-columns:1fr; gap:48px; padding:80px 24px; }
+  .form-row { grid-template-columns:1fr; }
+  footer { flex-direction:column; gap:28px; text-align:center; padding:40px 24px; }
+  .footer-links { flex-wrap:wrap; justify-content:center; gap:16px; }
+}
+</style>
+</head>
+<body>
+
+<div id="cur"></div>
+<div id="cur-ring"></div>
+
+<!-- NAV -->
+<nav id="nav">
+  <a href="index.html" class="nav-logo"><span class="logo-dot"></span>Sons & Merveilles</a>
+  <ul class="nav-links">
+    <li><a href="#" class="active">Pourquoi un podcast ?</a></li>
+    <li><a href="portfolio.html">Réalisations</a></li>
+    <li><a href="#">Équipe</a></li>
+    <li><a href="#contact" class="nav-cta">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bars">
+    <div class="hero-bar" style="--d:.9s;--dl:0s;--h:55%"></div>
+    <div class="hero-bar" style="--d:1.2s;--dl:.1s;--h:80%"></div>
+    <div class="hero-bar" style="--d:.8s;--dl:.05s;--h:40%"></div>
+    <div class="hero-bar" style="--d:1.1s;--dl:.2s;--h:70%"></div>
+    <div class="hero-bar" style="--d:1.3s;--dl:.08s;--h:90%"></div>
+    <div class="hero-bar" style="--d:.95s;--dl:.15s;--h:50%"></div>
+    <div class="hero-bar" style="--d:1s;--dl:.04s;--h:65%"></div>
+    <div class="hero-bar" style="--d:.85s;--dl:.18s;--h:35%"></div>
+    <div class="hero-bar" style="--d:1.15s;--dl:.12s;--h:75%"></div>
+    <div class="hero-bar" style="--d:1s;--dl:.07s;--h:60%"></div>
+    <div class="hero-bar" style="--d:.9s;--dl:.22s;--h:45%"></div>
+    <div class="hero-bar" style="--d:1.2s;--dl:.03s;--h:85%"></div>
+  </div>
+
+  <div class="hero-content">
+    <h1 class="hero-title">
+      Pourquoi<br>
+      le <span>podcast</span><br>
+      <em>renforce</em>-t-il<br>
+      l'image de marque ?
+    </h1>
+
+    <div class="hero-bottom">
+      <p class="hero-claim">
+        Et comment s'en servir ?
+      </p>
+      <a href="#why" class="hero-cta">
+        Découvrir pourquoi
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- STATS BAND -->
+<div class="stats-band reveal">
+  <div class="stats-grid">
+    <div class="stat-block">
+      <div class="stat-number">76<sup>%</sup></div>
+      <div class="stat-desc">des auditeurs estiment que proposer des podcasts est un bon moyen de communiquer pour une marque</div>
+    </div>
+    <div class="stat-block">
+      <div class="stat-number">44<sup>%</sup></div>
+      <div class="stat-desc">des Français écoutent des podcasts</div>
+    </div>
+    <div class="stat-block">
+      <div class="stat-number">2/3</div>
+      <div class="stat-desc">des auditeurs en consomment chaque semaine</div>
+    </div>
+  </div>
+  <div class="stats-source">Source : CSA × APCM, nov. 2024</div>
+</div>
+
+<!-- WHY SECTION -->
+<section class="why-section" id="why">
+  <div class="why-left reveal">
+    <div class="section-eyebrow">Le pouvoir du son</div>
+    <h2 class="why-title">Le podcast,<br>c'est le media<br>pour <span>tout ça</span></h2>
+    <p class="why-sub">Une voix laisse entendre ce qu'on ne peut pas fabriquer : la personnalité, la conviction, l'émotion sincère. Le podcast est le seul format qui donne le temps, pas quinze secondes de vidéo, mais le temps d'une vraie conversation. Ce temps-là construit quelque chose que l'image ne peut pas.</p>
+  </div>
+  <div class="why-right reveal reveal-d1">
+    <p class="why-epigraph"><em>Le storytelling audio fait la différence entre un contenu qu'on subit et un contenu qu'on choisit d'écouter.</em></p>
+    <div class="why-list">
+      <div class="why-item" data-why>
+        <span class="why-num">01</span>
+        <span class="why-text">Communiquer votre vision</span>
+        <span class="why-arrow"><svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M3 9h12M11 5l4 4-4 4" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        <div class="why-expand">Un podcast de marque est l'espace idéal pour exprimer ce en quoi vous croyez, au-delà du produit ou du service. Votre dirigeant, vos experts, vos équipes : autant de voix qui donnent corps à votre projet d'entreprise.</div>
+      </div>
+      <div class="why-item" data-why>
+        <span class="why-num">02</span>
+        <span class="why-text">Porter vos valeurs</span>
+        <span class="why-arrow"><svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M3 9h12M11 5l4 4-4 4" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        <div class="why-expand">RSE, inclusion, innovation responsable : le format audio permet d'incarner vos engagements sans les survendre. Une conversation sincère vaut mieux qu'un discours institutionnel.</div>
+      </div>
+      <div class="why-item" data-why>
+        <span class="why-num">03</span>
+        <span class="why-text">Faire connaître vos engagements</span>
+        <span class="why-arrow"><svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M3 9h12M11 5l4 4-4 4" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        <div class="why-expand">Une campagne de sensibilisation prend une autre dimension quand elle donne la parole à ceux qui la vivent de l'intérieur. Patients, collaborateurs, partenaires : leurs voix font plus que n'importe quel communiqué.</div>
+      </div>
+      <div class="why-item" data-why>
+        <span class="why-num">04</span>
+        <span class="why-text">Attirer des talents</span>
+        <span class="why-arrow"><svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M3 9h12M11 5l4 4-4 4" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        <div class="why-expand">Un podcast de marque employeur donne à entendre ce que c'est que de travailler chez vous. Concret, humain, sans filtre RH : il attire les bons profils avant même le premier entretien.</div>
+      </div>
+      <div class="why-item" data-why>
+        <span class="why-num">05</span>
+        <span class="why-text">Partager votre expertise</span>
+        <span class="why-arrow"><svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M3 9h12M11 5l4 4-4 4" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        <div class="why-expand">Vos équipes savent des choses que vos clients veulent entendre. Un podcast de thought leadership installe votre marque comme référence dans son secteur, épisode après épisode.</div>
+      </div>
+      <div class="why-item" data-why>
+        <span class="why-num">06</span>
+        <span class="why-text">Créer du lien avec votre communauté</span>
+        <span class="why-arrow"><svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M3 9h12M11 5l4 4-4 4" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        <div class="why-expand">Le trajet, la cuisine, la salle de sport : des moments que la marque n'atteint pas autrement. Le podcast s'y glisse naturellement, créant une proximité que les autres formats ne peuvent pas offrir.</div>
+      </div>
+      <div class="why-item" data-why>
+        <span class="why-num">07</span>
+        <span class="why-text">Donner confiance</span>
+        <span class="why-arrow"><svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M3 9h12M11 5l4 4-4 4" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        <div class="why-expand">La voix ne triche pas. Quand un expert parle avec conviction, quand un patient raconte sa réalité, l'auditeur le sent. Le podcast humanise votre marque et renforce sa crédibilité de façon durable.</div>
+      </div>
+      <div class="why-item" data-why>
+        <span class="why-num">08</span>
+        <span class="why-text">Susciter la curiosité</span>
+        <span class="why-arrow"><svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M3 9h12M11 5l4 4-4 4" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        <div class="why-expand">Un bon podcast donne envie d'en savoir plus : sur votre produit, votre métier, vos gens. C'est un outil d'éveil à votre univers, qui transforme un inconnu en prospect curieux et un prospect curieux en client fidèle.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CASE STUDIES -->
+<section class="cases">
+  <div class="cases-header reveal">
+    <div class="section-eyebrow">À quoi ça ressemble, concrètement</div>
+    <h2 class="cases-title">Ils se sont lancés.<br><span>Voici les résultats.</span></h2>
+  </div>
+
+  <!-- Case 1: Abbvie -->
+  <div class="case-block reveal">
+    <div class="case-visual">
+      <div class="cv-bg-1"></div>
+      <div class="case-cover cv-1"></div>
+      <div class="case-cover-label">Abbvie</div>
+      <div class="case-tag">Sensibiliser</div>
+    </div>
+    <div class="case-content">
+      <div class="case-client">Abbvie × LauMa Communication</div>
+      <h3 class="case-title">Paroles de patients pour le mois des cancers du sang</h3>
+      <p class="case-body">En 2021, Abbvie souhaite faire connaître le mois des cancers du sang et mettre en avant les associations de patients qu'elle soutient. Sons & Merveilles crée une série de témoignages humains, intimes, puissants.</p>
+      <div class="case-result">
+        <div class="case-result-num">130 000</div>
+        <div class="case-result-label">écoutes · 5 saisons<br>2 prix communication santé</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Case 2: Pierre Fabre -->
+  <div class="case-block reverse reveal">
+    <div class="case-visual">
+      <div class="cv-bg-2"></div>
+      <div class="case-cover cv-2"></div>
+      <div class="case-cover-label" style="font-size:1.8rem;">LABORATOIRES PIERRE FABRE</div>
+      <div class="case-tag">Convaincre</div>
+    </div>
+    <div class="case-content">
+      <div class="case-client">Laboratoires Pierre Fabre</div>
+      <h3 class="case-title">Comment s'y prendre face à la carence en fer ?</h3>
+      <p class="case-body">De nombreuses femmes passent à côté d'un traitement faute de consulter. En suivant Séverine dans son quotidien, Sons & Merveilles a imaginé un récit en immersion pour aider à reconnaître le manque de fer, et inciter à consulter. Un podcast au cœur d'un dispositif complet sur <strong>parlonsfer.fr</strong></p>
+      <div class="case-result">
+        <div class="case-result-num">15 000</div>
+        <div class="case-result-label">écoutes<br>Récit en 4 épisodes</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Case 3: Radio Veeva -->
+  <div class="case-block reveal">
+    <div class="case-visual">
+      <div class="cv-bg-3"></div>
+      <div class="case-cover cv-3"></div>
+      <div class="case-cover-label">Veeva</div>
+      <div class="case-tag">(In)former</div>
+    </div>
+    <div class="case-content">
+      <div class="case-client">Abbvie · Usage Interne</div>
+      <h3 class="case-title">3 minutes pour rafraîchir les connaissances de ses collaborateurs</h3>
+      <p class="case-body">Quand le logiciel CRM est utilisé par 400 collaborateurs terrain, tout bug de connaissance coûte cher. Sons & Merveilles crée Radio Veeva : un podcast interne sous forme de chronique radio qui complète les modules de e-learning de façon légère, mémorable et efficace.</p>
+      <div class="case-result">
+        <div class="case-result-num">400</div>
+        <div class="case-result-label">collaborateurs touchés<br>Format chronique · 3 min</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CLIENTS -->
+<section class="clients reveal">
+  <div class="section-eyebrow">Ils nous font confiance</div>
+  <h2 class="clients-title">Nos <span>clients</span></h2>
+  <div class="clients-grid">
+    <div class="client-tile"><div class="client-name">Abbvie</div></div>
+    <div class="client-tile"><div class="client-name">Pierre Fabre</div></div>
+    <div class="client-tile"><div class="client-name">Philips</div></div>
+    <div class="client-tile"><div class="client-name">Sanofi</div></div>
+    <div class="client-tile"><div class="client-name">GSK</div></div>
+    <div class="client-tile"><div class="client-name">LauMa</div></div>
+    <div class="client-tile"><div class="client-name">Yoäg</div></div>
+    <div class="client-tile"><div class="client-name">AFU</div></div>
+    <div class="client-tile"><div class="client-name">Buzz eSanté</div></div>
+    <div class="client-tile"><div class="client-name">La Toile</div></div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta reveal" id="contact">
+  <div>
+    <h2 class="cta-title">Parlons de<br>votre <span>projet</span></h2>
+  </div>
+  <form class="cta-form" onsubmit="return false;">
+    <div class="form-row">
+      <div class="form-field"><label>Prénom</label><input type="text" placeholder="Jean" /></div>
+      <div class="form-field"><label>Nom</label><input type="text" placeholder="Dupont" /></div>
+    </div>
+    <div class="form-row">
+      <div class="form-field"><label>Email</label><input type="email" placeholder="jean@entreprise.fr" /></div>
+      <div class="form-field"><label>Téléphone</label><input type="tel" placeholder="+33 6 00 00 00 00" /></div>
+    </div>
+    <div class="form-field"><label>Votre projet</label><textarea placeholder="Votre secteur, votre objectif, vos questions..."></textarea></div>
+    <button class="btn-submit">Envoyer</button>
+  </form>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">Sons & Merveilles</div>
+  <ul class="footer-links">
+    <li><a href="#">Accueil</a></li>
+    <li><a href="#">Réalisations</a></li>
+    <li><a href="#">Équipe</a></li>
+    <li><a href="#">Mentions légales</a></li>
+  </ul>
+  <div class="footer-copy">© 2025 Sons & Merveilles</div>
+</footer>
+
+<script>
+// Accordion why-items
+document.querySelectorAll('[data-why]').forEach(item => {
+  item.addEventListener('click', () => {
+    const isOpen = item.classList.contains('open');
+    document.querySelectorAll('[data-why]').forEach(i => i.classList.remove('open'));
+    if (!isOpen) item.classList.add('open');
+  });
+});
+
+// Cursor
+const cur=document.getElementById('cur'),ring=document.getElementById('cur-ring');
+let mx=0,my=0,rx=0,ry=0;
+document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;cur.style.left=mx+'px';cur.style.top=my+'px';});
+(function l(){rx+=(mx-rx)*.1;ry+=(my-ry)*.1;ring.style.left=rx+'px';ring.style.top=ry+'px';requestAnimationFrame(l);})();
+
+// Nav scroll
+window.addEventListener('scroll',()=>document.getElementById('nav').classList.toggle('scrolled',scrollY>60));
+
+// Reveal
+const obs=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');obs.unobserve(e.target);}}),{threshold:.1});
+document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+</script>
+</body>
+</html>

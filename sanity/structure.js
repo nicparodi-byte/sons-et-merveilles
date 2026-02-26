@@ -1,5 +1,14 @@
-// https://www.sanity.io/docs/structure-builder-cheat-sheet
 export const structure = (S) =>
   S.list()
-    .title('Content')
-    .items(S.documentTypeListItems())
+    .title('Sons & Merveilles')
+    .items([
+      S.listItem()
+        .title('Réalisations')
+        .schemaType('realisation')
+        .child(S.documentTypeList('realisation').title('Réalisations')),
+
+      S.listItem()
+        .title("Membres de l'équipe")
+        .schemaType('teamMember')
+        .child(S.documentTypeList('teamMember').title("Membres de l'équipe")),
+    ])
