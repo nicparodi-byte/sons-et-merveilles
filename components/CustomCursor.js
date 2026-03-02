@@ -7,6 +7,11 @@ export default function CustomCursor() {
   const pathname = usePathname()
 
   useEffect(() => {
+    const isStudio = pathname?.startsWith('/studio')
+    document.body.classList.toggle('custom-cursor-active', !isStudio)
+
+    if (isStudio) return
+
     const cur  = document.getElementById('cur')
     const ring = document.getElementById('cur-ring')
     if (!cur || !ring) return
@@ -35,7 +40,7 @@ export default function CustomCursor() {
       document.removeEventListener('mousemove', onMove)
       cancelAnimationFrame(rafId)
     }
-  }, [])
+  }, [pathname])
 
   if (pathname?.startsWith('/studio')) return null
 

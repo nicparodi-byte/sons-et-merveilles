@@ -38,6 +38,12 @@ export const teamMember = defineType({
       rows: 3,
     }),
     defineField({
+      name: 'expertise',
+      title: 'Domaine d\'expertise',
+      description: 'Affiché sur la carte au survol — ex : "Écriture · Narration"',
+      type: 'string',
+    }),
+    defineField({
       name: 'linkedIn',
       title: 'LinkedIn (URL)',
       type: 'url',

@@ -1,0 +1,853 @@
+[
+  {
+    "fields": [
+      {
+        "validation": [
+          {
+            "rules": [
+              {
+                "flag": "presence",
+                "constraint": "required"
+              }
+            ],
+            "level": "error"
+          }
+        ],
+        "description": "Nom court affiché sur la carte et dans la modale de la page Réalisations.",
+        "name": "podcastName",
+        "type": "string",
+        "title": "Nom du podcast"
+      },
+      {
+        "description": "Titre éditorial complet, utilisé sur la page Pourquoi et la page projet dédiée.",
+        "name": "projectTitle",
+        "type": "string",
+        "title": "Titre du projet (long)"
+      },
+      {
+        "validation": [
+          {
+            "rules": [
+              {
+                "flag": "presence",
+                "constraint": "required"
+              }
+            ],
+            "level": "error"
+          }
+        ],
+        "name": "client",
+        "type": "string"
+      },
+      {
+        "options": {
+          "source": "title",
+          "maxLength": 96
+        },
+        "validation": [
+          {
+            "rules": [
+              {
+                "flag": "custom"
+              },
+              {
+                "flag": "presence",
+                "constraint": "required"
+              }
+            ],
+            "level": "error"
+          }
+        ],
+        "name": "slug",
+        "type": "slug"
+      },
+      {
+        "validation": [
+          {
+            "rules": [
+              {
+                "flag": "presence",
+                "constraint": "required"
+              }
+            ],
+            "level": "error"
+          }
+        ],
+        "name": "sector",
+        "type": "string",
+        "title": "Secteur"
+      },
+      {
+        "validation": [
+          {
+            "rules": [
+              {
+                "flag": "presence",
+                "constraint": "required"
+              }
+            ],
+            "level": "error"
+          }
+        ],
+        "name": "format",
+        "type": "string"
+      },
+      {
+        "validation": [
+          {
+            "rules": [
+              {
+                "flag": "presence",
+                "constraint": "required"
+              }
+            ],
+            "level": "error"
+          }
+        ],
+        "name": "year",
+        "type": "string",
+        "title": "Année"
+      },
+      {
+        "options": {
+          "hotspot": true
+        },
+        "name": "cardImage",
+        "type": "image",
+        "title": "Image de carte"
+      },
+      {
+        "validation": [
+          {
+            "rules": [
+              {
+                "flag": "uri",
+                "constraint": {
+                  "options": {
+                    "scheme": [
+                      "/^http$/",
+                      "/^https$/"
+                    ],
+                    "allowRelative": false,
+                    "relativeOnly": false,
+                    "allowCredentials": false
+                  }
+                }
+              }
+            ],
+            "level": "error"
+          }
+        ],
+        "name": "cardVideo",
+        "type": "url",
+        "title": "Vidéo de carte (URL)"
+      },
+      {
+        "rows": 3,
+        "validation": [
+          {
+            "rules": [
+              {
+                "flag": "presence",
+                "constraint": "required"
+              }
+            ],
+            "level": "error"
+          }
+        ],
+        "name": "cardDescription",
+        "type": "text",
+        "title": "Description carte (accroche courte)"
+      },
+      {
+        "rows": 4,
+        "description": "Corps du bloc étude de cas sur la page Pourquoi un podcast. Si vide, la page utilisera cardDescription.",
+        "name": "projectSummary",
+        "type": "text",
+        "title": "Résumé page Pourquoi (facultatif)"
+      },
+      {
+        "description": "Étiquette jaune affichée sur l'étude de cas (Sensibiliser, Convaincre, (In)former…).",
+        "name": "pourquoiTag",
+        "type": "string",
+        "title": "Tag Pourquoi (ex: Sensibiliser)"
+      },
+      {
+        "description": "Ex : 130 000",
+        "name": "featuredStatValue",
+        "type": "string",
+        "title": "Stat mise en avant — Valeur"
+      },
+      {
+        "description": "Ex : écoutes · 5 saisons",
+        "name": "featuredStatLabel",
+        "type": "string",
+        "title": "Stat mise en avant — Label"
+      },
+      {
+        "initialValue": false,
+        "validation": [
+          {
+            "rules": [
+              {
+                "flag": "presence",
+                "constraint": "required"
+              }
+            ],
+            "level": "error"
+          }
+        ],
+        "name": "hasProjectPage",
+        "type": "boolean",
+        "title": "Page projet dédiée ?"
+      },
+      {
+        "description": "Ex : Prix Communication Santé. Affiché comme tag rouge sur la page projet.",
+        "name": "award",
+        "type": "string",
+        "title": "Prix / Récompense"
+      },
+      {
+        "rows": 3,
+        "description": "Phrase d'accroche affichée en hero page. Si vide, utilise la description carte.",
+        "name": "projectIntro",
+        "type": "text",
+        "title": "Accroche héro (citation en italique)"
+      },
+      {
+        "description": "Titre de la section \"Le défi\" sur la page projet. Si vide : \"Le contexte du projet\".",
+        "name": "challengeTitle",
+        "type": "string",
+        "title": "Titre du défi"
+      },
+      {
+        "rows": 5,
+        "description": "Utilisé comme corps de la section \"Le défi\" sur la page projet.",
+        "name": "modalDescription",
+        "type": "text",
+        "title": "Description défi"
+      },
+      {
+        "description": "Liste de 2-4 points expliquant pourquoi le podcast était la bonne approche.",
+        "of": [
+          {
+            "fields": [
+              {
+                "name": "title",
+                "type": "string",
+                "title": "Titre du point"
+              },
+              {
+                "rows": 3,
+                "name": "body",
+                "type": "text",
+                "title": "Explication"
+              }
+            ],
+            "type": "object"
+          }
+        ],
+        "name": "strategyPoints",
+        "type": "array",
+        "title": "Approche stratégique"
+      },
+      {
+        "rows": 6,
+        "description": "Description de ce qui a été concrètement créé.",
+        "name": "solutionBody",
+        "type": "text",
+        "title": "La solution créative (corps)"
+      },
+      {
+        "description": "2-3 blocs Format / Durée / Distribution etc.",
+        "of": [
+          {
+            "fields": [
+              {
+                "name": "label",
+                "type": "string",
+                "title": "Label (ex: Format)"
+              },
+              {
+                "name": "value",
+                "type": "string",
+                "title": "Valeur (ex: 4)"
+              },
+              {
+                "name": "sub",
+                "type": "string",
+                "title": "Sous-texte (ex: Saisons produites)"
+              }
+            ],
+            "type": "object"
+          }
+        ],
+        "name": "specs",
+        "type": "array",
+        "title": "Specs de production"
+      },
+      {
+        "validation": [
+          {
+            "rules": [
+              {
+                "flag": "uri",
+                "constraint": {
+                  "options": {
+                    "scheme": [
+                      "/^http$/",
+                      "/^https$/"
+                    ],
+                    "allowRelative": false,
+                    "relativeOnly": false,
+                    "allowCredentials": false
+                  }
+                }
+              }
+            ],
+            "level": "error"
+          }
+        ],
+        "name": "audioEmbed",
+        "type": "url",
+        "title": "Embed audio (URL iframe)"
+      },
+      {
+        "validation": [
+          {
+            "rules": [
+              {
+                "flag": "uri",
+                "constraint": {
+                  "options": {
+                    "scheme": [
+                      "/^http$/",
+                      "/^https$/"
+                    ],
+                    "allowRelative": false,
+                    "relativeOnly": false,
+                    "allowCredentials": false
+                  }
+                }
+              }
+            ],
+            "level": "error"
+          }
+        ],
+        "name": "videoEmbed",
+        "type": "url",
+        "title": "Embed vidéo (URL iframe)"
+      },
+      {
+        "name": "stat1Value",
+        "type": "string",
+        "title": "Stat 1 — Valeur"
+      },
+      {
+        "name": "stat1Label",
+        "type": "string",
+        "title": "Stat 1 — Label"
+      },
+      {
+        "name": "stat1Context",
+        "type": "string",
+        "title": "Stat 1 — Contexte"
+      },
+      {
+        "name": "stat2Value",
+        "type": "string",
+        "title": "Stat 2 — Valeur"
+      },
+      {
+        "name": "stat2Label",
+        "type": "string",
+        "title": "Stat 2 — Label"
+      },
+      {
+        "name": "stat2Context",
+        "type": "string",
+        "title": "Stat 2 — Contexte"
+      },
+      {
+        "name": "stat3Value",
+        "type": "string",
+        "title": "Stat 3 — Valeur"
+      },
+      {
+        "name": "stat3Label",
+        "type": "string",
+        "title": "Stat 3 — Label"
+      },
+      {
+        "name": "stat3Context",
+        "type": "string",
+        "title": "Stat 3 — Contexte"
+      },
+      {
+        "name": "stat4Value",
+        "type": "string",
+        "title": "Stat 4 — Valeur"
+      },
+      {
+        "name": "stat4Label",
+        "type": "string",
+        "title": "Stat 4 — Label"
+      },
+      {
+        "name": "stat4Context",
+        "type": "string",
+        "title": "Stat 4 — Contexte"
+      },
+      {
+        "rows": 3,
+        "name": "clientQuote",
+        "type": "text",
+        "title": "Citation client"
+      },
+      {
+        "name": "clientQuoteName",
+        "type": "string",
+        "title": "Citation — Nom"
+      },
+      {
+        "name": "clientQuoteRole",
+        "type": "string",
+        "title": "Citation — Rôle"
+      },
+      {
+        "rows": 5,
+        "name": "bridgeBody",
+        "type": "text",
+        "title": "\"Et pour votre marque ?\" — Corps"
+      },
+      {
+        "of": [
+          {
+            "type": "string"
+          }
+        ],
+        "name": "bridgeSectors",
+        "type": "array",
+        "title": "\"Et pour votre marque ?\" — Secteurs cibles"
+      }
+    ],
+    "name": "realisation",
+    "type": "document",
+    "title": "Réalisation"
+  },
+  {
+    "fields": [
+      {
+        "validation": [
+          {
+            "rules": [
+              {
+                "flag": "presence",
+                "constraint": "required"
+              }
+            ],
+            "level": "error"
+          }
+        ],
+        "name": "name",
+        "type": "string",
+        "title": "Nom"
+      },
+      {
+        "validation": [
+          {
+            "rules": [
+              {
+                "flag": "presence",
+                "constraint": "required"
+              }
+            ],
+            "level": "error"
+          }
+        ],
+        "name": "role",
+        "type": "string",
+        "title": "Rôle"
+      },
+      {
+        "options": {
+          "hotspot": true
+        },
+        "validation": [
+          {
+            "rules": [
+              {
+                "flag": "presence",
+                "constraint": "required"
+              }
+            ],
+            "level": "error"
+          }
+        ],
+        "name": "photo",
+        "type": "image"
+      },
+      {
+        "validation": [
+          {
+            "rules": [
+              {
+                "flag": "presence",
+                "constraint": "required"
+              }
+            ],
+            "level": "error"
+          }
+        ],
+        "of": [
+          {
+            "marks": {
+              "annotations": [
+                {
+                  "i18nTitleKey": "inputs.portable-text.annotation.link",
+                  "options": {
+                    "modal": {
+                      "type": "popover"
+                    }
+                  },
+                  "fields": [
+                    {
+                      "validation": [
+                        {
+                          "rules": [
+                            {
+                              "flag": "uri",
+                              "constraint": {
+                                "options": {
+                                  "scheme": [
+                                    "/^http$/",
+                                    "/^https$/",
+                                    "/^tel$/",
+                                    "/^mailto$/"
+                                  ],
+                                  "allowRelative": true,
+                                  "relativeOnly": false,
+                                  "allowCredentials": false
+                                }
+                              }
+                            }
+                          ],
+                          "level": "error"
+                        }
+                      ],
+                      "description": "A valid web, email, phone, or relative link.",
+                      "name": "href",
+                      "type": "url",
+                      "title": "Link"
+                    }
+                  ],
+                  "name": "link",
+                  "type": "object"
+                }
+              ],
+              "decorators": [
+                {
+                  "value": "strong",
+                  "title": "Strong"
+                },
+                {
+                  "value": "em",
+                  "title": "Italic"
+                },
+                {
+                  "value": "code",
+                  "title": "Code"
+                },
+                {
+                  "value": "underline",
+                  "title": "Underline"
+                },
+                {
+                  "value": "strike-through",
+                  "title": "Strike"
+                }
+              ]
+            },
+            "lists": [
+              {
+                "value": "bullet",
+                "title": "Bulleted list"
+              },
+              {
+                "value": "number",
+                "title": "Numbered list"
+              }
+            ],
+            "styles": [
+              {
+                "value": "normal",
+                "title": "Normal"
+              },
+              {
+                "value": "h1",
+                "title": "Heading 1"
+              },
+              {
+                "value": "h2",
+                "title": "Heading 2"
+              },
+              {
+                "value": "h3",
+                "title": "Heading 3"
+              },
+              {
+                "value": "h4",
+                "title": "Heading 4"
+              },
+              {
+                "value": "h5",
+                "title": "Heading 5"
+              },
+              {
+                "value": "h6",
+                "title": "Heading 6"
+              },
+              {
+                "value": "blockquote",
+                "title": "Quote"
+              }
+            ],
+            "of": [],
+            "type": "block"
+          }
+        ],
+        "name": "bio",
+        "type": "array"
+      },
+      {
+        "rows": 3,
+        "name": "quote",
+        "type": "text",
+        "title": "Citation"
+      },
+      {
+        "description": "Affiché sur la carte au survol — ex : \"Écriture · Narration\"",
+        "name": "expertise",
+        "type": "string",
+        "title": "Domaine d'expertise"
+      },
+      {
+        "validation": [
+          {
+            "rules": [
+              {
+                "flag": "uri",
+                "constraint": {
+                  "options": {
+                    "scheme": [
+                      "/^http$/",
+                      "/^https$/"
+                    ],
+                    "allowRelative": false,
+                    "relativeOnly": false,
+                    "allowCredentials": false
+                  }
+                }
+              }
+            ],
+            "level": "error"
+          }
+        ],
+        "name": "linkedIn",
+        "type": "url",
+        "title": "LinkedIn (URL)"
+      },
+      {
+        "validation": [
+          {
+            "rules": [
+              {
+                "flag": "presence",
+                "constraint": "required"
+              }
+            ],
+            "level": "error"
+          }
+        ],
+        "name": "order",
+        "type": "number",
+        "title": "Ordre d'affichage"
+      }
+    ],
+    "name": "teamMember",
+    "type": "document",
+    "title": "Membre de l'équipe"
+  },
+  {
+    "fields": [
+      {
+        "initialValue": "Le son et la vidéo, ça se vit",
+        "name": "title",
+        "type": "string",
+        "title": "Titre de section"
+      },
+      {
+        "of": [
+          {
+            "fields": [
+              {
+                "options": {
+                  "list": [
+                    {
+                      "title": "Image",
+                      "value": "image"
+                    },
+                    {
+                      "title": "Vidéo",
+                      "value": "video"
+                    }
+                  ],
+                  "layout": "radio"
+                },
+                "initialValue": "image",
+                "validation": [
+                  {
+                    "rules": [
+                      {
+                        "flag": "valid",
+                        "constraint": [
+                          "image",
+                          "video"
+                        ]
+                      },
+                      {
+                        "flag": "presence",
+                        "constraint": "required"
+                      }
+                    ],
+                    "level": "error"
+                  }
+                ],
+                "name": "type",
+                "type": "string"
+              },
+              {
+                "options": {
+                  "hotspot": true
+                },
+                "hidden": "conditional",
+                "name": "image",
+                "type": "image"
+              },
+              {
+                "options": {
+                  "accept": "video/*"
+                },
+                "hidden": "conditional",
+                "name": "videoFile",
+                "type": "file",
+                "title": "Fichier vidéo"
+              },
+              {
+                "name": "caption",
+                "type": "string",
+                "title": "Légende"
+              },
+              {
+                "options": {
+                  "list": [
+                    {
+                      "title": "Paysage 4/3",
+                      "value": "4/3"
+                    },
+                    {
+                      "title": "Paysage 16/9",
+                      "value": "16/9"
+                    },
+                    {
+                      "title": "Carré",
+                      "value": "1/1"
+                    },
+                    {
+                      "title": "Portrait 3/4",
+                      "value": "3/4"
+                    },
+                    {
+                      "title": "Portrait 9/16 (vertical)",
+                      "value": "9/16"
+                    }
+                  ],
+                  "layout": "radio"
+                },
+                "description": "Laisser vide pour conserver le format masonry automatique",
+                "name": "aspectRatio",
+                "type": "string",
+                "title": "Format (optionnel)"
+              },
+              {
+                "validation": [
+                  {
+                    "rules": [
+                      {
+                        "flag": "presence",
+                        "constraint": "required"
+                      },
+                      {
+                        "flag": "min",
+                        "constraint": 1
+                      }
+                    ],
+                    "level": "error"
+                  }
+                ],
+                "name": "order",
+                "type": "number",
+                "title": "Ordre"
+              }
+            ],
+            "type": "object"
+          }
+        ],
+        "name": "items",
+        "type": "array",
+        "title": "Médias"
+      }
+    ],
+    "name": "behindTheScenes",
+    "type": "document",
+    "title": "Coulisses"
+  },
+  {
+    "fields": [
+      {
+        "validation": [
+          {
+            "rules": [
+              {
+                "flag": "max",
+                "constraint": 3
+              }
+            ],
+            "level": "error"
+          }
+        ],
+        "description": "Sélectionnez jusqu'à 3 réalisations avec une page projet dédiée. Elles apparaissent comme études de cas sur la page Pourquoi un podcast.",
+        "of": [
+          {
+            "options": {
+              "filter": "hasProjectPage == true"
+            },
+            "to": [
+              {
+                "type": "realisation"
+              }
+            ],
+            "type": "reference",
+            "title": "Reference to réalisation"
+          }
+        ],
+        "name": "featuredProjects",
+        "type": "array",
+        "title": "Études de cas (max 3)"
+      }
+    ],
+    "name": "pourquoiPage",
+    "type": "document",
+    "title": "Page « Pourquoi un podcast ? »"
+  }
+]

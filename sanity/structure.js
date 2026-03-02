@@ -11,4 +11,28 @@ export const structure = (S) =>
         .title("Membres de l'équipe")
         .schemaType('teamMember')
         .child(S.documentTypeList('teamMember').title("Membres de l'équipe")),
+
+      S.divider(),
+
+      S.listItem()
+        .title('Page « Pourquoi un podcast ? »')
+        .id('pourquoiPage')
+        .schemaType('pourquoiPage')
+        .child(
+          S.document()
+            .schemaType('pourquoiPage')
+            .documentId('pourquoiPage')
+            .title('Page « Pourquoi un podcast ? »'),
+        ),
+
+      S.listItem()
+        .title('Coulisses')
+        .id('behindTheScenes')
+        .schemaType('behindTheScenes')
+        .child(
+          S.document()
+            .schemaType('behindTheScenes')
+            .documentId('behindTheScenes')
+            .title('Coulisses'),
+        ),
     ])

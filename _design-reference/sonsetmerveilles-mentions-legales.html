@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Mentions Légales · Sons & Merveilles</title>
+<meta name="description" content="Mentions légales du site sonsetmerveilles.fr — éditeur, hébergement, propriété intellectuelle et données personnelles." />
+<meta name="robots" content="noindex, follow" />
+<link rel="canonical" href="https://www.sonsetmerveilles.fr/mentions-legales" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+<style>
+/* ── TOKENS ── */
+:root {
+  --yellow: #F5C518;
+  --black:  #0A0A0A;
+  --white:  #F7F4EE;
+  --gray:   #1A1A1A;
+  --mid:    #242424;
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  background: var(--black);
+  color: var(--white);
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 300;
+  line-height: 1.7;
+  cursor: none;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ── CURSOR ── */
+#cur {
+  position: fixed; width: 10px; height: 10px;
+  background: var(--yellow); border-radius: 50%;
+  pointer-events: none; z-index: 9999;
+  transform: translate(-50%,-50%);
+  mix-blend-mode: difference;
+  transition: width .2s, height .2s;
+}
+#cur-ring {
+  position: fixed; width: 36px; height: 36px;
+  border: 1.5px solid var(--yellow); border-radius: 50%;
+  pointer-events: none; z-index: 9998;
+  transform: translate(-50%,-50%); opacity: .45;
+}
+
+/* ── NAV ── */
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 24px 48px;
+  transition: background .3s, padding .3s;
+}
+nav.scrolled {
+  background: rgba(10,10,10,.95);
+  backdrop-filter: blur(12px);
+  padding: 16px 48px;
+  border-bottom: 1px solid rgba(255,255,255,.06);
+}
+.nav-logo {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 1.25rem; letter-spacing: .08em;
+  color: var(--white); text-decoration: none;
+  display: flex; align-items: center; gap: 10px;
+}
+.logo-dot {
+  width: 8px; height: 8px; border-radius: 50%;
+  background: var(--yellow); flex-shrink: 0;
+}
+.nav-links {
+  list-style: none; display: flex; gap: 40px; align-items: center;
+}
+.nav-links a {
+  color: rgba(247,244,238,.65); text-decoration: none;
+  font-size: .82rem; letter-spacing: .08em; text-transform: uppercase;
+  font-weight: 400; transition: color .2s;
+}
+.nav-links a:hover { color: var(--white); }
+.nav-links a.nav-cta {
+  color: var(--yellow); border: 1px solid rgba(245,197,24,.4);
+  padding: 8px 20px; border-radius: 2px; transition: background .2s, color .2s;
+}
+.nav-links a.nav-cta:hover { background: var(--yellow); color: var(--black); }
+
+/* ── PAGE HEADER ── */
+.page-header {
+  padding: 160px 48px 80px;
+  border-bottom: 1px solid rgba(255,255,255,.06);
+  position: relative;
+  overflow: hidden;
+}
+.page-header::before {
+  content: '';
+  position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+  background: radial-gradient(ellipse 60% 50% at 20% 50%, rgba(245,197,24,.04) 0%, transparent 70%);
+  pointer-events: none;
+}
+.page-eyebrow {
+  font-size: .72rem; letter-spacing: .22em; text-transform: uppercase;
+  color: var(--yellow); font-weight: 500; margin-bottom: 24px;
+}
+.page-title {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(3.5rem, 7vw, 6rem);
+  line-height: .93; color: var(--white);
+  margin-bottom: 32px;
+}
+.page-title em {
+  font-style: italic;
+  font-family: 'Playfair Display', serif;
+  color: var(--yellow);
+}
+.page-subtitle {
+  font-size: .95rem; color: rgba(247,244,238,.5);
+  max-width: 480px; line-height: 1.75;
+}
+
+/* ── CONTENT ── */
+.mentions-content {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 80px 48px 120px;
+}
+
+.mentions-section {
+  margin-bottom: 64px;
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity .6s ease, transform .6s ease;
+}
+.mentions-section.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.mentions-section-num {
+  font-size: .65rem; letter-spacing: .22em; text-transform: uppercase;
+  color: var(--yellow); font-weight: 500; margin-bottom: 16px;
+}
+
+.mentions-section h2 {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(1.8rem, 3vw, 2.4rem);
+  line-height: 1; color: var(--white);
+  margin-bottom: 28px;
+  letter-spacing: .02em;
+}
+
+.mentions-block {
+  background: var(--gray);
+  border: 1px solid rgba(255,255,255,.06);
+  border-left: 2px solid rgba(245,197,24,.3);
+  border-radius: 2px;
+  padding: 32px 36px;
+  margin-bottom: 16px;
+}
+
+.mentions-block p,
+.mentions-block address {
+  font-style: normal;
+  font-size: .95rem;
+  color: rgba(247,244,238,.7);
+  line-height: 1.85;
+}
+
+.mentions-block strong {
+  color: var(--white);
+  font-weight: 500;
+}
+
+.mentions-block a {
+  color: var(--yellow);
+  text-decoration: none;
+  border-bottom: 1px solid rgba(245,197,24,.3);
+  transition: border-color .2s;
+}
+.mentions-block a:hover {
+  border-color: var(--yellow);
+}
+
+.mentions-note {
+  font-size: .82rem;
+  color: rgba(247,244,238,.35);
+  line-height: 1.7;
+  margin-top: 16px;
+  padding-left: 16px;
+  border-left: 1px solid rgba(255,255,255,.08);
+}
+
+/* ── DIVIDER ── */
+.mentions-divider {
+  width: 40px; height: 1px;
+  background: rgba(245,197,24,.3);
+  margin: 0 0 64px 0;
+}
+
+/* ── FOOTER ── */
+footer {
+  border-top: 1px solid rgba(255,255,255,.06);
+  padding: 40px 48px;
+  display: flex; align-items: center; justify-content: space-between;
+  flex-wrap: wrap; gap: 24px;
+}
+.footer-logo {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 1.1rem; letter-spacing: .1em;
+  color: rgba(247,244,238,.4);
+}
+.footer-links {
+  list-style: none; display: flex; gap: 32px; flex-wrap: wrap;
+}
+.footer-links a {
+  color: rgba(247,244,238,.35); text-decoration: none;
+  font-size: .78rem; letter-spacing: .08em; text-transform: uppercase;
+  transition: color .2s;
+}
+.footer-links a:hover, .footer-links a[aria-current="page"] { color: var(--yellow); }
+.footer-copy {
+  width: 100%; font-size: .75rem;
+  color: rgba(247,244,238,.2); letter-spacing: .06em;
+  text-transform: uppercase;
+}
+
+/* ── RESPONSIVE ── */
+@media (max-width: 768px) {
+  nav { padding: 20px 24px; }
+  nav.scrolled { padding: 14px 24px; }
+  .nav-links { gap: 20px; }
+  .nav-links li:not(:last-child) { display: none; }
+  .page-header { padding: 120px 24px 60px; }
+  .mentions-content { padding: 60px 24px 80px; }
+  footer { padding: 32px 24px; }
+  .footer-links { gap: 20px; }
+}
+</style>
+</head>
+<body>
+
+<div id="cur"></div>
+<div id="cur-ring"></div>
+
+<!-- NAV -->
+<nav id="nav" role="navigation" aria-label="Navigation principale">
+  <a href="/" class="nav-logo" aria-label="Sons & Merveilles · Accueil">
+    <span class="logo-dot" aria-hidden="true"></span>
+    Sons & Merveilles
+  </a>
+  <ul class="nav-links">
+    <li><a href="/pourquoi-le-podcast">Pourquoi un podcast ?</a></li>
+    <li><a href="/realisations">Réalisations</a></li>
+    <li><a href="/equipe">Équipe</a></li>
+    <li><a href="/#contact" class="nav-cta">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- PAGE HEADER -->
+<header class="page-header">
+  <p class="page-eyebrow">Informations légales</p>
+  <h1 class="page-title">Mentions<br><em>légales</em></h1>
+  <p class="page-subtitle">Conformément aux dispositions de la loi n°2004-575 du 21 juin 2004 pour la confiance en l'économie numérique.</p>
+</header>
+
+<!-- CONTENT -->
+<main class="mentions-content" id="main">
+
+  <!-- 01 — Éditeur -->
+  <section class="mentions-section" aria-labelledby="editeur">
+    <p class="mentions-section-num">01</p>
+    <h2 id="editeur">Éditeur du site</h2>
+    <div class="mentions-block">
+      <address>
+        <strong>Sons & Merveilles</strong><br>
+        SASU au capital de 1 000 €<br>
+        Centre Etic · 22 rue Mérigonde · 81100 Castres<br>
+        France<br><br>
+        <strong>Directeur de la publication :</strong> Nicolas Parodi<br>
+        <strong>Contact :</strong> <a href="mailto:info@sonsetmerveilles.com">info@sonsetmerveilles.com</a>
+      </address>
+    </div>
+    <p class="mentions-note">Les sites sonsetmerveilles.fr et sonsetmerveilles.com sont édités par Sons & Merveilles.</p>
+  </section>
+
+  <div class="mentions-divider"></div>
+
+  <!-- 02 — Hébergement -->
+  <section class="mentions-section" aria-labelledby="hebergement">
+    <p class="mentions-section-num">02</p>
+    <h2 id="hebergement">Hébergement</h2>
+    <div class="mentions-block">
+      <address>
+        <strong>Vercel Inc.</strong><br>
+        440 N Barranca Ave #4133<br>
+        Covina, CA 91723<br>
+        États-Unis<br><br>
+        <a href="https://vercel.com" target="_blank" rel="noopener noreferrer">vercel.com</a>
+      </address>
+    </div>
+  </section>
+
+  <div class="mentions-divider"></div>
+
+  <!-- 03 — Propriété intellectuelle -->
+  <section class="mentions-section" aria-labelledby="propriete">
+    <p class="mentions-section-num">03</p>
+    <h2 id="propriete">Propriété intellectuelle</h2>
+    <div class="mentions-block">
+      <p>L'ensemble des contenus présents sur ce site — textes, visuels, photographies, illustrations, identité sonore, design et architecture — est la propriété exclusive de <strong>Sons & Merveilles</strong> ou de ses clients, et est protégé par les lois françaises et internationales relatives au droit d'auteur et à la propriété intellectuelle.</p>
+      <br>
+      <p>Les visuels, photographies et extraits audio publiés sur ce site sont soit la propriété de Sons & Merveilles, soit utilisés avec l'autorisation expresse des clients concernés. Toute reproduction, représentation, modification ou exploitation, totale ou partielle, est strictement interdite sans accord préalable écrit.</p>
+    </div>
+  </section>
+
+  <div class="mentions-divider"></div>
+
+  <!-- 04 — Données personnelles -->
+  <section class="mentions-section" aria-labelledby="donnees">
+    <p class="mentions-section-num">04</p>
+    <h2 id="donnees">Données personnelles</h2>
+    <div class="mentions-block">
+      <p>Les informations collectées via le formulaire de contact (nom, email, message) sont utilisées exclusivement pour répondre à vos demandes. Elles ne sont ni cédées, ni vendues à des tiers.</p>
+      <br>
+      <p>Conformément au Règlement Général sur la Protection des Données (RGPD) et à la loi Informatique et Libertés, vous disposez d'un droit d'accès, de rectification et de suppression de vos données. Pour exercer ce droit, contactez-nous à : <a href="mailto:info@sonsetmerveilles.com">info@sonsetmerveilles.com</a></p>
+    </div>
+  </section>
+
+  <div class="mentions-divider"></div>
+
+  <!-- 05 — Cookies -->
+  <section class="mentions-section" aria-labelledby="cookies">
+    <p class="mentions-section-num">05</p>
+    <h2 id="cookies">Cookies</h2>
+    <div class="mentions-block">
+      <p>Ce site utilise des cookies techniques nécessaires à son fonctionnement. Aucun cookie publicitaire ou de tracking tiers n'est déposé sans votre consentement explicite.</p>
+      <br>
+      <p>Vous pouvez configurer votre navigateur pour refuser les cookies. Certaines fonctionnalités du site pourraient alors ne plus être disponibles.</p>
+    </div>
+  </section>
+
+  <div class="mentions-divider"></div>
+
+  <!-- 06 — Liens externes -->
+  <section class="mentions-section" aria-labelledby="liens">
+    <p class="mentions-section-num">06</p>
+    <h2 id="liens">Liens hypertextes</h2>
+    <div class="mentions-block">
+      <p>Les liens présents sur ce site pointent vers des ressources externes (Spotify, Apple Podcasts, LinkedIn). Sons & Merveilles ne peut être tenue responsable du contenu de ces sites tiers ni de leur politique de confidentialité.</p>
+    </div>
+  </section>
+
+</main>
+
+<!-- FOOTER -->
+<footer role="contentinfo">
+  <div class="footer-logo">Sons & Merveilles</div>
+  <ul class="footer-links" aria-label="Liens du pied de page">
+    <li><a href="/">Accueil</a></li>
+    <li><a href="/pourquoi-le-podcast">Pourquoi un podcast ?</a></li>
+    <li><a href="/realisations">Réalisations</a></li>
+    <li><a href="/equipe">Équipe</a></li>
+    <li><a href="/mentions-legales" aria-current="page">Mentions légales</a></li>
+  </ul>
+  <div class="footer-copy">© 2025 Sons & Merveilles · Agence Podcast de Marque</div>
+</footer>
+
+<script>
+// ── CURSOR ──
+const cur = document.getElementById('cur');
+const ring = document.getElementById('cur-ring');
+let mx = 0, my = 0, rx = 0, ry = 0;
+document.addEventListener('mousemove', e => { mx = e.clientX; my = e.clientY; });
+(function loop() {
+  rx += (mx - rx) * 0.18;
+  ry += (my - ry) * 0.18;
+  if (cur) { cur.style.left = mx + 'px'; cur.style.top = my + 'px'; }
+  if (ring) { ring.style.left = rx + 'px'; ring.style.top = ry + 'px'; }
+  requestAnimationFrame(loop);
+})();
+document.querySelectorAll('a, button').forEach(el => {
+  el.addEventListener('mouseenter', () => { if (cur) { cur.style.width = '20px'; cur.style.height = '20px'; } });
+  el.addEventListener('mouseleave', () => { if (cur) { cur.style.width = '10px'; cur.style.height = '10px'; } });
+});
+
+// ── NAV SCROLL ──
+const nav = document.getElementById('nav');
+window.addEventListener('scroll', () => {
+  nav.classList.toggle('scrolled', window.scrollY > 40);
+}, { passive: true });
+
+// ── REVEAL ON SCROLL �

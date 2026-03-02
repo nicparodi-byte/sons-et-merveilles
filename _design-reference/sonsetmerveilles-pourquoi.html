@@ -197,9 +197,19 @@ nav.scrolled { background:rgba(10,10,10,.88); backdrop-filter:blur(16px); border
 .case-block {
   display:grid; grid-template-columns:1fr 1fr; min-height:520px;
   border-top:1px solid rgba(255,255,255,.06);
+  text-decoration:none; color:inherit;
+  transition:background .3s;
 }
+.case-block:hover { background:rgba(255,255,255,.02); }
 .case-block.reverse { direction:rtl; }
 .case-block.reverse > * { direction:ltr; }
+.case-cta {
+  display:inline-flex; align-items:center; gap:8px;
+  margin-top:28px; font-size:.78rem; letter-spacing:.1em;
+  text-transform:uppercase; color:var(--yellow); font-weight:500;
+  transition:gap .2s;
+}
+.case-block:hover .case-cta { gap:14px; }
 
 .case-visual {
   position:relative; overflow:hidden;
@@ -474,6 +484,14 @@ footer { background:var(--black); padding:56px 48px; display:flex; align-items:c
 </section>
 
 <!-- CASE STUDIES -->
+<!--
+  NEXT.JS / SANITY NOTE:
+  This section is fetched from the pourquoiPage singleton in Sanity.
+  Query: *[_type == "pourquoiPage"][0]{ featuredProjects[]->{ client, projectTitle, projectSummary, pourquoiTag, featuredStatValue, featuredStatLabel, cardImage, slug } }
+  If featuredProjects is empty, render nothing.
+  Each case-block links directly to /realisations/[slug] — no modal.
+  Alternate .reverse class on every second block.
+-->
 <section class="cases">
   <div class="cases-header reveal">
     <div class="section-eyebrow">À quoi ça ressemble, concrètement</div>
@@ -481,26 +499,38 @@ footer { background:var(--black); padding:56px 48px; display:flex; align-items:c
   </div>
 
   <!-- Case 1: Abbvie -->
-  <div class="case-block reveal">
+  <!-- Sanity fields: slug → href, cardImage → cv-bg + case-cover, client → case-cover-label + case-client, pourquoiTag → case-tag, projectTitle → case-title, projectSummary → case-body, featuredStatValue → case-result-num, featuredStatLabel → case-result-label -->
+  <a href="/realisations/abbvie-paroles-de-patients" class="case-block reveal" aria-label="Voir le projet Abbvie">
     <div class="case-visual">
       <div class="cv-bg-1"></div>
       <div class="case-cover cv-1"></div>
+      <!-- client field — transparent overlay -->
       <div class="case-cover-label">Abbvie</div>
+      <!-- pourquoiTag field -->
       <div class="case-tag">Sensibiliser</div>
     </div>
     <div class="case-content">
+      <!-- client field -->
       <div class="case-client">Abbvie × LauMa Communication</div>
+      <!-- projectTitle field -->
       <h3 class="case-title">Paroles de patients pour le mois des cancers du sang</h3>
+      <!-- projectSummary field -->
       <p class="case-body">En 2021, Abbvie souhaite faire connaître le mois des cancers du sang et mettre en avant les associations de patients qu'elle soutient. Sons & Merveilles crée une série de témoignages humains, intimes, puissants.</p>
       <div class="case-result">
+        <!-- featuredStatValue field -->
         <div class="case-result-num">130 000</div>
+        <!-- featuredStatLabel field -->
         <div class="case-result-label">écoutes · 5 saisons<br>2 prix communication santé</div>
       </div>
+      <div class="case-cta">
+        Voir le projet
+        <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M2 7h10M8 3l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </div>
     </div>
-  </div>
+  </a>
 
   <!-- Case 2: Pierre Fabre -->
-  <div class="case-block reverse reveal">
+  <a href="/realisations/pierre-fabre-parlons-fer" class="case-block reverse reveal" aria-label="Voir le projet Pierre Fabre">
     <div class="case-visual">
       <div class="cv-bg-2"></div>
       <div class="case-cover cv-2"></div>
@@ -510,16 +540,20 @@ footer { background:var(--black); padding:56px 48px; display:flex; align-items:c
     <div class="case-content">
       <div class="case-client">Laboratoires Pierre Fabre</div>
       <h3 class="case-title">Comment s'y prendre face à la carence en fer ?</h3>
-      <p class="case-body">De nombreuses femmes passent à côté d'un traitement faute de consulter. En suivant Séverine dans son quotidien, Sons & Merveilles a imaginé un récit en immersion pour aider à reconnaître le manque de fer, et inciter à consulter. Un podcast au cœur d'un dispositif complet sur <strong>parlonsfer.fr</strong></p>
+      <p class="case-body">De nombreuses femmes passent à côté d'un traitement faute de consulter. En suivant Séverine dans son quotidien, Sons & Merveilles a imaginé un récit en immersion pour aider à reconnaître le manque de fer, et inciter à consulter.</p>
       <div class="case-result">
         <div class="case-result-num">15 000</div>
         <div class="case-result-label">écoutes<br>Récit en 4 épisodes</div>
       </div>
+      <div class="case-cta">
+        Voir le projet
+        <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M2 7h10M8 3l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </div>
     </div>
-  </div>
+  </a>
 
   <!-- Case 3: Radio Veeva -->
-  <div class="case-block reveal">
+  <a href="/realisations/abbvie-radio-veeva" class="case-block reveal" aria-label="Voir le projet Radio Veeva">
     <div class="case-visual">
       <div class="cv-bg-3"></div>
       <div class="case-cover cv-3"></div>
@@ -529,13 +563,17 @@ footer { background:var(--black); padding:56px 48px; display:flex; align-items:c
     <div class="case-content">
       <div class="case-client">Abbvie · Usage Interne</div>
       <h3 class="case-title">3 minutes pour rafraîchir les connaissances de ses collaborateurs</h3>
-      <p class="case-body">Quand le logiciel CRM est utilisé par 400 collaborateurs terrain, tout bug de connaissance coûte cher. Sons & Merveilles crée Radio Veeva : un podcast interne sous forme de chronique radio qui complète les modules de e-learning de façon légère, mémorable et efficace.</p>
+      <p class="case-body">Quand le logiciel CRM est utilisé par 400 collaborateurs terrain, tout bug de connaissance coûte cher. Sons & Merveilles crée Radio Veeva : un podcast interne sous forme de chronique radio qui complète les modules de e-learning de façon légère et mémorable.</p>
       <div class="case-result">
         <div class="case-result-num">400</div>
         <div class="case-result-label">collaborateurs touchés<br>Format chronique · 3 min</div>
       </div>
+      <div class="case-cta">
+        Voir le projet
+        <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M2 7h10M8 3l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </div>
     </div>
-  </div>
+  </a>
 </section>
 
 <!-- CLIENTS -->
@@ -582,7 +620,7 @@ footer { background:var(--black); padding:56px 48px; display:flex; align-items:c
     <li><a href="#">Accueil</a></li>
     <li><a href="#">Réalisations</a></li>
     <li><a href="#">Équipe</a></li>
-    <li><a href="#">Mentions légales</a></li>
+    <li><a href="/mentions-legales">Mentions légales</a></li>
   </ul>
   <div class="footer-copy">© 2025 Sons & Merveilles</div>
 </footer>
