@@ -26,6 +26,7 @@ const QUERY = `*[_type == "realisation" && slug.current == $slug][0] {
   solutionBody,
   specs[] { label, value, sub },
   audioEmbed,
+  "videoFileUrl": videoFile.asset->url,
   videoEmbed,
   stat1Value, stat1Label, stat1Context,
   stat2Value, stat2Label, stat2Context,
@@ -50,6 +51,12 @@ const RELATED_QUERY = `*[_type == "realisation" && slug.current != $slug && (sec
 }`
 
 const ALL_SLUGS_QUERY = `*[_type == "realisation" && hasProjectPage == true]{ "slug": slug.current }`
+
+// Extract a clean URL from audioEmbed values that may contain extra iframe attributes
+function cleanSrc(raw) {
+  if (!raw) return null
+  return raw.split('"')[0].trim() || null
+}
 
 function paletteGradient(palette) {
   const mid  = palette?.vibrant?.background    || palette?.dominant?.background || '#1A1A1A'
@@ -112,7 +119,7 @@ export default async function ProjetPage({ params }) {
   const hasStrategy  = p.strategyPoints?.length > 0
   const hasSolution  = p.solutionBody
   const hasSpecs     = p.specs?.length > 0
-  const hasMedia     = p.audioEmbed || p.videoEmbed
+  const hasMedia     = p.audioEmbed || p.videoFileUrl || p.videoEmbed
   const stats        = [
     { v: p.stat1Value, l: p.stat1Label, c: p.stat1Context },
     { v: p.stat2Value, l: p.stat2Label, c: p.stat2Context },
@@ -252,23 +259,21 @@ export default async function ProjetPage({ params }) {
             <h2 className="listen-title" id="listen-heading">
               Écouter &amp;<br /><span>Découvrir</span>
             </h2>
-            {p.audioEmbed && (
+            {p.videoFileUrl ? (
               <>
-                <p className="embed-audio-label">Écouter</p>
-                <div className="embed-wrap">
-                  <iframe
-                    src={p.audioEmbed}
-                    height="152"
-                    allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
-                    loading="lazy"
-                    title={`Écouter : ${p.projectTitle || p.podcastName}`}
-                  />
-                </div>
+                <p className="embed-video-label">Extrait</p>
+                <video
+                  className="project-video"
+                  src={p.videoFileUrl}
+                  controls
+                  playsInline
+                  preload="metadata"
+                  title={`Voir : ${p.projectTitle || p.podcastName}`}
+                />
               </>
-            )}
-            {p.videoEmbed && (
+            ) : p.videoEmbed ? (
               <>
-                <p className="embed-video-label">Voir</p>
+                <p className="embed-video-label">Extrait</p>
                 <div className="embed-video-wrap">
                   <iframe
                     src={p.videoEmbed}
@@ -276,6 +281,20 @@ export default async function ProjetPage({ params }) {
                     allowFullScreen
                     loading="lazy"
                     title={`Voir : ${p.projectTitle || p.podcastName}`}
+                  />
+                </div>
+              </>
+            ) : null}
+            {p.audioEmbed && (
+              <>
+                <p className="embed-audio-label">Écouter le podcast</p>
+                <div className="embed-wrap">
+                  <iframe
+                    src={cleanSrc(p.audioEmbed)}
+                    height="152"
+                    allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+                    loading="lazy"
+                    title={`Écouter : ${p.projectTitle || p.podcastName}`}
                   />
                 </div>
               </>

@@ -9,7 +9,7 @@ export const metadata = {
   description: 'Découvrez les réalisations de Sons & Merveilles : podcasts de marque pour des entreprises dans la santé, la RSE, l\'innovation et la communication interne.',
 }
 
-const QUERY = `*[_type == "realisation"] | order(_createdAt asc) {
+const QUERY = `*[_type == "realisation"] | order(order asc, _createdAt asc) {
   _id,
   "podcastName": coalesce(podcastName, title),
   client,
@@ -27,6 +27,7 @@ const QUERY = `*[_type == "realisation"] | order(_createdAt asc) {
   cardDescription,
   modalDescription,
   audioEmbed,
+  "videoFileUrl": videoFile.asset->url,
   videoEmbed,
   stat1Value,
   stat1Label,

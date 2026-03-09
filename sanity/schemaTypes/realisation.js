@@ -12,6 +12,14 @@ export const realisation = defineType({
     { name: 'bridge',   title: 'Et pour votre marque ?' },
   ],
   fields: [
+    // ── ORDRE D'AFFICHAGE ─────────────────────────────
+    defineField({
+      name: 'order',
+      title: 'Ordre d\'affichage',
+      description: 'Nombre entier — plus petit = affiché en premier.',
+      type: 'number',
+    }),
+
     // ── CARD FIELDS ──────────────────────────────────
     defineField({
       name: 'podcastName',
@@ -211,8 +219,16 @@ export const realisation = defineType({
       group: 'page',
     }),
     defineField({
+      name: 'videoFile',
+      title: 'Vidéo ou audiogramme',
+      type: 'file',
+      group: 'page',
+      options: { accept: 'video/*' },
+      description: 'Clip vidéo ou audiogramme MP4 — max recommandé 100MB. Prioritaire sur l\'embed ci-dessous.',
+    }),
+    defineField({
       name: 'videoEmbed',
-      title: 'Embed vidéo (URL iframe)',
+      title: 'Embed vidéo (URL iframe) — fallback',
       type: 'url',
       group: 'page',
     }),

@@ -59,6 +59,13 @@ const FILTER_BUTTONS = [
   { key: 'innovation', label: 'Innovation' },
 ]
 
+// Extract a clean URL from audioEmbed values that may contain extra iframe attributes
+// (happens when users paste the Spotify embed src including trailing attributes)
+function cleanSrc(raw) {
+  if (!raw) return null
+  return raw.split('"')[0].trim() || null
+}
+
 // Build a radial gradient from Sanity palette colours
 function paletteGradient(palette) {
   const color = palette?.vibrant?.background     ||
@@ -157,26 +164,31 @@ function ProjectModal({ r, gradient, onClose }) {
             </div>
           )}
 
-          {/* Audio embed */}
-          {r.audioEmbed && (
+          {/* Video — native file takes priority over embed */}
+          {r.videoFileUrl ? (
             <>
-              <p className="modal-embed-label">Écouter un extrait</p>
-              <div className="modal-embed-wrap">
-                <iframe
-                  src={r.audioEmbed}
-                  height="80"
-                  allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
-                  loading="lazy"
-                  title={`Extrait audio — ${r.podcastName}`}
-                />
-              </div>
+              <p className="modal-embed-label" style={{ '--yellow': 'rgba(247,244,238,.45)' }}>Extrait</p>
+              <video
+                className="modal-video"
+                controls
+                playsInline
+                preload="metadata"
+                title={`Vidéo — ${r.podcastName}`}
+                onLoadedMetadata={e => {
+                  const v = e.target
+                  v.dataset.orientation = v.videoWidth > v.videoHeight
+                    ? 'landscape'
+                    : v.videoWidth === v.videoHeight
+                    ? 'square'
+                    : 'vertical'
+                }}
+              >
+                <source src={r.videoFileUrl} type="video/mp4" />
+              </video>
             </>
-          )}
-
-          {/* Video embed */}
-          {r.videoEmbed && (
+          ) : r.videoEmbed ? (
             <>
-              <p className="modal-embed-label" style={{ '--yellow': 'rgba(247,244,238,.45)' }}>Voir la vidéo</p>
+              <p className="modal-embed-label" style={{ '--yellow': 'rgba(247,244,238,.45)' }}>Extrait</p>
               <div className="modal-embed-wrap">
                 <iframe
                   src={r.videoEmbed}
@@ -185,6 +197,25 @@ function ProjectModal({ r, gradient, onClose }) {
                   allowFullScreen
                   loading="lazy"
                   title={`Vidéo — ${r.podcastName}`}
+                />
+              </div>
+            </>
+          ) : null}
+
+          {/* Audio embed */}
+          {r.audioEmbed && (
+            <>
+              <p className="modal-embed-label">Écouter le podcast</p>
+              <div className="modal-embed-wrap">
+                <iframe
+                  src={cleanSrc(r.audioEmbed)}
+                  height="80"
+                  width="100%"
+                  frameBorder="0"
+                  allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+                  loading="lazy"
+                  style={{ display: 'block', borderRadius: '4px' }}
+                  title={`Extrait audio — ${r.podcastName}`}
                 />
               </div>
             </>
