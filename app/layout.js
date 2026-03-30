@@ -1,4 +1,4 @@
-import { Bebas_Neue, Playfair_Display, DM_Sans } from 'next/font/google'
+import { Bebas_Neue, Playfair_Display, DM_Sans, Oswald } from 'next/font/google'
 import './globals.css'
 import Nav from '@/components/Nav'
 import CustomCursor from '@/components/CustomCursor'
@@ -23,6 +23,13 @@ const dmSans = DM_Sans({
   display: 'swap',
 })
 
+const oswald = Oswald({
+  weight: '700',
+  subsets: ['latin'],
+  variable: '--font-oswald',
+  display: 'swap',
+})
+
 export const metadata = {
   title: 'Sons & Merveilles — Agence podcast de marque',
   description: 'Sons & Merveilles crée des podcasts de marque qui captivent, engagent et durent.',
@@ -30,7 +37,7 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="fr" className={`${bebasNeue.variable} ${playfairDisplay.variable} ${dmSans.variable}`}>
+    <html lang="fr" className={`${bebasNeue.variable} ${playfairDisplay.variable} ${dmSans.variable} ${oswald.variable}`}>
       <body>
         <CustomCursor />
         <Nav />

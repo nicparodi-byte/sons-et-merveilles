@@ -59,8 +59,8 @@ img { max-width: 100%; display: block; }
   border-bottom: 1px solid rgba(255, 255, 255, .05);
 }
 .nav-logo {
-  font-family: var(--font-bebas), 'Bebas Neue', sans-serif;
-  font-size: 1.4rem; letter-spacing: .12em;
+  font-family: var(--font-oswald), 'Oswald', sans-serif;
+  font-size: 1.25rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase;
   color: var(--white); text-decoration: none;
   display: flex; align-items: center; gap: 10px;
 }
@@ -547,8 +547,8 @@ footer {
   border-top: 1px solid rgba(255,255,255,.07);
 }
 .footer-logo {
-  font-family: var(--font-bebas), 'Bebas Neue', sans-serif;
-  font-size: 1.4rem; letter-spacing: .12em; color: var(--white);
+  font-family: var(--font-oswald), 'Oswald', sans-serif;
+  font-size: 1.25rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--white);
 }
 .footer-links { display: flex; gap: 32px; list-style: none; }
 .footer-links a {
