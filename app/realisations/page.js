@@ -1,3 +1,4 @@
+import { Suspense } from 'react'
 import Link from 'next/link'
 import { client } from '@/sanity/lib/client'
 import RealisationsGrid from '@/components/RealisationsGrid'
@@ -62,7 +63,9 @@ export default async function RealisationsPage() {
       </header>
 
       {/* ── FILTER + GRID (client) ── */}
-      <RealisationsGrid realisations={realisations} />
+      <Suspense>
+        <RealisationsGrid realisations={realisations} />
+      </Suspense>
 
       {/* ── TICKER ── */}
       <div className="ticker" aria-hidden="true">
