@@ -172,6 +172,7 @@ function ProjectModal({ r, gradient, onClose }) {
               <video
                 className="modal-video"
                 controls
+                controlsList="nodownload"
                 playsInline
                 preload="metadata"
                 title={`Vidéo — ${r.podcastName}`}
