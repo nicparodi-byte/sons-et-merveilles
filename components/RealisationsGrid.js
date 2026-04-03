@@ -1,6 +1,7 @@
 'use client'
 
 import { useState, useEffect, useCallback } from 'react'
+import { useRouter, useSearchParams } from 'next/navigation'
 import Link from 'next/link'
 import { urlFor } from '@/sanity/lib/image'
 
@@ -243,16 +244,34 @@ export default function RealisationsGrid({ realisations }) {
   const [modalData, setModalData] = useState(null)
   const [modalGradient, setModalGradient] = useState('')
 
-  const openModal = useCallback((r, gradient) => {
-    setModalData(r)
-    setModalGradient(gradient)
-    document.body.style.overflow = 'hidden'
-  }, [])
+  const router = useRouter()
+  const searchParams = useSearchParams()
 
-  const closeModal = useCallback(() => {
+  // Sync modal state with ?modal= URL param (handles direct links + back button)
+  useEffect(() => {
+    const slug = searchParams.get('modal')
+    if (slug) {
+      const idx = realisations.findIndex(r => r.slug?.current === slug)
+      if (idx !== -1) {
+        setModalData(realisations[idx])
+        setModalGradient(GRADIENTS[idx % GRADIENTS.length])
+        document.body.style.overflow = 'hidden'
+        return
+      }
+    }
     setModalData(null)
     document.body.style.overflow = ''
-  }, [])
+  }, [searchParams, realisations])
+
+  const openModal = useCallback((r) => {
+    if (r.slug?.current) {
+      router.push(`?modal=${r.slug.current}`, { scroll: false })
+    }
+  }, [router])
+
+  const closeModal = useCallback(() => {
+    router.push('/realisations', { scroll: false })
+  }, [router])
 
   return (
     <>
@@ -336,7 +355,7 @@ export default function RealisationsGrid({ realisations }) {
               key={r._id}
               className={cardClass}
               data-cats={cats}
-              onClick={() => openModal(r, gradient)}
+              onClick={() => openModal(r)}
             >
               {cardInner}
             </div>
