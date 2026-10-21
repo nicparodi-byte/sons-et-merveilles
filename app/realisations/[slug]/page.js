@@ -28,10 +28,12 @@ const QUERY = `*[_type == "realisation" && slug.current == $slug][0] {
   audioEmbed,
   "videoFileUrl": videoFile.asset->url,
   videoEmbed,
+  videoEmbed2,
   stat1Value, stat1Label, stat1Context,
   stat2Value, stat2Label, stat2Context,
   stat3Value, stat3Label, stat3Context,
   stat4Value, stat4Label, stat4Context,
+  clientQuotes[] { quote, name, role },
   clientQuote, clientQuoteName, clientQuoteRole,
   bridgeBody,
   bridgeSectors,
@@ -126,7 +128,12 @@ export default async function ProjetPage({ params }) {
     { v: p.stat3Value, l: p.stat3Label, c: p.stat3Context },
     { v: p.stat4Value, l: p.stat4Label, c: p.stat4Context },
   ].filter(s => s.v)
-  const hasClientVoice = p.clientQuote
+  const quotes = p.clientQuotes?.length > 0
+    ? p.clientQuotes
+    : p.clientQuote
+      ? [{ quote: p.clientQuote, name: p.clientQuoteName, role: p.clientQuoteRole }]
+      : []
+  const hasClientVoice = quotes.length > 0
   const hasBridge      = p.bridgeBody
   const hasRelated     = related?.length > 0
 
@@ -273,7 +280,7 @@ export default async function ProjetPage({ params }) {
               </>
             ) : p.videoEmbed ? (
               <>
-                <p className="embed-video-label">Extrait</p>
+                <p className="embed-video-label">Épisode 1</p>
                 <div className="embed-video-wrap">
                   <iframe
                     src={p.videoEmbed}
@@ -283,6 +290,20 @@ export default async function ProjetPage({ params }) {
                     title={`Voir : ${p.projectTitle || p.podcastName}`}
                   />
                 </div>
+                {p.videoEmbed2 && (
+                  <>
+                    <p className="embed-video-label">Épisode 2</p>
+                    <div className="embed-video-wrap">
+                      <iframe
+                        src={p.videoEmbed2}
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowFullScreen
+                        loading="lazy"
+                        title={`Voir épisode 2 : ${p.projectTitle || p.podcastName}`}
+                      />
+                    </div>
+                  </>
+                )}
               </>
             ) : null}
             {p.audioEmbed && (
@@ -322,17 +343,35 @@ export default async function ProjetPage({ params }) {
       {/* ── CLIENT VOICE ── */}
       {hasClientVoice && (
         <section className="client-voice reveal" aria-labelledby="quote-heading">
+          {/* First quote — large treatment */}
           <div className="quote-block">
             <span className="quote-mark" aria-hidden="true">&ldquo;</span>
-            <blockquote className="quote-text" id="quote-heading">{p.clientQuote}</blockquote>
+            <blockquote className="quote-text" id="quote-heading">{quotes[0].quote}</blockquote>
             <div className="quote-divider" />
-            {(p.clientQuoteName || p.clientQuoteRole) && (
+            {(quotes[0].name || quotes[0].role) && (
               <div className="quote-attribution">
-                {p.clientQuoteName && <span className="quote-name">{p.clientQuoteName}</span>}
-                {p.clientQuoteRole && <span className="quote-role">{p.clientQuoteRole}</span>}
+                {quotes[0].name && <span className="quote-name">{quotes[0].name}</span>}
+                {quotes[0].role && <span className="quote-role">{quotes[0].role}</span>}
               </div>
             )}
           </div>
+          {/* Additional quotes — compact grid */}
+          {quotes.length > 1 && (
+            <div className="quote-grid">
+              {quotes.slice(1).map((q, i) => (
+                <div key={i} className="quote-card">
+                  <p className="quote-card-text">&ldquo;{q.quote}&rdquo;</p>
+                  <div className="quote-card-divider" />
+                  {(q.name || q.role) && (
+                    <div className="quote-card-attr">
+                      {q.name && <span className="quote-card-name">{q.name}</span>}
+                      {q.role && <span className="quote-card-role">{q.role}</span>}
+                    </div>
+                  )}
+                </div>
+              ))}
+            </div>
+          )}
         </section>
       )}
 

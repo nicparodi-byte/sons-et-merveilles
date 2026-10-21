@@ -1412,22 +1412,50 @@ h3.sp-title { font-size: 1rem; font-weight: 500; color: var(--white); margin-bot
 .spec-sub { font-size: .82rem; color: rgba(247,244,238,.5); }
 
 /* ── CLIENT VOICE ── */
-.client-voice { background: var(--gray); padding: 100px 48px; }
-.quote-block { max-width: 780px; margin: 0 auto; text-align: center; }
+.client-voice { background: var(--yellow); padding: 100px 48px; }
+.quote-block { max-width: 800px; margin: 0 auto; text-align: left; }
 .quote-mark {
   font-family: var(--font-playfair), 'Playfair Display', serif;
-  font-size: 8rem; line-height: .6; color: rgba(245,197,24,.12);
-  display: block; margin-bottom: 16px;
+  font-size: 10rem; line-height: .5; color: rgba(10,10,10,.1);
+  display: block; margin-bottom: 8px;
 }
 blockquote.quote-text {
   font-family: var(--font-playfair), 'Playfair Display', serif; font-style: italic;
-  font-size: clamp(1.3rem, 2.5vw, 1.9rem); line-height: 1.55;
-  color: var(--white); margin-bottom: 32px;
+  font-size: clamp(1.4rem, 2.8vw, 2.2rem); line-height: 1.45;
+  color: var(--black); margin-bottom: 36px;
 }
-.quote-divider { width: 40px; height: 2px; background: var(--red); margin: 20px auto; }
-.quote-attribution { display: flex; flex-direction: column; gap: 4px; align-items: center; }
-.quote-name { font-size: .9rem; font-weight: 500; color: var(--yellow); }
-.quote-role { font-size: .78rem; color: rgba(247,244,238,.45); }
+.quote-divider { width: 40px; height: 2px; background: var(--black); margin: 20px 0; }
+.quote-attribution { display: flex; flex-direction: column; gap: 4px; align-items: flex-start; }
+.quote-name { font-size: .9rem; font-weight: 600; color: var(--black); }
+.quote-role { font-size: .78rem; color: rgba(10,10,10,.55); }
+
+/* Additional quotes grid — below the main yellow quote */
+.quote-grid {
+  background: var(--black);
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1px;
+  border-top: 1px solid rgba(10,10,10,.15);
+}
+.quote-card {
+  background: var(--black);
+  padding: 40px 36px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.quote-card-text {
+  font-family: var(--font-playfair), 'Playfair Display', serif;
+  font-style: italic;
+  font-size: clamp(.95rem, 1.4vw, 1.1rem);
+  line-height: 1.65;
+  color: var(--white);
+  flex: 1;
+}
+.quote-card-divider { width: 28px; height: 2px; background: var(--yellow); }
+.quote-card-attr { display: flex; flex-direction: column; gap: 3px; }
+.quote-card-name { font-size: .8rem; font-weight: 600; color: var(--yellow); }
+.quote-card-role { font-size: .72rem; color: rgba(247,244,238,.45); line-height: 1.4; }
 
 /* ── BRIDGE ── */
 .prod-bridge { background: var(--black); }
@@ -1503,6 +1531,8 @@ h2.related-title { font-family: var(--font-bebas), 'Bebas Neue', sans-serif; fon
   .result-block:last-child { border-bottom: none; }
   .solution-specs { grid-template-columns: 1fr 1fr; }
   .client-voice { padding: 72px 24px; }
+  .quote-grid { grid-template-columns: 1fr; }
+  .quote-card { padding: 32px 24px; }
   .bridge-inner { padding: 36px 24px; }
   .related { padding: 72px 24px; }
   .related-grid { grid-template-columns: 1fr; }
