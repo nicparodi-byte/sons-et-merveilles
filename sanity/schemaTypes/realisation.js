@@ -232,6 +232,13 @@ export const realisation = defineType({
       type: 'url',
       group: 'page',
     }),
+    defineField({
+      name: 'videoEmbed2',
+      title: '2ème Embed vidéo (URL iframe)',
+      description: 'Second épisode ou second extrait. Affiché sous le premier.',
+      type: 'url',
+      group: 'page',
+    }),
 
     // ── RESULTS ──────────────────────────────────────
     defineField({ name: 'stat1Value',   title: 'Stat 1 — Valeur',   type: 'string', group: 'results' }),
@@ -249,14 +256,32 @@ export const realisation = defineType({
 
     // ── QUOTE ────────────────────────────────────────
     defineField({
+      name: 'clientQuotes',
+      title: 'Citations clients',
+      description: 'Plusieurs citations. La 1ère est affichée en grand (fond jaune), les suivantes en grille en dessous.',
+      type: 'array',
+      group: 'quote',
+      of: [
+        defineArrayMember({
+          type: 'object',
+          fields: [
+            defineField({ name: 'quote', type: 'text',   title: 'Citation', rows: 3 }),
+            defineField({ name: 'name',  type: 'string', title: 'Nom' }),
+            defineField({ name: 'role',  type: 'string', title: 'Rôle' }),
+          ],
+          preview: { select: { title: 'name', subtitle: 'role' } },
+        }),
+      ],
+    }),
+    defineField({
       name: 'clientQuote',
-      title: 'Citation client',
+      title: 'Citation client (ancien — utiliser Citations clients)',
       type: 'text',
       group: 'quote',
       rows: 3,
     }),
-    defineField({ name: 'clientQuoteName', title: 'Citation — Nom',  type: 'string', group: 'quote' }),
-    defineField({ name: 'clientQuoteRole', title: 'Citation — Rôle', type: 'string', group: 'quote' }),
+    defineField({ name: 'clientQuoteName', title: 'Citation — Nom (ancien)',  type: 'string', group: 'quote' }),
+    defineField({ name: 'clientQuoteRole', title: 'Citation — Rôle (ancien)', type: 'string', group: 'quote' }),
 
     // ── BRIDGE ───────────────────────────────────────
     defineField({
