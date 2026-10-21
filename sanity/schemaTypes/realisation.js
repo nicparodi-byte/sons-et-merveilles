@@ -239,6 +239,14 @@ export const realisation = defineType({
       type: 'url',
       group: 'page',
     }),
+    defineField({
+      name: 'heroImage2',
+      title: 'Visuel héro 2 (2ème podcast)',
+      description: 'Second visuel affiché côte à côte avec le visuel principal dans le hero. Pour les case studies couvrant deux podcasts.',
+      type: 'image',
+      group: 'page',
+      options: { hotspot: true },
+    }),
 
     // ── RESULTS ──────────────────────────────────────
     defineField({ name: 'stat1Value',   title: 'Stat 1 — Valeur',   type: 'string', group: 'results' }),
