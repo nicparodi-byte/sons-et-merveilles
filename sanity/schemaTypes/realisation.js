@@ -95,6 +95,7 @@ export const realisation = defineType({
     defineField({
       name: 'cardDescription',
       title: 'Description carte (accroche courte)',
+      description: 'Affiché dans la modale de la page Réalisations, et comme intro sur la page projet si "Accroche héro" est vide.',
       type: 'text',
       group: 'card',
       rows: 3,
