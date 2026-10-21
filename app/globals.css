@@ -1449,7 +1449,7 @@ blockquote.quote-text {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 1px;
-  border-top: 1px solid rgba(10,10,10,.15);
+  margin-top: 80px;
 }
 .quote-card {
   background: var(--black);
