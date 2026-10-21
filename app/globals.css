@@ -1300,6 +1300,10 @@ h1.prod-title {
 .prod-hero-artwork {
   position: absolute; inset: 0; background-size: cover; background-position: center;
 }
+/* Dual-podcast hero */
+.prod-hero-dual { display: flex; flex-direction: column; }
+.prod-hero-cover { flex: 1; overflow: hidden; }
+.prod-hero-cover img { width: 100%; height: 100%; object-fit: contain; object-position: center; display: block; background: var(--gray); }
 .prod-hero-overlay {
   position: absolute; inset: 0;
   background: linear-gradient(to right, var(--black) 0%, transparent 35%); z-index: 1;

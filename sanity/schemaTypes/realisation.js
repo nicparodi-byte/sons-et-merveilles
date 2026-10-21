@@ -95,6 +95,7 @@ export const realisation = defineType({
     defineField({
       name: 'cardDescription',
       title: 'Description carte (accroche courte)',
+      description: 'Affiché dans la modale de la page Réalisations, et comme intro sur la page projet si "Accroche héro" est vide.',
       type: 'text',
       group: 'card',
       rows: 3,
@@ -103,7 +104,7 @@ export const realisation = defineType({
     defineField({
       name: 'projectSummary',
       title: 'Résumé page Pourquoi (facultatif)',
-      description: 'Corps du bloc étude de cas sur la page Pourquoi un podcast. Si vide, la page utilisera cardDescription.',
+      description: 'Texte affiché dans le bloc étude de cas sur la page "Pourquoi un podcast ?". Si vide, c\'est la Description carte qui sera utilisée à la place.',
       type: 'text',
       group: 'card',
       rows: 4,
@@ -238,6 +239,14 @@ export const realisation = defineType({
       description: 'Second épisode ou second extrait. Affiché sous le premier.',
       type: 'url',
       group: 'page',
+    }),
+    defineField({
+      name: 'heroImage2',
+      title: 'Visuel héro 2 (2ème podcast)',
+      description: 'Second visuel affiché côte à côte avec le visuel principal dans le hero. Pour les case studies couvrant deux podcasts.',
+      type: 'image',
+      group: 'page',
+      options: { hotspot: true },
     }),
 
     // ── RESULTS ──────────────────────────────────────

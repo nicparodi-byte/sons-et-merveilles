@@ -13,6 +13,7 @@ const OPTS = { next: { revalidate: 60 } }
 const QUERY = `*[_type == "realisation" && slug.current == $slug][0] {
   _id, "podcastName": coalesce(podcastName, title), projectTitle, client, slug, sector, format, year, award,
   cardImage,
+  heroImage2,
   "palette": cardImage.asset->metadata.palette {
     vibrant { background },
     darkVibrant { background },
@@ -172,8 +173,19 @@ export default async function ProjetPage({ params }) {
           {intro && <p className="prod-intro">{intro}</p>}
         </div>
 
-        <div className="prod-hero-right" aria-hidden="true">
-          <div className="prod-hero-artwork" style={heroArtworkStyle} />
+        <div className={`prod-hero-right${p.heroImage2 ? ' prod-hero-dual' : ''}`} aria-hidden="true">
+          {p.heroImage2 ? (
+            <>
+              <div className="prod-hero-cover">
+                <img src={urlFor(p.cardImage).width(900).url()} alt="" />
+              </div>
+              <div className="prod-hero-cover">
+                <img src={urlFor(p.heroImage2).width(900).url()} alt="" />
+              </div>
+            </>
+          ) : (
+            <div className="prod-hero-artwork" style={heroArtworkStyle} />
+          )}
           <div className="prod-hero-overlay" />
           <div className="prod-hero-wave">
             {WAVE_BARS.map((w, i) => (
