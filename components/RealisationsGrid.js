@@ -330,12 +330,12 @@ export default function RealisationsGrid({ realisations }) {
                   <div key={j} className="card-wave-bar" style={{ '--d': b.d, '--dl': b.dl, '--h': b.h }} />
                 ))}
               </div>
+              <div className="card-client-top">{r.client}</div>
               <div className="card-label">
                 <span className="label-tag">{r.format}</span>
-                <span className="label-client">{r.client}</span>
               </div>
               <div className="card-overlay">
-                <div className="overlay-tag">{r.sector} · {r.format}</div>
+                <div className="overlay-tag">{r.sector}</div>
                 <div className="overlay-title">{r.podcastName}</div>
                 <div className="overlay-meta">
                   <span className="overlay-format">{r.client}</span>

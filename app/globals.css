@@ -651,10 +651,21 @@ footer {
   animation: waveAnim var(--d, 1s) ease-in-out infinite alternate;
   animation-delay: var(--dl, 0s);
 }
+.card-client-top {
+  position: absolute; top: 0; right: 0;
+  padding: 18px 22px;
+  font-family: var(--font-bebas), 'Bebas Neue', sans-serif;
+  font-size: 1.15rem; letter-spacing: .08em;
+  color: var(--white);
+  text-shadow: 0 1px 6px rgba(0,0,0,.6);
+  transition: opacity .3s;
+  z-index: 2;
+}
+.project-card:hover .card-client-top { opacity: 0; }
 .card-label {
   position: absolute; bottom: 0; left: 0; right: 0; padding: 20px 24px;
   background: linear-gradient(to top, rgba(10,10,10,.8), transparent);
-  display: flex; align-items: flex-end; justify-content: space-between;
+  display: flex; align-items: flex-end;
   transition: opacity .3s;
 }
 .project-card:hover .card-label { opacity: 0; }
@@ -662,7 +673,6 @@ footer {
   font-size: .62rem; letter-spacing: .2em; text-transform: uppercase;
   background: var(--yellow); color: var(--black); padding: 4px 10px; border-radius: 2px; font-weight: 500;
 }
-.label-client { font-size: .78rem; color: rgba(247,244,238,.7); letter-spacing: .08em; }
 .card-overlay {
   position: absolute; inset: 0;
   background: linear-gradient(to top, rgba(10,10,10,.95) 0%, rgba(10,10,10,.4) 50%, transparent 100%);
@@ -1439,7 +1449,7 @@ blockquote.quote-text {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 1px;
-  border-top: 1px solid rgba(10,10,10,.15);
+  margin-top: 80px;
 }
 .quote-card {
   background: var(--black);
