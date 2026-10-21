@@ -131,7 +131,7 @@ export default async function PourquoiPage() {
           <div className="cases-header reveal">
             <p className="section-tag">À quoi ça ressemble, concrètement</p>
             <h2 className="cases-title" id="cases-heading">
-              Ils se sont lancés.<br /><span>Voici les résultats.</span>
+              <span>Études de cas</span>
             </h2>
           </div>
 
