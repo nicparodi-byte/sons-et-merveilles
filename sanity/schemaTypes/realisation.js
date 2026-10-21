@@ -104,7 +104,7 @@ export const realisation = defineType({
     defineField({
       name: 'projectSummary',
       title: 'Résumé page Pourquoi (facultatif)',
-      description: 'Corps du bloc étude de cas sur la page Pourquoi un podcast. Si vide, la page utilisera cardDescription.',
+      description: 'Texte affiché dans le bloc étude de cas sur la page "Pourquoi un podcast ?". Si vide, c\'est la Description carte qui sera utilisée à la place.',
       type: 'text',
       group: 'card',
       rows: 4,
