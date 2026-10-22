@@ -43,6 +43,14 @@ const faqs = [
     q: "Comment mesurer l'impact d'un podcast de marque ?",
     a: "Les indicateurs clés sont le nombre d'écoutes, le taux de complétion par épisode et la croissance d'audience entre saisons. Au-delà des chiffres, l'impact se mesure aussi qualitativement : demandes entrantes, mentions presse, retours clients, candidatures reçues. Nous vous aidons à définir les bons KPIs avant même le lancement.",
   },
+  {
+    q: "Sons & Merveilles travaille-t-elle dans le secteur de la santé ?",
+    a: "Oui, la santé est l'un de nos secteurs de prédilection. Nous avons produit des podcasts pour le Groupe Apicil (un documentaire audio sur l'endométriose et un autre sur les violences faites aux femmes), pour les Laboratoires Pierre Fabre (une série narrative sur la carence en fer) et pour AbbVie, autour des cancers du sang. La communication santé exige un équilibre délicat entre rigueur médicale, accessibilité et émotions. Notre expertise réside précisément dans cet équilibre. Nous travaillons aussi bien avec des laboratoires pharmaceutiques qu'avec des institutions de santé publique et des associations de patients.",
+  },
+  {
+    q: "Êtes-vous une agence généraliste ou spécialisée en podcast de marque ?",
+    a: "Sons & Merveilles est une agence 100 % spécialisée en podcast de marque. Nous avons développé une expertise éditoriale, technique et stratégique que les agences de communication généralistes ne peuvent pas atteindre en faisant du podcast occasionnellement. Nous intervenons sur un large spectre allant de la santé à la RSE, l'innovation, la marque employeur ou encore la formation.",
+  },
 ]
 
 export default function FaqSection() {
