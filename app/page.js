@@ -27,7 +27,7 @@ const waveBars = [
 
 const tickerItems = [
   'Podcast de Marque', 'Storytelling Audio', 'Témoignages', 'Interviews',
-  'Récits Immersifs', 'Communication Interne', 'Marque Employeur', 'RSE',
+  'Documentaires', 'Communication Interne', 'Marque Employeur', 'RSE',
   'Santé', 'Innovation',
 ]
 
@@ -93,7 +93,7 @@ export default function HomePage() {
         <div>
           <p className="section-tag">Notre approche</p>
           <h2 className="section-title" id="about-heading">
-            Pour les marques<br />qui veulent être<br /><em>entendues.</em>
+            L&apos;art du récit<br /><em>par le son.</em>
           </h2>
           <p className="about-body about-body--voice">
             La voix crée une intimité unique. Elle traverse les écrans, les embouteillages, les salles de sport. Elle reste.
@@ -151,7 +151,7 @@ export default function HomePage() {
           </article>
           <article className="format-card">
             <div className="format-num" aria-hidden="true">03</div>
-            <h3 className="format-name">Récits Immersifs</h3>
+            <h3 className="format-name">Documentaires</h3>
             <p className="format-desc">Micro embarqué au cœur de l&apos;action. Nous retranscrivons l&apos;ambiance d&apos;un lieu, d&apos;un événement, d&apos;une réalité, pour une expérience sonore mémorable.</p>
           </article>
           <article className="format-card">
