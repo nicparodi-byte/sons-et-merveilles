@@ -8,6 +8,14 @@ const faqs = [
     a: "Un podcast de marque est un contenu audio produit par une entreprise ou une institution dans le cadre de sa stratégie de communication. Il sert notamment à faire connaître ses engagements et ses valeurs, à renforcer les liens d'une marque avec son audience, sans objectif publicitaire direct.",
   },
   {
+    q: "Êtes-vous une agence généraliste ou spécialisée en podcast de marque ?",
+    a: "Sons & Merveilles est une agence 100 % spécialisée en podcast de marque. Nous avons développé une expertise éditoriale, technique et stratégique que les agences de communication généralistes ne peuvent pas atteindre en faisant du podcast occasionnellement. Nous intervenons sur un large spectre allant de la santé à la RSE, l'innovation, la marque employeur ou encore la formation.",
+  },
+  {
+    q: "Sons & Merveilles travaille-t-elle dans le secteur de la santé ?",
+    a: "Oui, la santé est l'un de nos secteurs de prédilection. Nous avons produit des podcasts pour le Groupe Apicil (un documentaire audio sur l'endométriose et un autre sur les violences faites aux femmes), pour les Laboratoires Pierre Fabre (une série narrative sur la carence en fer) et pour AbbVie, autour des cancers du sang. La communication santé exige un équilibre délicat entre rigueur médicale, accessibilité et émotions. Notre expertise réside précisément dans cet équilibre. Nous travaillons aussi bien avec des laboratoires pharmaceutiques qu'avec des institutions de santé publique et des associations de patients.",
+  },
+  {
     q: "Pourquoi utiliser un podcast dans sa stratégie de communication ?",
     a: "Le podcast est le seul média où l'auditeur vous accorde une attention active et choisie. Il permet d'atteindre une audience ciblée avec un niveau d'engagement que les autres formats n'atteignent pas. 76 % des auditeurs hebdomadaires estiment que c'est un bon moyen de communiquer pour une marque. Le podcast de marque renforce l'image, attire des talents, crée une affinité et fidélise une communauté sur la durée.",
   },
@@ -17,19 +25,11 @@ const faqs = [
   },
   {
     q: "Combien de temps faut-il pour produire un podcast de marque ?",
-    a: "Comptez 4 à 6 semaines de la phase stratégique à la mise en ligne du premier épisode. La conception éditoriale prend 1 à 2 semaines, la production et le montage 2 à 3 semaines, puis la distribution est quasi-immédiate. Pour les séries récurrentes, le rythme de production s'accélère significativement dès la deuxième saison puisque la ligne éditoriale est déjà en place",
+    a: "Comptez 4 à 6 semaines de la phase stratégique à la mise en ligne du premier épisode. La conception éditoriale prend 1 à 2 semaines, la production et le montage 2 à 3 semaines, puis la distribution est quasi-immédiate. Pour les séries récurrentes, le rythme de production s'accélère significativement dès la deuxième saison puisque la ligne éditoriale est déjà en place.",
   },
   {
     q: "Quelles sont les étapes de réalisation d'un podcast de marque ?",
     a: "Trois étapes principales : d'abord la stratégie éditoriale (ligne éditoriale, format, positionnement, identité sonore), puis la production (enregistrement, montage, design sonore, musique), enfin la diffusion et la mesure d'impact (mise en ligne sur toutes les plateformes, suivi d'audience). Attention à ne pas oublier la promotion, une étape essentielle. Sons & Merveilles prend en charge l'intégralité du parcours, de l'idée à la publication et la promotion.",
-  },
-  {
-    q: "Sur quelles plateformes diffusez-vous les podcasts ?",
-    a: "Nous diffusons sur toutes les grandes plateformes : Spotify, Apple Podcasts, Deezer, Amazon Music et YouTube. Pour les podcasts internes (formation, communication interne, marque employeur), nous vous remettons les fichiers pour diffuser les épisodes sur intranet et plateformes LMS. Une seule production, tous les canaux couverts.",
-  },
-  {
-    q: "Travaillez-vous avec des entreprises en dehors de Paris ?",
-    a: "Nous produisons des podcasts de marque dans toute la France et à l'international. Les enregistrements se font en studio, sur site chez le client, ou à distance en session guidée. Notre équipe est répartie entre Paris, Toulouse et Lyon mais elle est mobile - nous avons produit des épisodes de Lille à Nice mais aussi à Londres et Dubaï.",
   },
   {
     q: "Quelle est la différence entre un podcast de marque et un podcast natif ?",
@@ -42,14 +42,6 @@ const faqs = [
   {
     q: "Comment mesurer l'impact d'un podcast de marque ?",
     a: "Les indicateurs clés sont le nombre d'écoutes, le taux de complétion par épisode et la croissance d'audience entre saisons. Au-delà des chiffres, l'impact se mesure aussi qualitativement : demandes entrantes, mentions presse, retours clients, candidatures reçues. Nous vous aidons à définir les bons KPIs avant même le lancement.",
-  },
-  {
-    q: "Sons & Merveilles travaille-t-elle dans le secteur de la santé ?",
-    a: "Oui, la santé est l'un de nos secteurs de prédilection. Nous avons produit des podcasts pour le Groupe Apicil (un documentaire audio sur l'endométriose et un autre sur les violences faites aux femmes), pour les Laboratoires Pierre Fabre (une série narrative sur la carence en fer) et pour AbbVie, autour des cancers du sang. La communication santé exige un équilibre délicat entre rigueur médicale, accessibilité et émotions. Notre expertise réside précisément dans cet équilibre. Nous travaillons aussi bien avec des laboratoires pharmaceutiques qu'avec des institutions de santé publique et des associations de patients.",
-  },
-  {
-    q: "Êtes-vous une agence généraliste ou spécialisée en podcast de marque ?",
-    a: "Sons & Merveilles est une agence 100 % spécialisée en podcast de marque. Nous avons développé une expertise éditoriale, technique et stratégique que les agences de communication généralistes ne peuvent pas atteindre en faisant du podcast occasionnellement. Nous intervenons sur un large spectre allant de la santé à la RSE, l'innovation, la marque employeur ou encore la formation.",
   },
 ]
 
