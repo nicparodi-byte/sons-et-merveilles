@@ -138,8 +138,30 @@ export default async function ProjetPage({ params }) {
   const hasBridge      = p.bridgeBody
   const hasRelated     = related?.length > 0
 
+  const jsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'PodcastSeries',
+    name: p.projectTitle || p.podcastName,
+    description: p.cardDescription || undefined,
+    producer: {
+      '@type': 'Organization',
+      name: 'Sons & Merveilles',
+      url: 'https://sons-et-merveilles.vercel.app',
+    },
+    creator: p.client ? { '@type': 'Organization', name: p.client } : undefined,
+    genre: [p.sector, p.format].filter(Boolean),
+    ...(p.year ? { dateCreated: String(p.year) } : {}),
+    url: `https://sons-et-merveilles.vercel.app/realisations/${p.slug.current}`,
+    ...(p.cardImage ? { image: urlFor(p.cardImage).width(1200).url() } : {}),
+    ...(p.award ? { award: p.award } : {}),
+  }
+
   return (
     <main>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
       <RevealObserver />
       <Suspense fallback={null}>
         <ProjectTopBar />
