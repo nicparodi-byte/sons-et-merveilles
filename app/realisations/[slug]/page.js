@@ -152,9 +152,8 @@ export default async function ProjetPage({ params }) {
     genre: [p.sector, p.format].filter(Boolean),
     ...(p.year ? { dateCreated: String(p.year) } : {}),
     url: `https://sons-et-merveilles.vercel.app/realisations/${p.slug.current}`,
-    ...(p.cardImage ? {
-      image: urlFor(p.cardImage).width(1200).url(),
-    } : {}),
+    ...(p.cardImage ? { image: urlFor(p.cardImage).width(1200).url() } : {}),
+    ...(p.award ? { award: p.award } : {}),
   }
 
   return (
