@@ -162,7 +162,7 @@ export default async function PodcastsSantePage() {
           <h2 className="ps-section-title" id="ps-s3-heading">
             L&apos;expérience<br /><span>parle d&apos;elle-même</span>
           </h2>
-          <p className="ps-section-intro">Quelques exemples de nos réalisations en santé</p>
+          <p className="ps-section-intro">Quelques exemples de nos podcasts santé</p>
         </div>
         <div className="ps-projects">
           {orderedProjects.map((p) => {
