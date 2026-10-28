@@ -162,6 +162,7 @@ export default async function PodcastsSantePage() {
           <h2 className="ps-section-title" id="ps-s3-heading">
             L&apos;expérience<br /><span>parle d&apos;elle-même</span>
           </h2>
+          <p className="ps-section-intro">Quelques exemples de nos réalisations en santé</p>
         </div>
         <div className="ps-projects">
           {orderedProjects.map((p) => {
@@ -197,6 +198,14 @@ export default async function PodcastsSantePage() {
               </Link>
             )
           })}
+        </div>
+        <div className="ps-section-footer">
+          <Link href="/realisations" className="btn-outline">
+            Découvrir nos autres réalisations
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+              <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+            </svg>
+          </Link>
         </div>
       </section>
 
