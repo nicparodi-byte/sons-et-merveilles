@@ -112,6 +112,15 @@ export default async function PodcastsSantePage() {
         <div className="hero-bg-letter" aria-hidden="true">S</div>
       </section>
 
+      {/* ── INTRO ── */}
+      <section className="ps-intro reveal">
+        <div className="ps-intro-inner">
+          <p className="ps-intro-text">
+            Au fil de nos productions, nous avons développé une connaissance des pathologies, des parcours de soins et des enjeux de l&apos;innovation en santé. Elle nous aide à comprendre les sujets, à préparer les échanges avec les professionnels et à poser les bonnes questions.
+          </p>
+        </div>
+      </section>
+
       {/* ── SECTION 01 — Raconter la santé ── */}
       <section className="ps-section reveal" aria-labelledby="ps-s1-heading">
         <div className="ps-section-head">
@@ -119,9 +128,6 @@ export default async function PodcastsSantePage() {
             Raconter la santé,<br />c&apos;est trouver<br /><span>le bon équilibre</span>
           </h2>
         </div>
-        <p className="ps-section-lead reveal">
-          Au fil de nos productions, nous avons développé une connaissance des pathologies, des parcours de soins et des enjeux de l&apos;innovation en santé. Elle nous aide à comprendre les sujets, à préparer les échanges avec les professionnels et à poser les bonnes questions.
-        </p>
         <div className="ps-points">
           {POINTS.map((pt, i) => (
             <div key={i} className="ps-point reveal reveal-d1">
