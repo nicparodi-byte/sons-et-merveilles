@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import Image from 'next/image'
 import { client } from '@/sanity/lib/client'
 import { urlFor } from '@/sanity/lib/image'
 import RevealObserver from '@/components/RevealObserver'
@@ -6,7 +7,7 @@ import ContactForm from '@/components/ContactForm'
 
 export const metadata = {
   title: 'Podcasts Santé — Sons & Merveilles',
-  description: 'Sons & Merveilles produit des podcasts pour les laboratoires pharmaceutiques, institutions de santé, mutuelles et associations de patients. Témoignages, documentaires immersifs, séries de sensibilisation et de prévention.',
+  description: 'Au fil de nos productions pour des laboratoires pharmaceutiques, des institutions de santé et des associations de patients, Sons & Merveilles a développé une expertise éditoriale et technique dans la production de podcasts santé.',
 }
 
 const HEALTH_PROJECTS_QUERY = `*[_type == "realisation" && slug.current in ["podcast-Apicil", "cancers-du-sang-nos-vies", "pierre-fabre-et-si-je-manquais-de-fer"]] {
@@ -24,16 +25,19 @@ const PROJECT_EXTRA = {
     angle: 'Le documentaire immersif',
     description: 'Enregistrer des consultations et des moments de vie pour raconter l\'endométriose et l\'accompagnement des femmes victimes de violences. Deux documentaires sur la santé des femmes, réalisés sur site à Lyon et à Marseille.',
     cta: 'Découvrir le projet Apicil',
+    bg: '#1a1008',
   },
   'cancers-du-sang-nos-vies': {
     angle: 'La parole des patients',
     description: 'Recueillir des témoignages personnels et construire des récits qui laissent toute leur place aux personnes touchées par les cancers du sang. 41 épisodes, 4 saisons.',
     cta: 'Découvrir Cancers du Sang, Nos Vies',
+    bg: '#1a0a06',
   },
   'pierre-fabre-et-si-je-manquais-de-fer': {
     angle: 'La santé racontée au quotidien',
     description: 'Faire comprendre la carence en fer en suivant une femme dans son quotidien, plutôt qu\'en déroulant une explication médicale. Un récit documentaire en quatre épisodes.',
     cta: 'Découvrir le projet Pierre Fabre',
+    bg: '#081018',
   },
 }
 
@@ -88,41 +92,28 @@ export default async function PodcastsSantePage() {
       {/* ── HERO ── */}
       <section className="hero" aria-label="Introduction podcasts santé">
         <div className="hero-left">
-          <div className="hero-eyebrow">Sons &amp; Merveilles · Podcasts santé</div>
           <h1 className="hero-title">
             Agence de<br />
             Podcasts<br />
             <span>Santé</span>
           </h1>
         </div>
-        <div className="hero-right">
-          <p className="hero-story">
-            Amener un patient à partager son vécu, être présent lors d&apos;une consultation, expliquer un parcours de soins : <strong>produire un podcast santé demande une expérience particulière.</strong>
-          </p>
-          <p className="hero-body">
-            Chez Sons &amp; Merveilles, nous concevons et produisons des podcasts pour l&apos;ensemble des acteurs de la santé : institutions, mutuelles, laboratoires pharmaceutiques, établissements de soins, associations.
-          </p>
+        <div className="hero-right ps-hero-photo-wrap">
+          <div className="ps-hero-photo" />
         </div>
         <div className="hero-bg-letter" aria-hidden="true">S</div>
       </section>
 
-      {/* ── INTRO ── */}
-      <section className="ps-intro reveal">
-        <div className="ps-intro-inner">
-          <p className="ps-intro-text">
-            Au fil de nos productions, nous avons développé une connaissance des pathologies, des parcours de soins et des enjeux de l&apos;innovation en santé. Elle nous aide à comprendre les sujets, à préparer les échanges avec les professionnels et à poser les bonnes questions.
-          </p>
-        </div>
-      </section>
-
-      {/* ── SECTION 01 — L'équilibre ── */}
+      {/* ── SECTION 01 — Justesse ── */}
       <section className="ps-section reveal" aria-labelledby="ps-s1-heading">
         <div className="ps-section-head">
-          <div className="ps-section-num" aria-hidden="true">01</div>
           <h2 className="ps-section-title" id="ps-s1-heading">
-            Raconter la santé,<br />c&apos;est trouver<br /><span>le bon équilibre</span>
+            Des sujets qui demandent<br /><span>de la justesse</span>
           </h2>
         </div>
+        <p className="ps-section-lead reveal">
+          Au fil de nos productions, nous avons développé une connaissance des pathologies, des parcours de soins et des enjeux de l&apos;innovation en santé. Elle nous aide à comprendre les sujets, à préparer les échanges avec les professionnels et à poser les bonnes questions.
+        </p>
         <div className="ps-points">
           {POINTS.map((pt, i) => (
             <div key={i} className="ps-point reveal reveal-d1">
@@ -136,7 +127,6 @@ export default async function PodcastsSantePage() {
       {/* ── SECTION 02 — Les formats ── */}
       <section className="ps-section ps-section--dark reveal" aria-labelledby="ps-s2-heading">
         <div className="ps-section-head">
-          <div className="ps-section-num" aria-hidden="true">02</div>
           <h2 className="ps-section-title" id="ps-s2-heading">
             Chaque sujet<br /><span>appelle son format</span>
           </h2>
@@ -155,7 +145,6 @@ export default async function PodcastsSantePage() {
       {/* ── SECTION 03 — Réalisations ── */}
       <section className="ps-section reveal" aria-labelledby="ps-s3-heading">
         <div className="ps-section-head">
-          <div className="ps-section-num" aria-hidden="true">03</div>
           <h2 className="ps-section-title" id="ps-s3-heading">
             Des expériences<br /><span>qui parlent d&apos;elles-mêmes</span>
           </h2>
@@ -164,12 +153,21 @@ export default async function PodcastsSantePage() {
           {orderedProjects.map((p) => {
             const extra = PROJECT_EXTRA[p.slug.current]
             return (
-              <Link key={p._id} href={`/realisations/${p.slug.current}`} className="ps-project-card reveal reveal-d1">
+              <Link
+                key={p._id}
+                href={`/realisations/${p.slug.current}`}
+                className="ps-project-card reveal reveal-d1"
+                style={extra?.bg ? { background: extra.bg } : undefined}
+              >
                 {p.cardImage && (
-                  <div
-                    className="ps-project-img"
-                    style={{ backgroundImage: `url(${urlFor(p.cardImage).width(800).height(540).url()})` }}
-                  />
+                  <div className="ps-project-thumb">
+                    <img
+                      src={urlFor(p.cardImage).width(400).height(400).url()}
+                      alt={extra?.angle ?? p.client}
+                      className="ps-project-img"
+                      loading="lazy"
+                    />
+                  </div>
                 )}
                 <div className="ps-project-content">
                   <div className="ps-project-client">{p.client}</div>
@@ -188,10 +186,10 @@ export default async function PodcastsSantePage() {
         </div>
       </section>
 
-      {/* ── SECTION 04 — Contact ── */}
+      {/* ── CONTACT ── */}
       <section className="visio reveal" id="contact" aria-labelledby="ps-contact-heading">
         <div className="visio-left">
-          <div className="visio-tag">04 · Parlons de votre projet</div>
+          <div className="visio-tag">Parlons de votre projet</div>
           <h2 className="visio-title" id="ps-contact-heading">
             Votre sujet<br />mérite <span>d&apos;être entendu</span>
           </h2>
@@ -214,7 +212,7 @@ export default async function PodcastsSantePage() {
           <li><Link href="/equipe">Équipe</Link></li>
           <li><Link href="/mentions-legales">Mentions légales</Link></li>
         </ul>
-        <div className="footer-copy">© 2025 Sons &amp; Merveilles · Agence de production de podcasts pour marques et institutions, spécialisée dans la santé</div>
+        <div className="footer-copy">© 2025 Sons &amp; Merveilles · Agence Podcast de Marque</div>
       </footer>
     </main>
   )
