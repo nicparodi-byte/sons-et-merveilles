@@ -1672,11 +1672,19 @@ h1.page-title em {
 }
 
 /* ── Photo strip ── */
+.ps-photo-figure { margin: 0; position: relative; }
 .ps-photo-strip {
   width: 100%; height: 520px;
   background-image: url('/images/tournage-sante.webp');
   background-size: cover;
   background-position: 68% center;
+}
+.ps-photo-caption {
+  position: absolute; bottom: 0; right: 0;
+  padding: 6px 14px;
+  font-size: .72rem; letter-spacing: .04em;
+  color: rgba(247,244,238,.5);
+  background: rgba(10,10,10,.45);
 }
 
 /* ── Sections ── */

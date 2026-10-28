@@ -136,7 +136,12 @@ export default async function PodcastsSantePage() {
       </section>
 
       {/* ── PHOTO STRIP ── */}
-      <div className="ps-photo-strip" role="img" aria-label="Tournage d'un podcast santé" />
+      <figure className="ps-photo-figure">
+        <div className="ps-photo-strip" role="img" aria-label='Tournage du podcast "Parasport, ils ont osé" pour AbbVie — Photo Madenn LeBouffant' />
+        <figcaption className="ps-photo-caption">
+          Tournage &laquo;&nbsp;Parasport, ils ont osé&nbsp;&raquo; pour AbbVie &mdash; Photo&nbsp;: Madenn LeBouffant
+        </figcaption>
+      </figure>
 
       {/* ── SECTION 02 — Les formats ── */}
       <section className="ps-section ps-section--dark reveal" aria-labelledby="ps-s2-heading">
