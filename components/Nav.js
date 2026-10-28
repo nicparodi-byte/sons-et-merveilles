@@ -56,6 +56,11 @@ export default function Nav() {
             </Link>
           </li>
           <li>
+            <Link href="/podcasts-sante" className={pathname === '/podcasts-sante' ? 'active' : ''}>
+              Podcasts santé
+            </Link>
+          </li>
+          <li>
             <Link href="/equipe" className={pathname === '/equipe' ? 'active' : ''}>
               Équipe
             </Link>
@@ -86,6 +91,11 @@ export default function Nav() {
           <li>
             <Link href="/realisations" onClick={close} className={pathname?.startsWith('/realisations') ? 'active' : ''}>
               Réalisations
+            </Link>
+          </li>
+          <li>
+            <Link href="/podcasts-sante" onClick={close} className={pathname === '/podcasts-sante' ? 'active' : ''}>
+              Podcasts santé
             </Link>
           </li>
           <li>
