@@ -1648,3 +1648,193 @@ h1.page-title em {
   .ml-header { padding: 120px 24px 60px; }
   .mentions-content { padding: 60px 24px 80px; }
 }
+
+/* ══════════════════════════════════════
+   PODCASTS SANTÉ PAGE
+   ══════════════════════════════════════ */
+
+.podcasts-sante-page .hero { background: var(--black); }
+.podcasts-sante-page .hero .hero-right {
+  display: flex; flex-direction: column; justify-content: flex-end;
+  padding: 160px 80px 80px 48px; gap: 28px;
+}
+
+/* ── Intro ── */
+.ps-intro {
+  padding: 80px 48px;
+  background: var(--gray);
+}
+.ps-intro-inner { max-width: 820px; margin: 0 auto; }
+.ps-intro-text {
+  font-family: var(--font-playfair), 'Playfair Display', serif;
+  font-style: italic;
+  font-size: clamp(1.05rem, 1.8vw, 1.35rem);
+  line-height: 1.78;
+  color: rgba(247,244,238,.78);
+  text-align: center;
+}
+
+/* ── Numbered sections ── */
+.ps-section { padding: 120px 48px; }
+.ps-section--dark { background: var(--gray); }
+
+.ps-section-head {
+  display: flex;
+  align-items: flex-start;
+  gap: 36px;
+  margin-bottom: 72px;
+}
+.ps-section-num {
+  font-family: var(--font-bebas), 'Bebas Neue', sans-serif;
+  font-size: clamp(5rem, 9vw, 8rem);
+  line-height: .9;
+  color: var(--yellow);
+  opacity: .18;
+  flex-shrink: 0;
+  user-select: none;
+}
+.ps-section-title {
+  font-family: var(--font-bebas), 'Bebas Neue', sans-serif;
+  font-size: clamp(2.4rem, 4.5vw, 4.2rem);
+  line-height: .96;
+  color: var(--white);
+  letter-spacing: -.01em;
+}
+.ps-section-title span { color: var(--yellow); }
+
+/* ── Points (section 01) ── */
+.ps-points {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 3px;
+}
+.ps-point {
+  padding: 44px 40px;
+  background: var(--gray);
+  border-left: 3px solid var(--yellow);
+}
+.ps-point-title {
+  font-family: var(--font-bebas), 'Bebas Neue', sans-serif;
+  font-size: 1.55rem;
+  letter-spacing: .04em;
+  color: var(--white);
+  margin-bottom: 18px;
+}
+.ps-point-body {
+  font-size: .93rem;
+  line-height: 1.78;
+  color: rgba(247,244,238,.62);
+}
+
+/* ── Formats (section 02) ── */
+.ps-formats {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 3px;
+}
+.ps-format-card {
+  padding: 48px 40px;
+  background: var(--mid);
+}
+.ps-format-num {
+  font-family: var(--font-bebas), 'Bebas Neue', sans-serif;
+  font-size: 2.8rem;
+  color: var(--yellow);
+  opacity: .22;
+  line-height: 1;
+  margin-bottom: 20px;
+}
+.ps-format-title {
+  font-family: var(--font-bebas), 'Bebas Neue', sans-serif;
+  font-size: 1.45rem;
+  letter-spacing: .04em;
+  color: var(--white);
+  margin-bottom: 16px;
+}
+.ps-format-body {
+  font-size: .9rem;
+  line-height: 1.72;
+  color: rgba(247,244,238,.58);
+}
+
+/* ── Projects (section 03) ── */
+.ps-projects {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 3px;
+}
+.ps-project-card {
+  display: flex;
+  flex-direction: column;
+  background: var(--gray);
+  overflow: hidden;
+  transition: transform .35s cubic-bezier(.4,0,.2,1);
+  cursor: none;
+}
+.ps-project-card:hover { transform: translateY(-6px); }
+.ps-project-img {
+  aspect-ratio: 4/3;
+  background-size: cover;
+  background-position: center;
+  transition: transform .5s cubic-bezier(.4,0,.2,1);
+}
+.ps-project-card:hover .ps-project-img { transform: scale(1.04); }
+.ps-project-content {
+  padding: 32px 28px 36px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+.ps-project-client {
+  font-size: .7rem;
+  letter-spacing: .22em;
+  text-transform: uppercase;
+  color: var(--yellow);
+  font-weight: 500;
+  margin-bottom: 10px;
+}
+.ps-project-angle {
+  font-family: var(--font-playfair), 'Playfair Display', serif;
+  font-style: italic;
+  font-size: 1.05rem;
+  color: var(--white);
+  margin-bottom: 16px;
+  line-height: 1.4;
+}
+.ps-project-desc {
+  font-size: .87rem;
+  line-height: 1.72;
+  color: rgba(247,244,238,.58);
+  flex: 1;
+  margin-bottom: 28px;
+}
+.ps-project-cta {
+  font-size: .78rem;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  font-weight: 500;
+  color: var(--white);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: gap .2s;
+  margin-top: auto;
+}
+.ps-project-card:hover .ps-project-cta { gap: 14px; }
+
+/* ── Responsive ── */
+@media (max-width: 1024px) {
+  .ps-projects { grid-template-columns: 1fr; }
+  .ps-points { grid-template-columns: 1fr; }
+  .ps-formats { grid-template-columns: 1fr; }
+}
+@media (max-width: 768px) {
+  .ps-section { padding: 80px 24px; }
+  .ps-intro { padding: 60px 24px; }
+  .ps-section-head { flex-direction: column; gap: 12px; margin-bottom: 48px; }
+  .ps-section-num { font-size: 3.5rem; opacity: .25; }
+  .ps-point { padding: 32px 24px; }
+  .ps-format-card { padding: 32px 24px; }
+  .ps-project-content { padding: 24px 20px 28px; }
+  .podcasts-sante-page .hero .hero-right { padding: 0 24px 60px; }
+}
