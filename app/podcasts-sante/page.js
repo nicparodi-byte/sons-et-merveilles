@@ -160,7 +160,7 @@ export default async function PodcastsSantePage() {
       <section className="ps-section reveal" aria-labelledby="ps-s3-heading">
         <div className="ps-section-head">
           <h2 className="ps-section-title" id="ps-s3-heading">
-            Des expériences<br /><span>qui parlent d&apos;elles-mêmes</span>
+            L&apos;expérience<br /><span>parle d&apos;elle-même</span>
           </h2>
         </div>
         <div className="ps-projects">
