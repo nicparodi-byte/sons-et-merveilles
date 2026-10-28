@@ -48,15 +48,15 @@ const POINTS = [
   },
   {
     title: 'L\'attention, sans les effets de manche',
-    body: 'On ne retient pas l\'attention d\'un auditeur en empilant les informations. Il faut un point de vue, une progression, des situations concrètes. En plaçant le micro au bon endroit et en donnant les bons repères sonores, nous aidons l\'auditeur à se représenter les situations. Parfois, une scène enregistrée sur le terrain en dit davantage qu\'une longue explication.',
+    body: 'On ne retient pas l\'attention d\'un auditeur en empilant les informations. Il faut un point de vue, une progression, des situations concrètes. Nous aimons dire que le podcast est l\'un des médias les plus visuels. En plaçant le micro au bon endroit et en donnant les bons repères sonores, nous aidons l\'auditeur à se représenter les situations. Parfois, une scène enregistrée sur le terrain en dit davantage qu\'une longue explication.',
   },
   {
     title: 'L\'émotion, sans en rajouter',
-    body: 'Nous avons une conviction : ressentir une situation favorise sa compréhension. Mais la maladie, les douleurs, les parcours de soins ou les violences sont des sujets sensibles. Nous prenons le temps de préparer les rencontres, d\'écouter et de choisir ce qui mérite d\'être conservé au montage. L\'émotion vient de la parole et des situations, pas d\'une mise en scène destinée à la provoquer.',
+    body: 'Nous avons une conviction : ressentir une situation favorise sa compréhension. Mais la maladie, les douleurs, les parcours de soins ou les violences sont des sujets sensibles. Nous prenons le temps de préparer les rencontres, d\'écouter et de choisir ce qui mérite d\'être conservé au montage. L\'émotion vient de la parole et des situations, pas d\'une mise en scène destinée à la provoquer. Elle peut aussi passer par les silences.',
   },
   {
     title: 'L\'écoute, avant la parole',
-    body: 'Recueillir le témoignage d\'un patient ne consiste pas simplement à lui poser des questions. Il faut savoir écouter, laisser du temps, accueillir les hésitations et parfois renoncer à une question. Cette attention commence avant l\'enregistrement et se poursuit au montage.',
+    body: 'Recueillir le témoignage d\'un témoin sur son parcours ne consiste pas simplement à lui poser des questions. Il faut savoir écouter, laisser du temps, accueillir les hésitations et parfois renoncer à une question. Cette attention commence avant l\'enregistrement et se poursuit au montage. Elle permet de recueillir une parole personnelle sans la brusquer ni lui faire dire ce qu\'on voudrait entendre.',
   },
 ]
 
@@ -93,22 +93,30 @@ export default async function PodcastsSantePage() {
       <section className="hero" aria-label="Introduction podcasts santé">
         <div className="hero-left">
           <h1 className="hero-title">
-            Agence de<br />
-            Podcasts<br />
-            <span>Santé</span>
+            Des sujets<br />
+            qui demandent<br />
+            <span>de la justesse</span>
           </h1>
         </div>
-        <div className="hero-right ps-hero-photo-wrap">
-          <div className="ps-hero-photo" />
+        <div className="hero-right">
+          <p className="hero-story">
+            Amener un patient à partager son vécu avec la maladie, être présent lors d&apos;une consultation médicale, expliquer un parcours de soins&nbsp;: <strong>produire un podcast santé demande une expérience particulière.</strong>
+          </p>
+          <p className="hero-body">
+            Il faut trouver les mots justes, rendre les informations compréhensibles et laisser leur place à la sensibilité, sans provoquer l&apos;émotion de manière artificielle.
+          </p>
+          <p className="hero-body">
+            Chez Sons &amp; Merveilles, nous concevons et produisons des podcasts pour l&apos;ensemble des acteurs de la santé&nbsp;: institutions, mutuelles, laboratoires pharmaceutiques, établissements de soins, associations…
+          </p>
         </div>
         <div className="hero-bg-letter" aria-hidden="true">S</div>
       </section>
 
-      {/* ── SECTION 01 — Justesse ── */}
+      {/* ── SECTION 01 — Raconter la santé ── */}
       <section className="ps-section reveal" aria-labelledby="ps-s1-heading">
         <div className="ps-section-head">
           <h2 className="ps-section-title" id="ps-s1-heading">
-            Des sujets qui demandent<br /><span>de la justesse</span>
+            Raconter la santé,<br />c&apos;est trouver<br /><span>le bon équilibre</span>
           </h2>
         </div>
         <p className="ps-section-lead reveal">

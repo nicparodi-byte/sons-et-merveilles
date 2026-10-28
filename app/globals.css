@@ -1655,20 +1655,6 @@ h1.page-title em {
 
 .podcasts-sante-page .hero { background: var(--black); }
 
-/* ── Hero photo (right panel) ── */
-.ps-hero-photo-wrap { position: relative; overflow: hidden; }
-.ps-hero-photo {
-  position: absolute; inset: 0;
-  background-image: url('/images/tournage-sante.webp');
-  background-size: cover;
-  background-position: center 35%;
-}
-.ps-hero-photo::after {
-  content: '';
-  position: absolute; inset: 0;
-  background: linear-gradient(to right, rgba(10,10,10,.45) 0%, transparent 40%);
-}
-
 /* ── Sections ── */
 .ps-section { padding: 120px 48px; }
 .ps-section--dark { background: var(--gray); }
@@ -1833,7 +1819,6 @@ h1.page-title em {
   .ps-format-card { padding: 32px 24px; }
   .ps-project-content { padding: 8px 20px 28px; }
   .ps-project-img { width: 130px; height: 130px; }
-  .ps-hero-photo-wrap { display: none; }
   .podcasts-sante-page .hero { grid-template-columns: 1fr; min-height: auto; }
   .podcasts-sante-page .hero .hero-left { padding: 120px 24px 60px; }
 }
