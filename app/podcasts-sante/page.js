@@ -103,9 +103,6 @@ export default async function PodcastsSantePage() {
             Amener un patient à partager son vécu avec la maladie, être présent lors d&apos;une consultation médicale, expliquer un parcours de soins&nbsp;: <strong>produire un podcast santé demande une expérience particulière.</strong>
           </p>
           <p className="hero-body">
-            Il faut trouver les mots justes, rendre les informations compréhensibles et laisser leur place à la sensibilité, sans provoquer l&apos;émotion de manière artificielle.
-          </p>
-          <p className="hero-body">
             Chez Sons &amp; Merveilles, nous concevons et produisons des podcasts pour l&apos;ensemble des acteurs de la santé&nbsp;: institutions, mutuelles, laboratoires pharmaceutiques, établissements de soins, associations…
           </p>
         </div>
@@ -137,6 +134,9 @@ export default async function PodcastsSantePage() {
           ))}
         </div>
       </section>
+
+      {/* ── PHOTO STRIP ── */}
+      <div className="ps-photo-strip" role="img" aria-label="Tournage d'un podcast santé" />
 
       {/* ── SECTION 02 — Les formats ── */}
       <section className="ps-section ps-section--dark reveal" aria-labelledby="ps-s2-heading">
