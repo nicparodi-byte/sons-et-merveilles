@@ -1,14 +1,21 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useEffect, useRef } from 'react'
 
 export default function ContactForm({ origin, formClass = 'contact-form', slim = false }) {
   const [status, setStatus] = useState('idle') // idle | loading | success | error
+  const loadedAt = useRef(Date.now())
 
   async function handleSubmit(e) {
     e.preventDefault()
     setStatus('loading')
     const fd = new FormData(e.target)
+
+    // Honeypot check — bots fill this field, humans don't see it
+    if (fd.get('_hp')) { setStatus('success'); return }
+    // Time check — reject submissions faster than 4 seconds
+    if (Date.now() - loadedAt.current < 4000) { setStatus('success'); return }
+
     const name = slim
       ? fd.get('nom')
       : `${fd.get('prenom')} ${fd.get('nom')}`.trim()
@@ -42,6 +49,10 @@ export default function ContactForm({ origin, formClass = 'contact-form', slim =
 
   return (
     <form className={formClass} aria-label="Formulaire de contact" onSubmit={handleSubmit}>
+      {/* Honeypot — hidden from humans, filled by bots */}
+      <div className="form-hp" aria-hidden="true">
+        <input name="_hp" type="text" tabIndex={-1} autoComplete="off" />
+      </div>
       {slim ? (
         <>
           <div className="form-field">
