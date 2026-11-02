@@ -7,7 +7,7 @@ import ContactForm from '@/components/ContactForm'
 
 export const metadata = {
   title: 'Podcasts Santé — Sons & Merveilles',
-  description: 'Au fil de nos productions pour des laboratoires pharmaceutiques, des institutions de santé et des associations de patients, Sons & Merveilles a développé une expertise éditoriale et technique dans la production de podcasts santé.',
+  description: 'Conception et production de podcasts pour les entreprises de la santé, professionnels et associations de patients, avec une vraie maîtrise des parcours de soins et des pathologies.',
 }
 
 const HEALTH_PROJECTS_QUERY = `*[_type == "realisation" && slug.current in ["podcast-Apicil", "cancers-du-sang-nos-vies", "pierre-fabre-et-si-je-manquais-de-fer"]] {
@@ -103,7 +103,7 @@ export default async function PodcastsSantePage() {
             Amener un patient à partager son vécu avec la maladie, être présent lors d&apos;une consultation médicale, expliquer un parcours de soins&nbsp;: <strong>produire un podcast santé demande une expérience particulière.</strong>
           </p>
           <p className="hero-body">
-            Chez Sons &amp; Merveilles, nous concevons et produisons des podcasts pour l&apos;ensemble des acteurs de la santé&nbsp;: institutions, mutuelles, laboratoires pharmaceutiques, établissements de soins, associations…
+            Chez Sons &amp; Merveilles, nous concevons et produisons des podcasts pour l&apos;ensemble des acteurs de la santé&nbsp;: entreprises, associations de patients, professionnels…
           </p>
         </div>
         <div className="hero-bg-letter" aria-hidden="true">S</div>
