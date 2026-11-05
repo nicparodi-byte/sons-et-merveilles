@@ -327,7 +327,7 @@ h2.section-title em { font-style: italic; font-family: var(--font-playfair), 'Pl
   display: flex; align-items: center; gap: 12px;
   opacity: 0; animation: fadeUp .8s .2s forwards;
 }
-.hero-tag::before { content: ''; width: 30px; height: 1px; background: var(--yellow); flex-shrink: 0; }
+.hero-tag::before { display: none; }
 h1.hero-title {
   font-family: var(--font-bebas), 'Bebas Neue', sans-serif;
   font-size: clamp(5rem, 10vw, 9rem); line-height: .92; letter-spacing: -.01em;
@@ -1131,7 +1131,7 @@ h1.pq-title em { font-style: normal; -webkit-text-stroke: 1px var(--white); colo
 
 /* ── CASE STUDIES ── */
 .cases { background: var(--black); }
-.cases-header { padding: 100px 48px 60px; }
+.cases-header { padding: 56px 48px 60px; }
 .cases-title {
   font-family: var(--font-bebas), 'Bebas Neue', sans-serif;
   font-size: clamp(3rem, 6vw, 5.5rem); line-height: .93; color: var(--white);
