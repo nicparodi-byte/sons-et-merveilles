@@ -39,7 +39,7 @@ export default function HomePage() {
       {/* ── HERO ── */}
       <section className="hero" aria-label="Introduction">
         <div className="hero-left">
-          <p className="hero-tag">Agence Podcast de Marque · Son &amp; Image · France</p>
+          <p className="hero-tag">Agence podcasts • Son &amp; Image</p>
           <h1 className="hero-title">
             Faire entendre<br />
             <span>l&apos;humain</span>
