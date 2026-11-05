@@ -2,7 +2,7 @@ import Link from 'next/link'
 import RevealObserver from '@/components/RevealObserver'
 
 export const metadata = {
-  title: 'Mentions légales | Sons & Merveilles',
+  title: 'Mentions légales · Sons & Merveilles',
   description: "Mentions légales du site sonsetmerveilles.fr — éditeur, hébergement, propriété intellectuelle et données personnelles.",
   robots: { index: false, follow: true },
 }

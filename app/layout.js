@@ -31,7 +31,7 @@ const oswald = Oswald({
 })
 
 export const metadata = {
-  title: 'Sons & Merveilles — Agence podcast de marque',
+  title: 'Sons & Merveilles · Agence de création de podcasts',
   description: 'Sons & Merveilles crée des podcasts de marque qui captivent, engagent et durent.',
 }
 

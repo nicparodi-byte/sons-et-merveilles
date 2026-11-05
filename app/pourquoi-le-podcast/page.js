@@ -6,7 +6,7 @@ import PourquoiAccordion from '@/components/PourquoiAccordion'
 import ContactForm from '@/components/ContactForm'
 
 export const metadata = {
-  title: 'Pourquoi un Podcast de Marque ? | Sons & Merveilles | Agence Audio',
+  title: 'Pourquoi un podcast de marque ? · Sons & Merveilles',
   description: "Découvrez pourquoi le podcast renforce l'image de marque : stats, cas clients, formats et conseils pour lancer votre stratégie audio d'entreprise.",
 }
 

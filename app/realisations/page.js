@@ -6,7 +6,7 @@ import RevealObserver from '@/components/RevealObserver'
 import ContactForm from '@/components/ContactForm'
 
 export const metadata = {
-  title: 'Réalisations — Sons & Merveilles',
+  title: 'Réalisations · Podcasts de marque · Sons & Merveilles',
   description: 'Découvrez les réalisations de Sons & Merveilles : podcasts de marque pour des entreprises dans la santé, la RSE, l\'innovation et la communication interne.',
 }
 

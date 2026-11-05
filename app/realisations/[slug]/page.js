@@ -92,7 +92,7 @@ export async function generateMetadata({ params }) {
   const p = await client.fetch(QUERY, { slug }, OPTS)
   if (!p) return {}
   return {
-    title: `${p.projectTitle || p.podcastName} — ${p.client} | Sons & Merveilles`,
+    title: `${p.projectTitle || p.podcastName} · ${p.client} · Sons & Merveilles`,
     description: p.cardDescription,
   }
 }

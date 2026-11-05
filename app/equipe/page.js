@@ -6,7 +6,7 @@ import RevealObserver from '@/components/RevealObserver'
 import ContactForm from '@/components/ContactForm'
 
 export const metadata = {
-  title: "L'Équipe — Sons & Merveilles",
+  title: "Notre équipe · Sons & Merveilles",
   description: "Rencontrez les artisans de Sons & Merveilles : fondateur, auteurs, réalisateurs, ingénieurs du son et compositeurs au service de vos podcasts de marque.",
 }
 
