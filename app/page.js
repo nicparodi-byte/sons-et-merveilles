@@ -39,7 +39,7 @@ export default function HomePage() {
       {/* ── HERO ── */}
       <section className="hero" aria-label="Introduction">
         <div className="hero-left">
-          <p className="hero-tag">Agence podcasts • Son &amp; Image</p>
+          <p className="hero-tag">Agence de création de podcasts • Son &amp; Images</p>
           <h1 className="hero-title">
             Faire entendre<br />
             <span>l&apos;humain</span>
@@ -91,7 +91,6 @@ export default function HomePage() {
       {/* ── ABOUT ── */}
       <section className="about reveal" id="about" aria-labelledby="about-heading">
         <div>
-          <p className="section-tag">Notre approche</p>
           <h2 className="section-title" id="about-heading">
             L&apos;art du récit<br /><em>par le son.</em>
           </h2>
@@ -134,7 +133,6 @@ export default function HomePage() {
 
       {/* ── FORMATS ── */}
       <section className="formats reveal" id="formats" aria-labelledby="formats-heading">
-        <p className="section-tag">Nos formats</p>
         <h2 className="section-title" id="formats-heading">
           4 formats pour<br />chaque <em>objectif</em>
         </h2>
@@ -174,7 +172,6 @@ export default function HomePage() {
 
       {/* ── PROCESS ── */}
       <section className="process reveal" id="process" aria-labelledby="process-heading">
-        <p className="section-tag">Notre processus</p>
         <h2 className="section-title" id="process-heading">
           Idée · Réalisation · <em>Diffusion</em>
         </h2>
@@ -219,7 +216,7 @@ export default function HomePage() {
           <li><Link href="/equipe">Équipe</Link></li>
           <li><Link href="/mentions-legales">Mentions légales</Link></li>
         </ul>
-        <div className="footer-copy">© 2025 Sons &amp; Merveilles · Agence Podcast de Marque</div>
+        <div className="footer-copy">© 2025 Sons &amp; Merveilles · Création de podcasts</div>
       </footer>
     </main>
   )

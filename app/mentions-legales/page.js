@@ -121,7 +121,7 @@ export default function MentionsLegalesPage() {
           <li><Link href="/equipe">Équipe</Link></li>
           <li><Link href="/mentions-legales" aria-current="page">Mentions légales</Link></li>
         </ul>
-        <div className="footer-copy">© 2025 Sons &amp; Merveilles · Agence Podcast de Marque</div>
+        <div className="footer-copy">© 2025 Sons &amp; Merveilles · Création de podcasts</div>
       </footer>
     </main>
   )

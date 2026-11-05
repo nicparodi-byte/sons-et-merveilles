@@ -109,9 +109,8 @@ export default async function PourquoiPage() {
       {/* ── WHY SECTION ── */}
       <section className="why-section" id="why" aria-labelledby="why-heading">
         <div className="reveal">
-          <p className="section-tag">Le pouvoir du son</p>
           <h2 className="why-title" id="why-heading">
-            Le podcast,<br />c&apos;est le media<br />pour <span>tout ça</span>
+            Le pouvoir<br /><span>de l&apos;audio</span>
           </h2>
           <p className="why-sub">
             Une voix laisse entendre ce qu&apos;on ne peut pas fabriquer : la personnalité, la conviction, l&apos;émotion sincère. Le podcast est le seul format qui donne le temps, pas quinze secondes de vidéo, mais le temps d&apos;une vraie conversation. Ce temps-là construit quelque chose que l&apos;image ne peut pas.
@@ -129,7 +128,6 @@ export default async function PourquoiPage() {
       {cases.length > 0 && (
         <section className="cases" aria-labelledby="cases-heading">
           <div className="cases-header reveal">
-            <p className="section-tag">À quoi ça ressemble, concrètement</p>
             <h2 className="cases-title" id="cases-heading">
               <span>Études de cas</span>
             </h2>
@@ -188,7 +186,6 @@ export default async function PourquoiPage() {
 
       {/* ── CLIENTS ── */}
       <section className="pq-clients reveal" aria-labelledby="clients-heading">
-        <p className="section-tag">Ils nous font confiance</p>
         <h2 className="pq-clients-title" id="clients-heading">Nos <span>clients</span></h2>
         <div className="clients-grid" role="list">
           {CLIENTS.map(name => (
@@ -218,7 +215,7 @@ export default async function PourquoiPage() {
           <li><Link href="/equipe">Équipe</Link></li>
           <li><Link href="/mentions-legales">Mentions légales</Link></li>
         </ul>
-        <div className="footer-copy">© 2025 Sons &amp; Merveilles · Agence Podcast de Marque</div>
+        <div className="footer-copy">© 2025 Sons &amp; Merveilles · Création de podcasts</div>
       </footer>
     </main>
   )

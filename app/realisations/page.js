@@ -47,7 +47,6 @@ export default async function RealisationsPage() {
       {/* ── PAGE HEADER ── */}
       <header className="page-header" role="banner">
         <div className="header-left">
-          <p className="header-eyebrow">Sons &amp; Merveilles · Réalisations</p>
           <h1 className="header-title">
             Nos<br /><span>Créa</span><br />tions
           </h1>
@@ -103,7 +102,7 @@ export default async function RealisationsPage() {
           <li><Link href="/equipe">Équipe</Link></li>
           <li><Link href="/mentions-legales">Mentions légales</Link></li>
         </ul>
-        <div className="footer-copy">© 2025 Sons &amp; Merveilles · Agence Podcast de Marque</div>
+        <div className="footer-copy">© 2025 Sons &amp; Merveilles · Création de podcasts</div>
       </footer>
     </main>
   )
