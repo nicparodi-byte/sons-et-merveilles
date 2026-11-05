@@ -6,7 +6,7 @@ import RevealObserver from '@/components/RevealObserver'
 import ContactForm from '@/components/ContactForm'
 
 export const metadata = {
-  title: "L'Équipe — Sons & Merveilles",
+  title: "Notre équipe · Sons & Merveilles",
   description: "Rencontrez les artisans de Sons & Merveilles : fondateur, auteurs, réalisateurs, ingénieurs du son et compositeurs au service de vos podcasts de marque.",
 }
 
@@ -97,7 +97,7 @@ export default async function EquipePage() {
   const btsItems = bts?.items?.length
     ? [...bts.items].sort((a, b) => (a.order ?? 0) - (b.order ?? 0))
     : null
-  const btsSectionTitle = bts?.title || 'Le son et la vidéo, ça se vit'
+  const btsSectionTitle = bts?.title || 'Dans les coulisses'
 
   return (
     <main className="equipe-page">
@@ -106,7 +106,6 @@ export default async function EquipePage() {
       {/* ── HERO ── */}
       <section className="hero" aria-label="Introduction équipe">
         <div className="hero-left">
-          <div className="hero-eyebrow">Sons &amp; Merveilles · L&apos;équipe</div>
           <h1 className="hero-title">
             Sons &amp;<br />
             <span>Merveilles</span>
@@ -231,9 +230,8 @@ export default async function EquipePage() {
       {/* ── BEHIND THE SCENES ── */}
       <section className="bts reveal" aria-labelledby="bts-heading">
         <div className="bts-header">
-          <div className="eyebrow">Dans les coulisses</div>
           <h2 className="bts-title" id="bts-heading">
-            Le son et la vidéo,<br /><span>ça se vit</span>
+            Dans les<br /><span>coulisses</span>
           </h2>
         </div>
         <div className="bts-mosaic">
@@ -298,7 +296,7 @@ export default async function EquipePage() {
           <li><Link href="/equipe">Équipe</Link></li>
           <li><Link href="/mentions-legales">Mentions légales</Link></li>
         </ul>
-        <div className="footer-copy">© 2025 Sons &amp; Merveilles · Agence Podcast de Marque</div>
+        <div className="footer-copy">© 2025 Sons &amp; Merveilles · Création de podcasts</div>
       </footer>
     </main>
   )

@@ -6,7 +6,7 @@ import RevealObserver from '@/components/RevealObserver'
 import ContactForm from '@/components/ContactForm'
 
 export const metadata = {
-  title: 'Podcasts Santé | Sons & Merveilles',
+  title: 'Podcasts Santé · Sons & Merveilles',
   description: 'Conception et production de podcasts pour les entreprises de la santé, professionnels et associations de patients, avec une vraie maîtrise des parcours de soins et des pathologies.',
 }
 
@@ -240,7 +240,7 @@ export default async function PodcastsSantePage() {
           <li><Link href="/equipe">Équipe</Link></li>
           <li><Link href="/mentions-legales">Mentions légales</Link></li>
         </ul>
-        <div className="footer-copy">© 2025 Sons &amp; Merveilles · Agence Podcast de Marque</div>
+        <div className="footer-copy">© 2025 Sons &amp; Merveilles · Création de podcasts</div>
       </footer>
     </main>
   )

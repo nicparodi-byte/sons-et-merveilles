@@ -92,7 +92,7 @@ export async function generateMetadata({ params }) {
   const p = await client.fetch(QUERY, { slug }, OPTS)
   if (!p) return {}
   return {
-    title: `${p.projectTitle || p.podcastName} — ${p.client} | Sons & Merveilles`,
+    title: `${p.projectTitle || p.podcastName} · ${p.client} · Sons & Merveilles`,
     description: p.cardDescription,
   }
 }
@@ -502,7 +502,7 @@ export default async function ProjetPage({ params }) {
           <li><Link href="/equipe">Équipe</Link></li>
           <li><Link href="/mentions-legales">Mentions légales</Link></li>
         </ul>
-        <div className="footer-copy">© 2025 Sons &amp; Merveilles · Agence Podcast de Marque</div>
+        <div className="footer-copy">© 2025 Sons &amp; Merveilles · Création de podcasts</div>
       </footer>
     </main>
   )
