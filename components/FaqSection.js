@@ -52,7 +52,6 @@ export default function FaqSection() {
 
   return (
     <section className="faq reveal" id="faq" aria-labelledby="faq-heading">
-      <p className="section-tag">Questions fréquentes</p>
       <h2 className="faq-title" id="faq-heading">
         Tout savoir sur le<br />
         <span>podcast de marque</span>
