@@ -5,24 +5,24 @@ import FaqSection from '@/components/FaqSection'
 import ContactForm from '@/components/ContactForm'
 
 const waveBars = [
-  { d: '.9s',   delay: '0s',   h: '40px'  },
-  { d: '1.1s',  delay: '.1s',  h: '80px'  },
-  { d: '1.3s',  delay: '.05s', h: '55px'  },
-  { d: '.8s',   delay: '.15s', h: '120px' },
-  { d: '1s',    delay: '.2s',  h: '70px'  },
-  { d: '1.2s',  delay: '.07s', h: '90px'  },
-  { d: '.95s',  delay: '.12s', h: '140px' },
-  { d: '1.1s',  delay: '.03s', h: '60px'  },
-  { d: '.85s',  delay: '.18s', h: '100px' },
-  { d: '1.3s',  delay: '.08s', h: '75px'  },
-  { d: '1s',    delay: '.14s', h: '110px' },
-  { d: '.9s',   delay: '.06s', h: '45px'  },
-  { d: '1.15s', delay: '.22s', h: '95px'  },
-  { d: '1s',    delay: '.1s',  h: '130px' },
-  { d: '.8s',   delay: '.16s', h: '50px'  },
-  { d: '1.2s',  delay: '.04s', h: '85px'  },
-  { d: '.95s',  delay: '.2s',  h: '65px'  },
-  { d: '1.05s', delay: '.09s', h: '115px' },
+  { dl: '65ms', h: '30px'  },
+  { dl: '50ms', h: '55px'  },
+  { dl: '35ms', h: '80px'  },
+  { dl: '22ms', h: '110px' },
+  { dl: '12ms', h: '130px' },
+  { dl: '5ms',  h: '115px' },
+  { dl: '2ms',  h: '140px' },
+  { dl: '0ms',  h: '125px' },
+  { dl: '2ms',  h: '100px' },
+  { dl: '5ms',  h: '80px'  },
+  { dl: '12ms', h: '60px'  },
+  { dl: '22ms', h: '90px'  },
+  { dl: '35ms', h: '120px' },
+  { dl: '50ms', h: '70px'  },
+  { dl: '65ms', h: '45px'  },
+  { dl: '78ms', h: '95px'  },
+  { dl: '90ms', h: '55px'  },
+  { dl: '100ms',h: '75px'  },
 ]
 
 const tickerItems = [
@@ -41,8 +41,9 @@ export default function HomePage() {
         <div className="hero-left">
           <p className="hero-tag">Agence de création de podcasts • Son &amp; Images</p>
           <h1 className="hero-title">
-            Faire entendre<br />
-            <span>l&apos;humain</span>
+            <span className="word-wrap"><span className="word-inner" style={{'--wd':'0s'}}>Faire entendre</span></span>
+            <br />
+            <span className="word-wrap"><span className="word-inner" style={{'--wd':'.25s'}}><span className="accent">l&apos;humain</span></span></span>
           </h1>
           <div className="hero-actions">
             <a href="#contact" className="btn-primary">
@@ -69,7 +70,7 @@ export default function HomePage() {
                 <div
                   key={i}
                   className="wave-bar"
-                  style={{ '--d': bar.d, '--delay': bar.delay, '--h': bar.h }}
+                  style={{ '--dl': bar.dl, '--h': bar.h }}
                 />
               ))}
             </div>
