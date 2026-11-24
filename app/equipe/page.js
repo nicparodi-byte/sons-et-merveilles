@@ -29,6 +29,7 @@ const BTS_QUERY = `*[_type == "behindTheScenes" && _id == "behindTheScenes"][0] 
     type,
     image,
     "videoUrl": videoFile.asset->url,
+    "creditLine": image.asset->creditLine,
     caption,
     aspectRatio,
     order
@@ -256,6 +257,9 @@ export default async function EquipePage() {
                       </div>
                       <div className="card-overlay">
                         <div className="overlay-title">{item.caption}</div>
+                        {item.creditLine && (
+                          <div className="overlay-credit">{item.creditLine}</div>
+                        )}
                       </div>
                     </>
                   )}
