@@ -61,6 +61,7 @@ export const behindTheScenes = defineType({
                 list: [
                   {title: 'Paysage 4/3', value: '4/3'},
                   {title: 'Paysage 16/9', value: '16/9'},
+                  {title: 'Paysage 21/10 (cinémascope)', value: '21/10'},
                   {title: 'Carré', value: '1/1'},
                   {title: 'Portrait 3/4', value: '3/4'},
                   {title: 'Portrait 9/16 (vertical)', value: '9/16'},
