@@ -39,7 +39,6 @@ export default function HomePage() {
       {/* ── HERO ── */}
       <section className="hero" aria-label="Introduction">
         <div className="hero-left">
-          <p className="hero-tag">Agence de création de podcasts • Son &amp; Images</p>
           <h1 className="hero-title">
             <span className="word-wrap"><span className="word-inner" style={{'--wd':'0s'}}>Faire entendre</span></span>
             <br />
@@ -52,7 +51,7 @@ export default function HomePage() {
                 <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
               </svg>
             </a>
-            <Link href="/pourquoi-le-podcast" className="btn-secondary">Pourquoi le podcast&nbsp;?</Link>
+            <Link href="/realisations" className="btn-secondary">Nos réalisations</Link>
           </div>
         </div>
         <div className="hero-right" aria-hidden="true">
