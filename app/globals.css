@@ -1006,8 +1006,6 @@ h1.hero-title em { font-style: normal; -webkit-text-stroke: 1.5px var(--white); 
 /* Hover interactions */
 .bts-tile:hover .card-cover   { transform: scale(1.06); }
 .bts-tile:hover .bts-video    { transform: scale(1.06); }
-.bts-tile:hover .card-label   { opacity: 0; }
-.bts-tile:hover .card-overlay { opacity: 1; }
 
 /* ── VISIO CTA ── */
 .visio {
