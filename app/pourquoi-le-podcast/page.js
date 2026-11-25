@@ -212,10 +212,11 @@ export default async function PourquoiPage() {
           <li><Link href="/">Accueil</Link></li>
           <li><Link href="/pourquoi-le-podcast">Pourquoi un podcast&nbsp;?</Link></li>
           <li><Link href="/realisations">Réalisations</Link></li>
+          <li><Link href="/podcasts-sante">Podcasts santé</Link></li>
           <li><Link href="/equipe">Équipe</Link></li>
           <li><Link href="/mentions-legales">Mentions légales</Link></li>
         </ul>
-        <div className="footer-copy">© 2025 Sons &amp; Merveilles · Création de podcasts</div>
+        <div className="footer-copy">© {new Date().getFullYear()} Sons &amp; Merveilles · Création de podcasts</div>
       </footer>
     </main>
   )

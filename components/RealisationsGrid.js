@@ -351,15 +351,27 @@ export default function RealisationsGrid({ realisations }) {
 
           const cardClass = `project-card ${size} ${isVisible ? 'visible' : 'hidden'}`
 
+          // Real link so search engines and AI crawlers can follow it.
+          // A normal click still opens the modal; Cmd/Ctrl-click opens a new tab.
+          const href = r.hasProjectPage && r.slug?.current
+            ? `/realisations/${r.slug.current}`
+            : r.slug?.current ? `/realisations?modal=${r.slug.current}` : undefined
+
           return (
-            <div
+            <a
               key={r._id}
+              href={href}
               className={cardClass}
               data-cats={cats}
-              onClick={() => openModal(r)}
+              aria-label={`${r.podcastName} — ${r.client}`}
+              onClick={(e) => {
+                if (e.metaKey || e.ctrlKey || e.shiftKey || e.button === 1) return
+                e.preventDefault()
+                openModal(r)
+              }}
             >
               {cardInner}
-            </div>
+            </a>
           )
         })}
       </div>
