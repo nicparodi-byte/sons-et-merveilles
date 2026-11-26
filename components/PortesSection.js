@@ -49,14 +49,10 @@ function Lines({ variant }) {
 export default function PortesSection() {
   return (
     <section className="portes reveal" id="portes" aria-labelledby="portes-heading">
-      <div className="portes-head">
-        <h2 className="section-title" id="portes-heading">
-          Un sujet. <em>Plusieurs portes d&apos;entrée.</em>
-        </h2>
-      </div>
-
       <div className="portes-diagram">
-        <p className="portes-idea portes-step" style={{ '--s': 0 }}>Un angle éditorial, pensé pour vos publics.</p>
+        <h2 className="section-title portes-title portes-step" id="portes-heading" style={{ '--s': 0 }}>
+          Un sujet.<br /><em>Plusieurs portes d&apos;entrée.</em>
+        </h2>
 
         <Lines variant="branch" />
 

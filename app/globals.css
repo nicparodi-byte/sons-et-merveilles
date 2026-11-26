@@ -1991,6 +1991,7 @@ h1.page-title em {
 }
 .portes-intro { margin-top: 24px; font-size: 1.05rem; line-height: 1.8; color: rgba(247,244,238,.7); }
 .portes-diagram { max-width: 1000px; margin: 0 auto; text-align: center; }
+.portes-title { padding-bottom: 20px; }
 
 .portes-idea {
   font-family: var(--font-playfair), 'Playfair Display', serif; font-style: italic;
@@ -2086,6 +2087,7 @@ h1.page-title em {
   .portes { padding: 80px 24px; }
   .portes-head { margin-bottom: 48px; }
   .portes-idea { font-size: 1.45rem; }
+  h2.portes-title { font-size: 2.5rem; }
   .portes-row li { padding: 0 4px; }
   .portes-name { font-size: 1.35rem; }
   .portes-name--accent { font-size: 1.2rem; }

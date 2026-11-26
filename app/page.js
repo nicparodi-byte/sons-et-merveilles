@@ -55,15 +55,9 @@ export default function HomePage() {
           <p className="about-body">
             À partir de ces expériences, nous construisons des récits et imaginons les formes qui leur permettront de toucher vos publics.
           </p>
-          <Link href="/pourquoi-le-podcast" className="about-link">
-            Pourquoi le podcast&nbsp;?
-            <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true">
-              <path d="M3 9h12M11 5l4 4-4 4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-            </svg>
-          </Link>
         </div>
         <div className="about-promise">
-          <p className="about-promise-label">Rendre vos sujets</p>
+          <p className="about-promise-label">Pour rendre vos sujets</p>
           <p className="about-promise-words">
             <span style={{ '--w': 0 }}>Concrets.</span>
             <span style={{ '--w': 1 }}>Sensibles.</span>
