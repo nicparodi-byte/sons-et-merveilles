@@ -71,7 +71,7 @@ export default async function HomeCases() {
           <h2 className="section-title" id="recits-heading">
             Les histoires <em>à l&apos;œuvre</em>
           </h2>
-          <p className="home-cases-sub">Trois projets, trois façons de s&apos;appuyer sur le récit personnel.</p>
+          <p className="home-cases-sub">Trois projets, trois enjeux de communication.</p>
         </div>
         <Link href="/realisations" className="home-cases-all">Toutes nos réalisations →</Link>
       </div>
