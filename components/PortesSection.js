@@ -62,7 +62,7 @@ export default function PortesSection() {
       </div>
 
       <div className="portes-diagram">
-        <p className="portes-idea portes-step" style={{ '--s': 0 }}>Un angle éditorial, pensé pour ses publics.</p>
+        <p className="portes-idea portes-step" style={{ '--s': 0 }}>Un angle éditorial, pensé pour vos publics.</p>
 
         <Lines variant="branch" />
 
