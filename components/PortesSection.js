@@ -53,12 +53,6 @@ export default function PortesSection() {
         <h2 className="section-title" id="portes-heading">
           Un sujet. <em>Plusieurs portes d&apos;entrée.</em>
         </h2>
-        <p className="portes-intro">
-          Les publics et la façon de les atteindre doivent être pensés dès la conception éditoriale.
-          À partir d&apos;un même sujet, nous imaginons des formats et des dispositifs de diffusion
-          complémentaires pour multiplier les points de contact, toucher de nouvelles audiences et
-          amplifier la portée du récit.
-        </p>
       </div>
 
       <div className="portes-diagram">

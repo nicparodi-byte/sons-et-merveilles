@@ -50,10 +50,10 @@ export default function HomePage() {
             L&apos;art du <em>récit.</em>
           </h2>
           <p className="about-body about-body--lead">
-            Nous nous appuyons sur la force des histoires humaines pour répondre aux enjeux de communication des organisations&nbsp;: faire comprendre, sensibiliser, incarner un engagement ou renforcer la proximité avec leurs publics.
+            Pour faire comprendre un sujet, sensibiliser ou donner vie à un engagement, nous aimons partir de ce que les gens vivent, de ce qu&apos;ils ressentent, de ce qu&apos;ils ont à raconter.
           </p>
           <p className="about-body">
-            Nous partons de l&apos;expérience vécue, construisons le récit et imaginons les formes les plus pertinentes pour le transmettre et toucher les publics auxquels il s&apos;adresse.
+            À partir de ces expériences, nous construisons des récits et imaginons les formes qui leur permettront de toucher vos publics.
           </p>
           <Link href="/pourquoi-le-podcast" className="about-link">
             Pourquoi le podcast&nbsp;?
