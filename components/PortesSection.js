@@ -1,65 +1,43 @@
 // Section « Un sujet. Plusieurs portes d'entrée. »
-// Schéma en HTML (texte indexable) + connecteurs SVG décoratifs (aria-hidden),
-// révélés progressivement quand la section apparaît (classe .visible posée par RevealObserver).
-
-const Icon = ({ children }) => (
-  <svg className="portes-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-    strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-    {children}
-  </svg>
-)
+// Schéma en texte HTML (indexable) relié par des lignes courbes en SVG (décoratives, aria-hidden).
+// Les lignes se tracent au défilement (classe .visible posée par RevealObserver).
 
 const FORMATS = [
-  {
-    name: 'Podcasts',
-    items: ['Interviews et témoignages', 'Documentaires'],
-    icon: (
-      <path d="M3 14h3a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-7a9 9 0 0 1 18 0v7a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3" />
-    ),
-  },
-  {
-    name: 'Vidéo',
-    items: ['Portraits', 'Coulisses'],
-    icon: (
-      <>
-        <rect x="2" y="6" width="14" height="12" rx="2" />
-        <path d="m16 13 5.2 3.5a.5.5 0 0 0 .8-.4V7.9a.5.5 0 0 0-.8-.4L16 10.5" />
-      </>
-    ),
-  },
-  {
-    name: 'Rencontres',
-    items: ['Tables rondes', 'Conversations'],
-    icon: (
-      <>
-        <path d="M14 9a2 2 0 0 1-2 2H6l-4 4V4a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2z" />
-        <path d="M18 9h2a2 2 0 0 1 2 2v11l-4-4h-6a2 2 0 0 1-2-2v-1" />
-      </>
-    ),
-  },
+  { name: 'Podcasts', items: ['Interviews et témoignages', 'Documentaires'] },
+  { name: 'Vidéo', items: ['Portraits', 'Coulisses'] },
+  { name: 'Rencontres', items: ['Tables rondes', 'Conversations'] },
 ]
 
-// Connecteur SVG. viewBox de 600 de large : les centres des 3 colonnes sont à 100, 300 et 500.
-// Les segments « side » (vers les colonnes latérales) sont masqués sur mobile,
-// où le schéma devient une seule colonne.
-const CONNECTORS = {
-  branch: [
-    { d: 'M300 0 V30' }, { d: 'M300 30 H100', side: true }, { d: 'M300 30 H500', side: true },
-    { d: 'M100 30 V60', side: true }, { d: 'M300 30 V60' }, { d: 'M500 30 V60', side: true },
-  ],
-  merge: [
-    { d: 'M100 0 V30', side: true }, { d: 'M300 0 V30' }, { d: 'M500 0 V30', side: true },
-    { d: 'M100 30 H300', side: true }, { d: 'M500 30 H300', side: true }, { d: 'M300 30 V60' },
-  ],
-  stem: [{ d: 'M300 0 V60' }],
+const AMPLIFY = [
+  { name: 'Déclinaisons éditoriales', text: 'Extraits audio et vidéo, capsules, verbatims' },
+  { name: 'Canaux de diffusion', text: 'Plateformes, réseaux sociaux, sites web, médias' },
+]
+
+// viewBox de 1200 de large : formats centrés à 200 / 600 / 1000, déclinaisons à 300 / 900.
+const LINES = {
+  branch: {
+    h: 100,
+    paths: ['M600 0 C600 55 200 35 200 100', 'M600 0 V100', 'M600 0 C600 55 1000 35 1000 100'],
+  },
+  cross: {
+    h: 160,
+    paths: [200, 600, 1000].flatMap((x1) =>
+      [300, 900].map((x2) => `M${x1} 0 C${x1} 90 ${x2} 70 ${x2} 160`),
+    ),
+  },
+  merge: {
+    h: 120,
+    paths: ['M300 0 C300 75 600 45 600 120', 'M900 0 C900 75 600 45 600 120'],
+  },
 }
 
-function Connector({ variant }) {
+function Lines({ variant }) {
+  const { h, paths } = LINES[variant]
   return (
-    <svg className={`portes-connector portes-connector--${variant}`} viewBox="0 0 600 60"
+    <svg className={`portes-lines portes-lines--${variant}`} viewBox={`0 0 1200 ${h}`}
       preserveAspectRatio="none" aria-hidden="true" focusable="false">
-      {CONNECTORS[variant].map(({ d, side }) => (
-        <path key={d} d={d} vectorEffect="non-scaling-stroke" className={side ? 'portes-side' : undefined} />
+      {paths.map((d) => (
+        <path key={d} d={d} pathLength="1" vectorEffect="non-scaling-stroke" />
       ))}
     </svg>
   )
@@ -74,6 +52,7 @@ export default function PortesSection() {
           Un sujet. <em>Plusieurs portes d&apos;entrée.</em>
         </h2>
         <p className="portes-intro">
+          Les publics et la façon de les atteindre doivent être pensés dès la conception éditoriale.
           À partir d&apos;un même sujet, nous imaginons des formats et des dispositifs de diffusion
           complémentaires pour multiplier les points de contact, toucher de nouvelles audiences et
           amplifier la portée du récit.
@@ -81,58 +60,39 @@ export default function PortesSection() {
       </div>
 
       <div className="portes-diagram">
-        <div className="portes-node portes-node--key portes-step" style={{ '--s': 0 }}>
-          <h3 className="portes-key">Une idée éditoriale</h3>
-        </div>
+        <p className="portes-idea portes-step" style={{ '--s': 0 }}>Une idée éditoriale.</p>
 
-        <Connector variant="branch" />
+        <Lines variant="branch" />
 
-        <ul className="portes-formats" aria-label="Les formats">
-          {FORMATS.map((f, i) => (
-            <li key={f.name} className="portes-format portes-step" style={{ '--s': 1 + i * 0.15 }}>
-              <div className="portes-node portes-card">
-                <Icon>{f.icon}</Icon>
-                <h3 className="portes-card-title">{f.name}</h3>
-                <p className="portes-card-text">{f.items.join(' · ')}</p>
-              </div>
+        <ul className="portes-row portes-row--3" aria-label="Les formats">
+          {FORMATS.map((f) => (
+            <li key={f.name} className="portes-step" style={{ '--s': 1 }}>
+              <h3 className="portes-name">{f.name}</h3>
+              <p className="portes-sub">
+                {f.items.map((it, i) => (
+                  <span key={it}>{i > 0 && <br />}{it}</span>
+                ))}
+              </p>
             </li>
           ))}
         </ul>
 
-        <Connector variant="merge" />
+        <Lines variant="cross" />
 
-        <div className="portes-node portes-amplify portes-step" style={{ '--s': 2 }}>
-          <h3 className="portes-label">Amplifier la portée</h3>
-          <div className="portes-amplify-grid">
-            <div className="portes-amplify-item">
-              <Icon>
-                <circle cx="6" cy="6" r="3" /><circle cx="6" cy="18" r="3" />
-                <path d="M20 4 8.12 15.88M14.47 14.48 20 20M8.12 8.12 12 12" />
-              </Icon>
-              <h4 className="portes-card-title">Déclinaisons éditoriales</h4>
-              <p className="portes-card-text">Extraits audio et vidéo, capsules, verbatims</p>
-            </div>
-            <div className="portes-amplify-item">
-              <Icon>
-                <circle cx="12" cy="12" r="10" />
-                <path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20M2 12h20" />
-              </Icon>
-              <h4 className="portes-card-title">Canaux de diffusion</h4>
-              <p className="portes-card-text">Plateformes, réseaux sociaux, sites web, médias</p>
-            </div>
-          </div>
-        </div>
+        <ul className="portes-row portes-row--2" aria-label="Les dispositifs de diffusion">
+          {AMPLIFY.map((a) => (
+            <li key={a.name} className="portes-step" style={{ '--s': 2 }}>
+              <h3 className="portes-name portes-name--accent">{a.name}</h3>
+              <p className="portes-sub">{a.text}</p>
+            </li>
+          ))}
+        </ul>
 
-        <Connector variant="stem" />
+        <Lines variant="merge" />
 
-        <div className="portes-node portes-node--key portes-step" style={{ '--s': 3 }}>
-          <h3 className="portes-key">
-            <Icon>
-              <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2M22 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75" />
-              <circle cx="9" cy="7" r="4" />
-            </Icon>
-            Les publics
-          </h3>
+        <div className="portes-end portes-step" style={{ '--s': 3 }}>
+          <h3 className="portes-publics">Les publics.</h3>
+          <p className="portes-tagline">Amplifier la portée du récit.</p>
         </div>
       </div>
     </section>

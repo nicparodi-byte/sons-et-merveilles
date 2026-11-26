@@ -107,30 +107,6 @@ export default function HomePage() {
       {/* ── UN SUJET, PLUSIEURS PORTES D'ENTRÉE ── */}
       <PortesSection />
 
-      {/* ── PROCESS ── */}
-      <section className="process reveal" id="process" aria-labelledby="process-heading">
-        <h2 className="section-title" id="process-heading">
-          Idée · Réalisation · <em>Diffusion</em>
-        </h2>
-        <div className="process-steps">
-          <div className="step">
-            <p className="step-num">Étape 01</p>
-            <h3 className="step-name">Idée &amp; Stratégie éditoriale</h3>
-            <p className="step-desc">Ligne éditoriale, formats, positionnement, identité sonore : nous définissons tout ensemble.</p>
-          </div>
-          <div className="step">
-            <p className="step-num">Étape 02</p>
-            <h3 className="step-name">Production</h3>
-            <p className="step-desc">Enregistrement, montage, design sonore, création musicale. Tout est pris en charge.</p>
-          </div>
-          <div className="step">
-            <p className="step-num">Étape 03</p>
-            <h3 className="step-name">Diffusion &amp; Mesure</h3>
-            <p className="step-desc">Mise en ligne sur toutes les plateformes. Suivi d&apos;audience et optimisation continue.</p>
-          </div>
-        </div>
-      </section>
-
       {/* ── CONTACT ── */}
       <section className="contact reveal" id="contact" aria-labelledby="contact-heading">
         <div>
