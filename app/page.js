@@ -2,6 +2,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import RevealObserver from '@/components/RevealObserver'
 import HomeCases from '@/components/HomeCases'
+import PortesSection from '@/components/PortesSection'
 import ContactForm from '@/components/ContactForm'
 
 const waveBars = [
@@ -71,17 +72,17 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ── ABOUT ── */}
+      {/* ── L'ART DU RÉCIT ── */}
       <section className="about reveal" id="about" aria-labelledby="about-heading">
         <div>
           <h2 className="section-title" id="about-heading">
-            L&apos;art du récit<br /><em>par le son.</em>
+            L&apos;art du <em>récit.</em>
           </h2>
-          <p className="about-body about-body--voice">
-            La voix crée une intimité unique. Elle traverse les écrans, les embouteillages, les salles de sport. Elle reste.
+          <p className="about-body about-body--lead">
+            Nous nous appuyons sur la force des histoires humaines pour répondre aux enjeux de communication des organisations&nbsp;: faire comprendre, sensibiliser, incarner un engagement ou renforcer la proximité avec leurs publics.
           </p>
-          <p className="about-body about-body--facts">
-            Notre équipe rassemble des spécialistes du son, de l&apos;éditorial et de l&apos;image. Nous créons des podcasts de marque dans la santé, la RSE, la formation et l&apos;innovation. En studio, en entreprise ou en extérieur. Partout en France. Depuis 2020.
+          <p className="about-body">
+            Nous partons de l&apos;expérience vécue, construisons le récit et imaginons les formes les plus pertinentes pour le transmettre et toucher les publics auxquels il s&apos;adresse.
           </p>
           <Link href="/pourquoi-le-podcast" className="about-link">
             Pourquoi le podcast&nbsp;?
@@ -90,32 +91,21 @@ export default function HomePage() {
             </svg>
           </Link>
         </div>
-        <div>
-          <div className="about-card">
-            <div className="about-stats">
-              <div>
-                <div className="stat-number">+20</div>
-                <div className="stat-label">Podcasts de marque produits</div>
-              </div>
-              <div>
-                <div className="stat-number">5</div>
-                <div className="stat-label">Secteurs d&apos;expertise</div>
-              </div>
-              <div>
-                <div className="stat-number">4</div>
-                <div className="stat-label">Formats de production</div>
-              </div>
-              <div>
-                <div className="stat-number">2730</div>
-                <div className="stat-label">Minutes d&apos;audio depuis 2020</div>
-              </div>
-            </div>
-          </div>
+        <div className="about-promise">
+          <p className="about-promise-label">Rendre vos sujets</p>
+          <p className="about-promise-words">
+            <span style={{ '--w': 0 }}>Concrets.</span>
+            <span style={{ '--w': 1 }}>Sensibles.</span>
+            <span style={{ '--w': 2 }}>Mémorables.</span>
+          </p>
         </div>
       </section>
 
       {/* ── RÉCITS À L'ŒUVRE ── */}
       <HomeCases />
+
+      {/* ── UN SUJET, PLUSIEURS PORTES D'ENTRÉE ── */}
+      <PortesSection />
 
       {/* ── PROCESS ── */}
       <section className="process reveal" id="process" aria-labelledby="process-heading">
