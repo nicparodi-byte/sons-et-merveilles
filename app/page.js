@@ -1,7 +1,7 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import RevealObserver from '@/components/RevealObserver'
-import FaqSection from '@/components/FaqSection'
+import HomeCases from '@/components/HomeCases'
 import ContactForm from '@/components/ContactForm'
 
 const waveBars = [
@@ -23,12 +23,6 @@ const waveBars = [
   { dl: '78ms', h: '95px'  },
   { dl: '90ms', h: '55px'  },
   { dl: '100ms',h: '75px'  },
-]
-
-const tickerItems = [
-  'Podcast de Marque', 'Storytelling Audio', 'Témoignages', 'Interviews',
-  'Documentaires', 'Communication Interne', 'Marque Employeur', 'RSE',
-  'Santé', 'Innovation',
 ]
 
 export default function HomePage() {
@@ -77,17 +71,6 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ── TICKER ── */}
-      <div className="ticker" aria-hidden="true">
-        <div className="ticker-inner">
-          {[...tickerItems, ...tickerItems].map((item, i) => (
-            <span key={i} className="ticker-item">
-              {item} <span className="ticker-dot" />
-            </span>
-          ))}
-        </div>
-      </div>
-
       {/* ── ABOUT ── */}
       <section className="about reveal" id="about" aria-labelledby="about-heading">
         <div>
@@ -131,44 +114,8 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ── FORMATS ── */}
-      <section className="formats reveal" id="formats" aria-labelledby="formats-heading">
-        <h2 className="section-title" id="formats-heading">
-          4 formats pour<br />chaque <em>objectif</em>
-        </h2>
-        <div className="formats-grid">
-          <article className="format-card">
-            <div className="format-num" aria-hidden="true">01</div>
-            <h3 className="format-name">Témoignages</h3>
-            <p className="format-desc">Des récits &quot;voix nue&quot; pour laisser toute la place à la parole d&apos;un témoin. Certaines histoires méritent d&apos;être racontées sans interruption.</p>
-          </article>
-          <article className="format-card">
-            <div className="format-num" aria-hidden="true">02</div>
-            <h3 className="format-name">Interviews</h3>
-            <p className="format-desc">Une table, du temps, une vraie conversation. Aller chercher les moments d&apos;authenticité invisibles en surface, idéal pour partager l&apos;expertise de vos équipes ou partenaires.</p>
-          </article>
-          <article className="format-card">
-            <div className="format-num" aria-hidden="true">03</div>
-            <h3 className="format-name">Documentaires</h3>
-            <p className="format-desc">Micro embarqué au cœur de l&apos;action. Nous retranscrivons l&apos;ambiance d&apos;un lieu, d&apos;un événement, d&apos;une réalité, pour une expérience sonore mémorable.</p>
-          </article>
-          <article className="format-card">
-            <div className="format-num" aria-hidden="true">04</div>
-            <h3 className="format-name">Chroniques</h3>
-            <p className="format-desc">Format court (3 min) pour la formation, la marque employeur ou la communication interne. Des messages précis, mémorables, accessibles à tous et partout.</p>
-          </article>
-        </div>
-      </section>
-
-      {/* ── SECTORS ── */}
-      <div className="sectors reveal" aria-labelledby="sectors-heading">
-        <h2 className="sectors-title" id="sectors-heading">Là où la voix fait la différence.</h2>
-        <div className="sectors-tags" role="list">
-          {['Formation', 'RSE', 'Santé', 'Innovation', 'Marque Employeur', 'Communication Interne', 'Pharma', 'Well-being'].map((s) => (
-            <span key={s} className="sector-tag" role="listitem">{s}</span>
-          ))}
-        </div>
-      </div>
+      {/* ── RÉCITS À L'ŒUVRE ── */}
+      <HomeCases />
 
       {/* ── PROCESS ── */}
       <section className="process reveal" id="process" aria-labelledby="process-heading">
@@ -193,9 +140,6 @@ export default function HomePage() {
           </div>
         </div>
       </section>
-
-      {/* ── FAQ ── */}
-      <FaqSection />
 
       {/* ── CONTACT ── */}
       <section className="contact reveal" id="contact" aria-labelledby="contact-heading">

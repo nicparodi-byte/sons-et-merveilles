@@ -4,6 +4,8 @@ import { urlFor } from '@/sanity/lib/image'
 import RevealObserver from '@/components/RevealObserver'
 import PourquoiAccordion from '@/components/PourquoiAccordion'
 import ContactForm from '@/components/ContactForm'
+import FormatsSection from '@/components/FormatsSection'
+import FaqSection from '@/components/FaqSection'
 
 export const metadata = {
   title: 'Pourquoi un podcast de marque ? · Sons & Merveilles',
@@ -124,6 +126,9 @@ export default async function PourquoiPage() {
         </div>
       </section>
 
+      {/* ── FORMATS ── */}
+      <FormatsSection />
+
       {/* ── CASE STUDIES ── */}
       {cases.length > 0 && (
         <section className="cases" aria-labelledby="cases-heading">
@@ -195,6 +200,9 @@ export default async function PourquoiPage() {
           ))}
         </div>
       </section>
+
+      {/* ── FAQ ── */}
+      <FaqSection />
 
       {/* ── CONTACT ── */}
       <section className="contact reveal" id="contact" aria-labelledby="contact-heading">

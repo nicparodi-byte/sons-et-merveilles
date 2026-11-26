@@ -1894,3 +1894,37 @@ h1.page-title em {
   .podcasts-sante-page .hero .hero-left { padding: 120px 24px 60px; }
   .podcasts-sante-page .hero .hero-right { display: none; }
 }
+
+/* ── RÉCITS À L'ŒUVRE (accueil) ── */
+.home-cases { background: var(--black); }
+.home-cases-head { display: flex; justify-content: space-between; align-items: flex-end; gap: 32px; flex-wrap: wrap; margin-bottom: 56px; }
+.home-cases-sub { max-width: 420px; margin-top: 16px; font-size: 1rem; line-height: 1.6; color: rgba(247,244,238,.6); }
+.home-cases-all {
+  font-family: var(--font-bebas), 'Bebas Neue', sans-serif; font-size: 1.1rem; letter-spacing: .08em;
+  color: var(--yellow); border-bottom: 1px solid var(--yellow); padding-bottom: 4px; white-space: nowrap; cursor: none;
+}
+.home-cases-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+.home-case { display: flex; flex-direction: column; background: var(--gray); color: var(--white); cursor: none; transition: transform .3s; }
+.home-case:hover { transform: translateY(-6px); }
+.home-case-cover { position: relative; aspect-ratio: 1; overflow: hidden; }
+.home-case-img { position: absolute; inset: 0; background-size: cover; background-position: center; transition: transform .6s; }
+.home-case:hover .home-case-img { transform: scale(1.05); }
+.home-case-tag {
+  position: absolute; top: 16px; left: 16px; background: var(--yellow); color: var(--black);
+  font-size: .7rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; padding: 6px 10px;
+}
+.home-case-body { display: flex; flex-direction: column; gap: 14px; flex: 1; padding: 28px; }
+.home-case-client { font-size: .75rem; letter-spacing: .14em; text-transform: uppercase; color: rgba(247,244,238,.5); }
+.home-case-title { font-family: var(--font-playfair), 'Playfair Display', serif; font-style: italic; font-weight: 400; font-size: 1.6rem; line-height: 1.2; }
+.home-case-enjeu { font-size: .95rem; line-height: 1.6; color: rgba(247,244,238,.75); }
+.home-case-stat { display: flex; align-items: baseline; gap: 12px; margin-top: auto; padding-top: 16px; border-top: 1px solid rgba(247,244,238,.12); }
+.home-case-stat-num { font-family: var(--font-bebas), 'Bebas Neue', sans-serif; font-size: 2.75rem; line-height: 1; color: var(--yellow); white-space: nowrap; }
+.home-case-stat-label { flex: 1; font-size: .8rem; line-height: 1.35; color: rgba(247,244,238,.65); }
+.home-case-cta { font-size: .8rem; font-weight: 600; letter-spacing: .06em; text-transform: uppercase; transition: color .2s; }
+.home-case:hover .home-case-cta { color: var(--yellow); }
+@media (max-width: 1024px) {
+  .home-cases-grid { grid-template-columns: 1fr; max-width: 560px; }
+}
+@media (max-width: 768px) {
+  .home-cases { padding: 80px 24px; }
+}
