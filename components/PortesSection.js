@@ -62,7 +62,7 @@ export default function PortesSection() {
       </div>
 
       <div className="portes-diagram">
-        <p className="portes-idea portes-step" style={{ '--s': 0 }}>Une idée éditoriale.</p>
+        <p className="portes-idea portes-step" style={{ '--s': 0 }}>Un angle éditorial, pensé pour ses publics.</p>
 
         <Lines variant="branch" />
 
@@ -93,7 +93,7 @@ export default function PortesSection() {
         <Lines variant="merge" />
 
         <div className="portes-end portes-step" style={{ '--s': 3 }}>
-          <h3 className="portes-publics">Les publics.</h3>
+          <h3 className="portes-publics">Toucher vos publics.</h3>
           <p className="portes-tagline">Amplifier la portée du récit.</p>
         </div>
       </div>
