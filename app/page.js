@@ -5,34 +5,13 @@ import HomeCases from '@/components/HomeCases'
 import PortesSection from '@/components/PortesSection'
 import ContactForm from '@/components/ContactForm'
 
-const waveBars = [
-  { dl: '65ms', h: '30px'  },
-  { dl: '50ms', h: '55px'  },
-  { dl: '35ms', h: '80px'  },
-  { dl: '22ms', h: '110px' },
-  { dl: '12ms', h: '130px' },
-  { dl: '5ms',  h: '115px' },
-  { dl: '2ms',  h: '140px' },
-  { dl: '0ms',  h: '125px' },
-  { dl: '2ms',  h: '100px' },
-  { dl: '5ms',  h: '80px'  },
-  { dl: '12ms', h: '60px'  },
-  { dl: '22ms', h: '90px'  },
-  { dl: '35ms', h: '120px' },
-  { dl: '50ms', h: '70px'  },
-  { dl: '65ms', h: '45px'  },
-  { dl: '78ms', h: '95px'  },
-  { dl: '90ms', h: '55px'  },
-  { dl: '100ms',h: '75px'  },
-]
-
 export default function HomePage() {
   return (
     <main>
       <RevealObserver />
 
       {/* ── HERO ── */}
-      <section className="hero" aria-label="Introduction">
+      <section className="hero hero--full" aria-label="Introduction">
         <div className="hero-left">
           <h1 className="hero-title">
             <span className="word-wrap"><span className="word-inner" style={{'--wd':'0s'}}>Faire entendre</span></span>
@@ -52,22 +31,14 @@ export default function HomePage() {
         <div className="hero-right" aria-hidden="true">
           <div className="hero-visual">
             <Image
-              src="/images/Interview-esante.webp"
+              src="/images/hero-temoin.webp"
               alt=""
               fill
               priority
+              sizes="100vw"
               style={{ objectFit: 'cover' }}
             />
             <div className="hero-overlay" />
-            <div className="waveform">
-              {waveBars.map((bar, i) => (
-                <div
-                  key={i}
-                  className="wave-bar"
-                  style={{ '--dl': bar.dl, '--h': bar.h }}
-                />
-              ))}
-            </div>
           </div>
         </div>
       </section>
