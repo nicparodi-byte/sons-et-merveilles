@@ -20,14 +20,27 @@ const FEATURED = [
   {
     slug: 'pierre-fabre-et-si-je-manquais-de-fer',
     enjeu: "Rendre une réalité médicale accessible en l'inscrivant dans le quotidien.",
-    statValue: '85 %',
-    statLabel: "taux d'écoute complète · 4 épisodes",
+    statValue: '19 000',
+    statLabel: 'écoutes · récit en 4 épisodes',
   },
 ]
 
 const QUERY = `*[_type == "realisation" && slug.current in $slugs]{
-  _id, client, podcastName, format, cardImage, "slug": slug.current
+  _id, client, podcastName, format, cardImage, cardBackground, "slug": slug.current,
+  "palette": cardImage.asset->metadata.palette {
+    vibrant { background },
+    darkVibrant { background },
+    dominant { background }
+  }
 }`
+
+// Même dégradé que sur les autres pages (Réalisations, Pourquoi un podcast ?)
+function paletteGradient(palette) {
+  const color = palette?.vibrant?.background     ||
+                palette?.darkVibrant?.background ||
+                palette?.dominant?.background    || '#1A1A1A'
+  return `radial-gradient(ellipse at 65% 35%, ${color} 0%, #0A0A0A 100%)`
+}
 
 export default async function HomeCases() {
   const docs = await client.fetch(
@@ -60,7 +73,10 @@ export default async function HomeCases() {
       <div className="home-cases-grid">
         {cases.map((c) => (
           <Link key={c._id} href={`/realisations/${c.slug}`} className="home-case">
-            <div className="home-case-cover">
+            <div
+              className="home-case-cover"
+              style={{ background: c.cardBackground || paletteGradient(c.palette) }}
+            >
               {c.cardImage && (
                 <div
                   className="home-case-img"
