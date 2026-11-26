@@ -43,29 +43,32 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ── L'ART DU RÉCIT ── */}
-      <section className="about about--single reveal" id="about" aria-labelledby="about-heading">
-        <h2 className="section-title" id="about-heading">
-          L&apos;art du <em>récit.</em>
-        </h2>
-        <div className="about-text">
-          <p className="about-body about-body--lead">
-            Sons &amp; Merveilles construit des récits qui donnent une place centrale au vécu humain.
-          </p>
-          <p className="about-body about-body--lead">
-            Nous croyons qu&apos;en rendant les sujets concrets et sensibles, nous les rendons plus mémorables.
-          </p>
-          <p className="about-body about-body--lead">
-            Nous aimons leur donner vie dans le son, l&apos;image et la rencontre.
-          </p>
-        </div>
+      {/* ── L'ART DU RÉCIT (manifeste) ── */}
+      <section className="manifesto reveal" id="about" aria-labelledby="about-heading">
+        <h2 className="manifesto-title" id="about-heading">L&apos;art du récit</h2>
+        <p className="manifesto-line" style={{ '--l': 0 }}>
+          Sons &amp; Merveilles construit des récits qui donnent une place centrale <em>au vécu humain.</em>
+        </p>
+        <p className="manifesto-line" style={{ '--l': 1 }}>
+          Nous croyons qu&apos;en rendant les sujets concrets et sensibles, nous les rendons <em>plus mémorables.</em>
+        </p>
       </section>
+
+      {/* ── LES HISTOIRES À L'ŒUVRE ── */}
+      <HomeCases />
 
       {/* ── UN SUJET, PLUSIEURS PORTES D'ENTRÉE ── */}
       <PortesSection />
 
-      {/* ── LES HISTOIRES À L'ŒUVRE ── */}
-      <HomeCases />
+      {/* ── BÉNÉFICES ── */}
+      <section className="benefits reveal" aria-labelledby="benefits-heading">
+        <h2 className="benefits-title" id="benefits-heading">
+          <span className="benefits-pour">Pour</span>
+          <span className="benefits-line" style={{ '--b': 0 }}>Faire comprendre</span>
+          <span className="benefits-line" style={{ '--b': 1 }}>Donner vie à un engagement</span>
+          <span className="benefits-line" style={{ '--b': 2 }}>Créer des liens forts avec ses publics</span>
+        </h2>
+      </section>
 
       {/* ── CONTACT ── */}
       <section className="contact reveal" id="contact" aria-labelledby="contact-heading">
