@@ -34,6 +34,15 @@ export default function TiltCard({ href, className, children }) {
     el.style.setProperty('--ry', '0deg')
   }
 
+  // Sans href : simple bloc (utile quand la carte contient elle-même un bouton ou un lien).
+  if (!href) {
+    return (
+      <div ref={ref} className={className} onMouseMove={handleMove} onMouseLeave={handleLeave}>
+        {children}
+      </div>
+    )
+  }
+
   return (
     <Link
       ref={ref}

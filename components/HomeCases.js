@@ -2,15 +2,19 @@ import Link from 'next/link'
 import { client } from '@/sanity/lib/client'
 import { urlFor } from '@/sanity/lib/image'
 import TiltCard from '@/components/TiltCard'
+import TeaserVideo from '@/components/TeaserVideo'
 
 // Les 3 études de cas mises en avant sur l'accueil, dans l'ordre d'affichage.
 // Le texte « enjeu » et le chiffre clé sont propres à l'accueil.
 const FEATURED = [
   {
-    slug: 'cancers-du-sang-nos-vies',
-    enjeu: 'Expliquer la maladie en laissant la place aux patients.',
-    statValue: '130 000',
-    statLabel: 'écoutes cumulées · 4 saisons · 2 prix',
+    slug: 'parasport-ils-ont-ose',
+    enjeu: 'Faire rayonner la marque employeur en allant à la rencontre de para-sportifs.',
+    statValue: '2 millions',
+    statLabel: 'de vues sur Instagram',
+    video: { src: '/videos/parasport-teaser.mp4', poster: '/images/parasport-teaser-poster.jpg' },
+    href: '/realisations?modal=parasport-ils-ont-ose',
+    cta: 'Découvrir le projet →',
   },
   {
     slug: 'podcast-Apicil',
@@ -73,12 +77,24 @@ export default async function HomeCases() {
 
       <div className="home-cases-grid">
         {cases.map((c) => (
-          <TiltCard key={c._id} href={`/realisations/${c.slug}`} className="home-case">
+          // Carte avec vidéo : pas de lien sur toute la carte (la vidéo a son propre bouton),
+          // le lien est porté par « Découvrir le projet ».
+          <TiltCard
+            key={c._id}
+            href={c.video ? undefined : `/realisations/${c.slug}`}
+            className={`home-case${c.video ? ' home-case--video' : ''}`}
+          >
             <div
               className="home-case-cover"
               style={{ background: c.cardBackground || paletteGradient(c.palette) }}
             >
-              {c.cardImage && (
+              {c.video ? (
+                <TeaserVideo
+                  src={c.video.src}
+                  poster={c.video.poster}
+                  label={`Teaser vidéo du podcast ${c.podcastName} (sous-titré)`}
+                />
+              ) : c.cardImage && (
                 <div
                   className="home-case-img"
                   style={{ backgroundImage: `url(${urlFor(c.cardImage).width(800).url()})` }}
@@ -96,7 +112,11 @@ export default async function HomeCases() {
                 <span className="home-case-stat-num">{c.statValue}</span>
                 <span className="home-case-stat-label">{c.statLabel}</span>
               </div>
-              <span className="home-case-cta">Lire l&apos;étude de cas →</span>
+              {c.video ? (
+                <Link href={c.href} className="home-case-cta">{c.cta}</Link>
+              ) : (
+                <span className="home-case-cta">Lire l&apos;étude de cas →</span>
+              )}
             </div>
           </TiltCard>
         ))}

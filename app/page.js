@@ -44,33 +44,28 @@ export default function HomePage() {
       </section>
 
       {/* ── L'ART DU RÉCIT ── */}
-      <section className="about reveal" id="about" aria-labelledby="about-heading">
-        <div>
-          <h2 className="section-title" id="about-heading">
-            L&apos;art du <em>récit.</em>
-          </h2>
+      <section className="about about--single reveal" id="about" aria-labelledby="about-heading">
+        <h2 className="section-title" id="about-heading">
+          L&apos;art du <em>récit.</em>
+        </h2>
+        <div className="about-text">
           <p className="about-body about-body--lead">
-            Pour faire comprendre un sujet, sensibiliser ou donner vie à un engagement, nous aimons partir de ce que les gens vivent, de ce qu&apos;ils ressentent, de ce qu&apos;ils ont à raconter.
+            Sons &amp; Merveilles construit des récits qui donnent une place centrale au vécu humain.
           </p>
-          <p className="about-body">
-            À partir de ces expériences, nous construisons des récits et imaginons les formes qui leur permettront de toucher vos publics.
+          <p className="about-body about-body--lead">
+            Nous croyons qu&apos;en rendant les sujets concrets et sensibles, nous les rendons plus mémorables.
           </p>
-        </div>
-        <div className="about-promise">
-          <p className="about-promise-label">Pour rendre vos sujets</p>
-          <p className="about-promise-words">
-            <span style={{ '--w': 0 }}>Concrets.</span>
-            <span style={{ '--w': 1 }}>Sensibles.</span>
-            <span style={{ '--w': 2 }}>Mémorables.</span>
+          <p className="about-body about-body--lead">
+            Nous aimons leur donner vie dans le son, l&apos;image et la rencontre.
           </p>
         </div>
       </section>
 
-      {/* ── RÉCITS À L'ŒUVRE ── */}
-      <HomeCases />
-
       {/* ── UN SUJET, PLUSIEURS PORTES D'ENTRÉE ── */}
       <PortesSection />
+
+      {/* ── LES HISTOIRES À L'ŒUVRE ── */}
+      <HomeCases />
 
       {/* ── CONTACT ── */}
       <section className="contact reveal" id="contact" aria-labelledby="contact-heading">

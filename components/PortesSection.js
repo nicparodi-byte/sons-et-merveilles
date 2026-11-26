@@ -2,13 +2,11 @@
 // Schéma en texte HTML (indexable) relié par des lignes courbes en SVG (décoratives, aria-hidden).
 // Les lignes se tracent au défilement (classe .visible posée par RevealObserver).
 
-import Link from 'next/link'
-import TeaserVideo from '@/components/TeaserVideo'
 
 const FORMATS = [
   { name: 'Podcasts', items: ['Interviews et témoignages', 'Documentaires'] },
   { name: 'Vidéo', items: ['Portraits', 'Coulisses'] },
-  { name: 'Rencontres', items: ['Tables rondes', 'Conversations'] },
+  { name: 'Rencontres', items: ['Tables rondes', 'Conversations live'] },
 ]
 
 const AMPLIFY = [
@@ -87,31 +85,6 @@ export default function PortesSection() {
           <p className="portes-tagline">Amplifier la portée du récit.</p>
         </div>
       </div>
-
-      <figure className="portes-example">
-        <TeaserVideo
-          src="/videos/parasport-teaser.mp4"
-          poster="/images/parasport-teaser-poster.jpg"
-          label="Teaser vidéo du podcast Parasport, ils ont osé ! (sous-titré)"
-        />
-        <figcaption className="portes-example-text">
-          <p className="portes-example-label">Exemple</p>
-          <p className="portes-example-client">AbbVie × Fondation IPS</p>
-          <h3 className="portes-example-title">Parasport, ils ont osé&nbsp;!</h3>
-          <p className="portes-example-body">
-            Un même sujet, deux portes d&apos;entrée&nbsp;: un podcast de terrain sur l&apos;apport du
-            sport dans la vie des personnes en situation de handicap, et des vidéos teasers pour le
-            compte Instagram d&apos;AbbVie.
-          </p>
-          <p className="portes-example-stat">
-            <span className="portes-example-num">2 millions</span>
-            <span className="portes-example-statlabel">de vues sur Instagram</span>
-          </p>
-          <Link href="/realisations?modal=parasport-ils-ont-ose" className="portes-example-link">
-            Découvrir le projet →
-          </Link>
-        </figcaption>
-      </figure>
     </section>
   )
 }

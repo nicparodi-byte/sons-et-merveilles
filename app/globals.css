@@ -2124,3 +2124,20 @@ h1.page-title em {
       linear-gradient(to top, rgba(10,10,10,.92) 0%, rgba(10,10,10,.6) 45%, rgba(10,10,10,.1) 100%);
   }
 }
+
+/* ── L'ART DU RÉCIT : une seule colonne ── */
+.about--single { grid-template-columns: 1fr; gap: 0; background: var(--black); }
+.about-text { max-width: 760px; }
+.about--single .about-body--lead { font-size: 1.3rem; line-height: 1.7; margin-top: 20px; }
+.about--single .about-body--lead:first-child { margin-top: 32px; }
+
+/* ── Carte avec vidéo (Les histoires à l'œuvre) ── */
+.home-case--video .teaser-video {
+  height: 88%; width: auto; aspect-ratio: 9 / 16;
+  box-shadow: 0 20px 40px rgba(0,0,0,.45);
+}
+.home-case--video .teaser-sound { left: 8px; bottom: 8px; padding: 5px 10px; font-size: .58rem; }
+.home-case--video .home-case-cta:hover { color: var(--yellow); }
+@media (max-width: 768px) {
+  .about--single .about-body--lead { font-size: 1.1rem; }
+}
