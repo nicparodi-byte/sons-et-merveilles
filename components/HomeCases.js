@@ -1,6 +1,7 @@
 import Link from 'next/link'
 import { client } from '@/sanity/lib/client'
 import { urlFor } from '@/sanity/lib/image'
+import TiltCard from '@/components/TiltCard'
 
 // Les 3 études de cas mises en avant sur l'accueil, dans l'ordre d'affichage.
 // Le texte « enjeu » et le chiffre clé sont propres à l'accueil.
@@ -72,7 +73,7 @@ export default async function HomeCases() {
 
       <div className="home-cases-grid">
         {cases.map((c) => (
-          <Link key={c._id} href={`/realisations/${c.slug}`} className="home-case">
+          <TiltCard key={c._id} href={`/realisations/${c.slug}`} className="home-case">
             <div
               className="home-case-cover"
               style={{ background: c.cardBackground || paletteGradient(c.palette) }}
@@ -97,7 +98,7 @@ export default async function HomeCases() {
               </div>
               <span className="home-case-cta">Lire l&apos;étude de cas →</span>
             </div>
-          </Link>
+          </TiltCard>
         ))}
       </div>
     </section>

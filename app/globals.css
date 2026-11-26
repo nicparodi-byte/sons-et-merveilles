@@ -1904,11 +1904,34 @@ h1.page-title em {
   color: var(--yellow); border-bottom: 1px solid var(--yellow); padding-bottom: 4px; white-space: nowrap; cursor: none;
 }
 .home-cases-grid {
-  display: grid; grid-template-columns: repeat(3, minmax(0, 300px));
-  justify-content: space-between; column-gap: 64px; row-gap: 48px;
+  display: grid; grid-template-columns: repeat(3, minmax(0, 375px));
+  justify-content: center; column-gap: 32px; row-gap: 48px;
+  perspective: 1200px;
 }
-.home-case { display: flex; flex-direction: column; background: var(--gray); color: var(--white); cursor: none; transition: transform .3s; }
-.home-case:hover { transform: translateY(-6px); }
+.home-case {
+  --rx: 0deg; --ry: 0deg; --gx: 50%; --gy: 50%;
+  position: relative; display: flex; flex-direction: column;
+  background: var(--gray); color: var(--white); cursor: none;
+  transform: rotateX(var(--rx)) rotateY(var(--ry));
+  transform-style: preserve-3d;
+  transition: transform .4s cubic-bezier(.2,.7,.2,1), box-shadow .4s;
+  will-change: transform;
+}
+.home-case:hover {
+  transform: rotateX(var(--rx)) rotateY(var(--ry)) translateY(-8px);
+  box-shadow: 0 30px 60px rgba(0,0,0,.5);
+  transition: transform .12s ease-out, box-shadow .4s;
+}
+/* Reflet lumineux qui suit la souris */
+.home-case::after {
+  content: ''; position: absolute; inset: 0; pointer-events: none; opacity: 0;
+  background: radial-gradient(circle at var(--gx) var(--gy), rgba(245,197,24,.12), transparent 55%);
+  transition: opacity .4s;
+}
+.home-case:hover::after { opacity: 1; }
+@media (prefers-reduced-motion: reduce) {
+  .home-case, .home-case:hover { transform: none; transition: none; }
+}
 .home-case-cover {
   position: relative; aspect-ratio: 4 / 3; overflow: hidden;
   display: flex; align-items: center; justify-content: center;
