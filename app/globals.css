@@ -2132,8 +2132,9 @@ h1.page-title em {
 .about--single .about-body--lead:first-child { margin-top: 32px; }
 
 /* ── Carte avec vidéo (Les histoires à l'œuvre) ── */
+.home-case--video .home-case-cover { padding: 50px 0 14px; }
 .home-case--video .teaser-video {
-  height: 88%; width: auto; aspect-ratio: 9 / 16;
+  height: 100%; width: auto; aspect-ratio: 9 / 16;
   box-shadow: 0 20px 40px rgba(0,0,0,.45);
 }
 .home-case--video .teaser-sound { left: 8px; bottom: 8px; padding: 5px 10px; font-size: .58rem; }

@@ -66,7 +66,7 @@ export default function HomePage() {
           <span className="benefits-pour">Pour</span>
           <span className="benefits-line" style={{ '--b': 0 }}>Faire comprendre</span>
           <span className="benefits-line" style={{ '--b': 1 }}>Donner vie à un engagement</span>
-          <span className="benefits-line" style={{ '--b': 2 }}>Créer des liens forts avec ses publics</span>
+          <span className="benefits-line" style={{ '--b': 2 }}>Créer des liens forts avec vos publics</span>
         </h2>
       </section>
 

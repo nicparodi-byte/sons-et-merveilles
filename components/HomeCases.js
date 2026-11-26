@@ -9,6 +9,7 @@ import TeaserVideo from '@/components/TeaserVideo'
 const FEATURED = [
   {
     slug: 'parasport-ils-ont-ose',
+    tag: 'Reportage terrain + teaser vidéo',
     enjeu: 'Faire rayonner la marque employeur en allant à la rencontre de para-sportifs.',
     statValue: '2 millions',
     statLabel: 'de vues sur Instagram',
@@ -102,7 +103,7 @@ export default async function HomeCases() {
                   aria-label={`Visuel du podcast ${c.podcastName}`}
                 />
               )}
-              {c.format && <span className="home-case-tag">{c.format}</span>}
+              {(c.tag || c.format) && <span className="home-case-tag">{c.tag || c.format}</span>}
             </div>
             <div className="home-case-body">
               <div className="home-case-client">{c.client}</div>
